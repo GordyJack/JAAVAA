@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "jamba:block/jamba_test_block"
+    }
+  }
+}
