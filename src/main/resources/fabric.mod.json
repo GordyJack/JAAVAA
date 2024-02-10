@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "jamba",
+	"version": "${version}",
+	"name": "JustAnotherMissingBlocksAddon",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"GordyJack"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/jamba/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "net.gordyjack.jamba.JAMBA"
+		],
+		"client": [
+			"net.gordyjack.jamba.JAMBAClient"
+		],
+		"fabric-datagen": [
+			"net.gordyjack.jamba.JAMBADataGenerator"
+		]
+	},
+	"mixins": [
+		"jamba.mixins.json",
+		{
+			"config": "jamba.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
