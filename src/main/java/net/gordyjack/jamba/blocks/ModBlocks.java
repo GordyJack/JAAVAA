@@ -18,6 +18,7 @@ public class ModBlocks {
             FabricBlockSettings.copyOf(Blocks.STONE)
     ));
     public static final Block TEST_MINI_BLOCK = registerBlock("jamba_test_mini_block", new MiniBlock(
+            TEST_BLOCK,
             FabricBlockSettings.copyOf(TEST_BLOCK)
     ));
     
