@@ -1,3 +1,4 @@
 {
-  "jamba.block.jamba_test_block": "Test Block"
+  "block.jamba.jamba_test_block": "Test Block",
+  "block.jamba.jamba_test_mini_block": "Test Mini Block"
 }

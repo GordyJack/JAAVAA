@@ -12,6 +12,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(ModBlocks.TEST_BLOCK);
+        
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
