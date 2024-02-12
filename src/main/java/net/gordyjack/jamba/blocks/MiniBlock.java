@@ -1,6 +1,6 @@
 package net.gordyjack.jamba.blocks;
 
-import net.gordyjack.jamba.blocks.enums.*;
+import net.gordyjack.jamba.*;
 import net.gordyjack.jamba.blocks.utils.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
@@ -8,6 +8,7 @@ import net.minecraft.entity.ai.pathing.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.fluid.*;
 import net.minecraft.item.*;
+import net.minecraft.registry.tag.*;
 import net.minecraft.server.world.*;
 import net.minecraft.state.*;
 import net.minecraft.state.property.*;
@@ -24,19 +25,11 @@ import org.jetbrains.annotations.*;
 public class MiniBlock
 extends Block
 implements Waterloggable, VoxelShapeUtils {
-    private static final EnumProperty<BlockSection> SECTION = ModBlockProperties.SECTION;
+    private static final IntProperty POSITION = ModBlockProperties.MINI_BLOCK_POSITION;
     private static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private final Block BASE_BLOCK;
     private final BlockState BASE_BLOCK_STATE;
     private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, 0, 0, 8, 8, 8);
-    public final VoxelShape DOWN_NORTH_WEST = BASE_SHAPE;
-    public final VoxelShape DOWN_NORTH_EAST = rotateShape(BASE_SHAPE, Direction.EAST);
-    public final VoxelShape DOWN_SOUTH_WEST = rotateShape(BASE_SHAPE, Direction.WEST);
-    public final VoxelShape DOWN_SOUTH_EAST = rotateShape(BASE_SHAPE, Direction.SOUTH);
-    public final VoxelShape UP_NORTH_WEST = rotateShape(BASE_SHAPE, Direction.UP);
-    public final VoxelShape UP_NORTH_EAST = rotateShape(UP_NORTH_WEST, Direction.EAST);
-    public final VoxelShape UP_SOUTH_WEST = rotateShape(UP_NORTH_WEST, Direction.WEST);
-    public final VoxelShape UP_SOUTH_EAST = rotateShape(UP_NORTH_WEST, Direction.SOUTH);
     
     public MiniBlock(Block baseBlock, Settings settings) {
         super(settings);
@@ -45,29 +38,68 @@ implements Waterloggable, VoxelShapeUtils {
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(SECTION)) {
-            case DOWN_NORTH_WEST -> DOWN_NORTH_WEST;
-            case DOWN_NORTH_EAST -> DOWN_NORTH_EAST;
-            case DOWN_SOUTH_WEST -> DOWN_SOUTH_WEST;
-            case DOWN_SOUTH_EAST -> DOWN_SOUTH_EAST;
-            case UP_NORTH_WEST -> UP_NORTH_WEST;
-            case UP_NORTH_EAST -> UP_NORTH_EAST;
-            case UP_SOUTH_WEST -> UP_SOUTH_WEST;
-            case UP_SOUTH_EAST -> UP_SOUTH_EAST;
-        };
+        int existingPosition = state.get(POSITION);
+        VoxelShape returnShape = Block.createCuboidShape(0, 0, 0, 0, 0, 0);
+        if ((existingPosition & (1 << 0)) != 0) { //Down North West
+            returnShape = mergeShapes(returnShape, BASE_SHAPE);
+        }
+        if ((existingPosition & (1 << 1)) != 0) { //Down North East
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.EAST, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        if ((existingPosition & (1 << 2)) != 0) { //Down South West
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.SOUTH, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        if ((existingPosition & (1 << 3)) != 0) { //Down South East
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.EAST, 8);
+            translatedShape = translateShape(translatedShape, Direction.SOUTH, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        if ((existingPosition & (1 << 4)) != 0) { //Up North West
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.UP, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        if ((existingPosition & (1 << 5)) != 0) { //Up North East
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.UP, 8);
+            translatedShape = translateShape(translatedShape, Direction.EAST, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        if ((existingPosition & (1 << 6)) != 0) { //Up South West
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.UP, 8);
+            translatedShape = translateShape(translatedShape, Direction.SOUTH, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        if ((existingPosition & (1 << 7)) != 0) { //Up South East
+            VoxelShape translatedShape = translateShape(BASE_SHAPE, Direction.UP, 8);
+            translatedShape = translateShape(translatedShape, Direction.EAST, 8);
+            translatedShape = translateShape(translatedShape, Direction.SOUTH, 8);
+            returnShape = mergeShapes(returnShape, translatedShape);
+        }
+        
+        return returnShape;
     }
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockPos blockPos = ctx.getBlockPos();
         BlockState blockState = this.getDefaultState();
-        FluidState fluidState = ctx.getWorld().getFluidState(blockPos);
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         
+        BlockState existingState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+        int existingPosition = existingState.getBlock() == blockState.getBlock() ? existingState.get(POSITION) : 0;
+        int placePosition = getPlacePosition(ctx);
+        int newPosition = existingPosition | placePosition;
+        
+        return blockState.with(POSITION, newPosition)
+                .with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+    }
+    private static int getPlacePosition(ItemPlacementContext ctx) {
         Vec3d hitPos = ctx.getHitPos();
         double xHitPos = hitPos.x;
         double yHitPos = hitPos.y;
         double zHitPos = hitPos.z;
         
+        BlockPos blockPos = ctx.getBlockPos();
         double xBlockPos = blockPos.getX();
         double yBlockPos = blockPos.getY();
         double zBlockPos = blockPos.getZ();
@@ -76,6 +108,17 @@ implements Waterloggable, VoxelShapeUtils {
         double relativeYPos = yHitPos - yBlockPos;
         double relativeZPos = zHitPos - zBlockPos;
         
+        Direction side = ctx.getSide();
+        if (relativeZPos == 0.5 && side == Direction.SOUTH) {
+            relativeZPos = Math.nextUp(relativeZPos);
+        }
+        if (relativeYPos == 0.5 && side == Direction.UP) {
+            relativeYPos = Math.nextUp(relativeYPos);
+        }
+        if (relativeXPos == 0.5 && side == Direction.EAST) {
+            relativeXPos = Math.nextUp(relativeXPos);
+        }
+        
         boolean north = relativeZPos <= .5;
         boolean south = relativeZPos > .5;
         boolean down = relativeYPos <=.5;
@@ -83,48 +126,64 @@ implements Waterloggable, VoxelShapeUtils {
         boolean west = relativeXPos <= .5;
         boolean east = relativeXPos > .5;
         
-        if (down) {
-            if (north) {
-                if (west) {
-                    blockState = blockState.with(SECTION, BlockSection.DOWN_NORTH_WEST);
-                } else {
-                    blockState = blockState.with(SECTION, BlockSection.DOWN_NORTH_EAST);
-                }
-            } else if (south) {
-                if (west) {
-                    blockState = blockState.with(SECTION, BlockSection.DOWN_SOUTH_WEST);
-                } else {
-                    blockState = blockState.with(SECTION, BlockSection.DOWN_SOUTH_EAST);
-                }
-            }
-        } else if (up) {
-            if (north) {
-                if (west) {
-                    blockState = blockState.with(SECTION, BlockSection.UP_NORTH_WEST);
-                } else {
-                    blockState = blockState.with(SECTION, BlockSection.UP_NORTH_EAST);
-                }
-            } else if (south) {
-                if (west) {
-                    blockState = blockState.with(SECTION, BlockSection.UP_SOUTH_WEST);
-                } else {
-                    blockState = blockState.with(SECTION, BlockSection.UP_SOUTH_EAST);
-                }
-            }
-        }
+        int placePosition = 0;
         
-        return blockState.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+        if (down && north && west) {
+            placePosition = 0b00000001;
+        } else if (down && north && east) {
+            placePosition = 0b00000010;
+        } else if (down && south && west) {
+            placePosition = 0b00000100;
+        } else if (down && south && east) {
+            placePosition = 0b00001000;
+        } else if (up && north && west) {
+            placePosition = 0b00010000;
+        } else if (up && north && east) {
+            placePosition = 0b00100000;
+        } else if (up && south && west) {
+            placePosition = 0b01000000;
+        } else if (up && south && east) {
+            placePosition = 0b10000000;
+        }
+        return placePosition;
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SECTION, WATERLOGGED);
+        builder.add(POSITION, WATERLOGGED);
+    }
+    @Override
+    public boolean hasSidedTransparency(BlockState state) {
+        return state.get(POSITION) != 0b11111111;
+    }
+    @Override
+    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+        int placePosition = getPlacePosition(context);
+        int existingPosition = state.get(POSITION);
+        return (existingPosition & placePosition) == 0;
+    }
+    @Override
+    public boolean tryFillWithFluid(WorldAccess world, BlockPos pos, BlockState state, FluidState fluidState) {
+        if (state.get(POSITION) != 0b11111111) {
+            return Waterloggable.super.tryFillWithFluid(world, pos, state, fluidState);
+        }
+        return false;
+    }
+    @Override
+    public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+        if (state.get(POSITION) != 0b11111111) {
+            return Waterloggable.super.canFillWithFluid(player, world, pos, state, fluid);
+        }
+        return false;
+    }
+    @Override
+    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+        return switch (type) {
+            case LAND, AIR -> false;
+            case WATER -> world.getFluidState(pos).isIn(FluidTags.WATER);
+        };
     }
     
     //Boilerplate
-    @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return false;
-    }
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world,
                                                 BlockPos pos, BlockPos neighborPos) {

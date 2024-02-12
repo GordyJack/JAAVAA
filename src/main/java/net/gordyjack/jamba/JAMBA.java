@@ -32,4 +32,7 @@ public class JAMBA implements ModInitializer {
 	public static void logInfo(String message) {
 		LOGGER.info(message);
 	}
+	public static void logError(String message) {
+	    LOGGER.error(message);
+	}
 }

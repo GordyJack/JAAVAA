@@ -131,4 +131,39 @@ public interface VoxelShapeUtils {
     default VoxelShape intersectShapes(VoxelShape shape1, VoxelShape shape2) {
         return VoxelShapes.combineAndSimplify(shape1, shape2, BooleanBiFunction.AND);
     }
+    default VoxelShape translateShape(VoxelShape fromShape, Direction direction, int pixels) {
+        // Get the bounding box of the original shape
+        var box = fromShape.getBoundingBox();
+        
+        // Calculate the offset in each direction based on the pixels
+        double offsetX = 0;
+        double offsetY = 0;
+        double offsetZ = 0;
+        
+        switch (direction) {
+            case NORTH:
+                offsetZ = -pixels;
+                break;
+            case SOUTH:
+                offsetZ = pixels;
+                break;
+            case EAST:
+                offsetX = pixels;
+                break;
+            case WEST:
+                offsetX = -pixels;
+                break;
+            case UP:
+                offsetY = pixels;
+                break;
+            case DOWN:
+                offsetY = -pixels;
+                break;
+        }
+        
+        // Translate the shape by adjusting its bounding box with the offset
+        return Block.createCuboidShape(
+                box.minX*16 + offsetX, box.minY*16 + offsetY, box.minZ*16 + offsetZ,
+                box.maxX*16 + offsetX, box.maxY*16 + offsetY, box.maxZ*16 + offsetZ);
+    }
 }
