@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "A": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#A#",
+    " # "
+  ],
+  "result": {
+    "count": 2,
+    "item": "jaavaa:starsteel_ingot"
+  }
+}

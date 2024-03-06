@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "jamba",
+	"id": "jaavaa",
 	"version": "${version}",
-	"name": "JustAnotherMissingBlocksAddon",
+	"name": "JustAnotherActuallyVanillaAdditionsAddon",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"GordyJack"
@@ -12,23 +12,23 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "All Rights Reserved",
-	"icon": "assets/jamba/icon.png",
+	"icon": "assets/jaavaa/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "net.gordyjack.jamba.JAMBA"
+          "net.gordyjack.jaavaa.JAAVAA"
 		],
 		"client": [
-			"net.gordyjack.jamba.JAMBAClient"
+			"net.gordyjack.jaavaa.JAAVAAClient"
 		],
 		"fabric-datagen": [
-			"net.gordyjack.jamba.JAMBADataGenerator"
+			"net.gordyjack.jaavaa.JAAVAADataGenerator"
 		]
 	},
 	"mixins": [
-		"jamba.mixins.json",
+		"jaavaa.mixins.json",
 		{
-			"config": "jamba.client.mixins.json",
+			"config": "jaavaa.client.mixins.json",
 			"environment": "client"
 		}
 	],
