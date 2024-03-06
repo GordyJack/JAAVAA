@@ -2,7 +2,7 @@ package net.gordyjack.jaavaa.items;
 
 import net.fabricmc.fabric.api.item.v1.*;
 import net.gordyjack.jaavaa.*;
-import net.minecraft.block.*;
+import net.gordyjack.jaavaa.items.custom.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
 import net.minecraft.util.*;
