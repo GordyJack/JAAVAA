@@ -32,6 +32,6 @@ implements ModTagInterface<Block>{
     }
     @Override
     public TagKey<Block> registerTagKey(String namespace, String name) {
-        return TagKey.of(this.registryRef, new Identifier(namespace, name));
+        return TagKey.of(RegistryKeys.BLOCK, new Identifier(namespace, name));
     }
 }
