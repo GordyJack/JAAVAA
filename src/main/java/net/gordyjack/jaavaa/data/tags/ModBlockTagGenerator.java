@@ -2,7 +2,6 @@ package net.gordyjack.jaavaa.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
-import net.fabricmc.fabric.api.mininglevel.v1.*;
 import net.gordyjack.jaavaa.blocks.*;
 import net.minecraft.block.*;
 import net.minecraft.registry.*;
@@ -32,6 +31,6 @@ implements ModTagInterface<Block>{
     }
     @Override
     public TagKey<Block> registerTagKey(String namespace, String name) {
-        return TagKey.of(this.registryRef, new Identifier(namespace, name));
+        return TagKey.of(RegistryKeys.BLOCK, new Identifier(namespace, name));
     }
 }
