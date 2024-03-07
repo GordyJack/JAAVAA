@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/waxed_weathered_copper_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/waxed_weathered_copper"
+    },
+    "type=top": {
+      "model": "jaavaa:block/waxed_weathered_copper_slab_top"
+    }
+  }
+}

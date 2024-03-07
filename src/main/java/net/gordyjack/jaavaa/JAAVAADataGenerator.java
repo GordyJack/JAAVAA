@@ -4,12 +4,14 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.data.lang.*;
+import net.gordyjack.jaavaa.data.tags.*;
 import net.minecraft.data.*;
 
 public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider enUSLangProvider;
 	public DataProvider modelProvider;
 	public DataProvider recipeProvider;
+	public DataProvider blockTagProvider;
 	
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
@@ -18,5 +20,6 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		enUSLangProvider = pack.addProvider(ENUSLangProvider::new);
 		modelProvider = pack.addProvider(ModModelProvider::new);
 		recipeProvider = pack.addProvider(ModRecipeProvider::new);
+		blockTagProvider = pack.addProvider(ModBlockTagGenerator::new);
 	}
 }

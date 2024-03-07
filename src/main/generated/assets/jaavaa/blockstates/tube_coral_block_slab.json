@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/tube_coral_block_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/tube_coral_block"
+    },
+    "type=top": {
+      "model": "jaavaa:block/tube_coral_block_slab_top"
+    }
+  }
+}

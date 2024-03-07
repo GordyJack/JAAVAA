@@ -4,25 +4,43 @@ import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.blocks.*;
 import net.gordyjack.jaavaa.items.*;
+import net.minecraft.block.*;
 import net.minecraft.data.client.*;
 import net.minecraft.item.*;
+import net.minecraft.util.*;
 
 public class ModModelProvider extends FabricModelProvider {
-    private final FabricDataOutput OUTPUT;
     public ModModelProvider(FabricDataOutput output) {
         super(output);
-        this.OUTPUT = output;
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(ModBlocks.TEST_BLOCK);
         generateMiniBlockModels();
+        
+        for (SlabBlock block: ModBlocks.SLABS) {
+            registerSlabModel(bsmGen, ModBlocks.getParent(block), block);
+//            bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(block, JAAVAA.getID(name + "_bottom"),
+//                            JAAVAA.getID(name + "_top"), JAAVAA.getID(name + "_full")));
+        }
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
         for (Item item : ModItems.ITEMS) {
             imGen.register(item, Models.GENERATED);
         }
+    }
+    private void registerSlabModel(BlockStateModelGenerator bsmGen, Block parentBlock, SlabBlock slabBlock) {
+        TextureMap textureMap = TextureMap.all(parentBlock);
+        registerSlabModel(bsmGen, textureMap, parentBlock, slabBlock);
+    }
+    private void registerSlabModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, Block parentBlock, SlabBlock slabBlock) {
+        Identifier bottomID = Models.SLAB.upload(slabBlock, textureMap, bsmGen.modelCollector);
+        Identifier topID = Models.SLAB_TOP.upload(slabBlock, textureMap, bsmGen.modelCollector);
+        String parentKey = parentBlock.getTranslationKey();
+        String parentName = parentKey.substring(parentKey.lastIndexOf('.') + 1);
+        Identifier doubleID = new Identifier("block/" + parentName);
+        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, bottomID, topID, doubleID));
     }
     private void generateMiniBlockModels() {
         String bottomSingle = "mini_block_00000001_single.json";

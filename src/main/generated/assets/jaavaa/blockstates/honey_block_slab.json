@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/honey_block_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/honey_block"
+    },
+    "type=top": {
+      "model": "jaavaa:block/honey_block_slab_top"
+    }
+  }
+}

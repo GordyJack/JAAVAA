@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/oxidized_copper_grate_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/oxidized_copper_grate"
+    },
+    "type=top": {
+      "model": "jaavaa:block/oxidized_copper_grate_slab_top"
+    }
+  }
+}

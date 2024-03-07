@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/chiseled_sandstone_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/chiseled_sandstone"
+    },
+    "type=top": {
+      "model": "jaavaa:block/chiseled_sandstone_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/horn_coral_block_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/horn_coral_block"
+    },
+    "type=top": {
+      "model": "jaavaa:block/horn_coral_block_slab_top"
+    }
+  }
+}

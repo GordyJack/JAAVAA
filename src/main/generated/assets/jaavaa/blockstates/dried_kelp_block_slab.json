@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/dried_kelp_block_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/dried_kelp_block"
+    },
+    "type=top": {
+      "model": "jaavaa:block/dried_kelp_block_slab_top"
+    }
+  }
+}

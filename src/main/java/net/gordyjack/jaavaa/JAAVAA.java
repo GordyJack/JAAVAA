@@ -20,6 +20,7 @@ public class JAAVAA implements ModInitializer {
 	public void onInitialize() {
 		ModBlocks.registerBlocks();
 		ModItems.registerItems();
+		ModItemGroups.registerItemGroups();
 	}
 	
 	@Contract("_,_ -> new")

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/copper_grate_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/copper_grate"
+    },
+    "type=top": {
+      "model": "jaavaa:block/copper_grate_slab_top"
+    }
+  }
+}
