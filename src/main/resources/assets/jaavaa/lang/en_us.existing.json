@@ -1,4 +1,6 @@
 {
-  "block.jaavaa.jamba_test_block": "Test Block",
-  "block.jaavaa.jamba_test_mini_block": "Test Mini Block"
+  "jaavaa.itemGroup.items": "JAAVAA Items",
+  "jaavaa.itemGroup.slabs": "JAAVAA Slabs",
+  "jaavaa.itemGroup.stairs": "JAAVAA Stairs",
+  "jaavaa.itemGroup.walls": "JAAVAA Walls"
 }

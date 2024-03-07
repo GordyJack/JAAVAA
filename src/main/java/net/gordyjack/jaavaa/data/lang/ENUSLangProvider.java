@@ -2,8 +2,11 @@ package net.gordyjack.jaavaa.data.lang;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.blocks.*;
 import net.gordyjack.jaavaa.items.*;
+import net.minecraft.block.*;
 import net.minecraft.item.*;
+import net.minecraft.registry.*;
 import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
@@ -15,6 +18,9 @@ extends FabricLanguageProvider{
     }
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
+        for (Block block : ModBlocks.BLOCKS) {
+            translationBuilder.add(block, getTranslatedName(block));
+        }
         for(Item item : ModItems.ITEMS) {
             translationBuilder.add(item, getTranslatedName(item));
         }
@@ -32,6 +38,7 @@ extends FabricLanguageProvider{
     @SuppressWarnings("deprecation")
     private String getTranslatedName(String name) {
         name = name.substring(name.lastIndexOf('.') + 1);
+        name = name.replace("_block", "");
         name = name.replace('_', ' ');
         name = WordUtils.capitalizeFully(name);
         if (name.equals("Jaavaa"))
