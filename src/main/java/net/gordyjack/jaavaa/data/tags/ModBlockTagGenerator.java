@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.fabricmc.fabric.api.mininglevel.v1.*;
 import net.gordyjack.jaavaa.blocks.*;
 import net.minecraft.block.*;
 import net.minecraft.registry.*;
@@ -17,7 +18,7 @@ implements ModTagInterface<Block>{
         super(output, registriesFuture);
     }
     public final TagKey<Block> COMMON_GLASS = registerCommonTagKey("glass_blocks");
-    public final TagKey<Block> MINECRAFT_IMPERMEABLE = registerMinecraftTagKey("impermeable");
+    public final TagKey<Block> MINECRAFT_IMPERMEABLE = BlockTags.IMPERMEABLE;
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         for(Block block : ModBlocks.BLOCKS) {
