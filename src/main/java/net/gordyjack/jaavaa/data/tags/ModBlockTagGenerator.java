@@ -17,15 +17,18 @@ implements ModTagInterface<Block>{
         super(output, registriesFuture);
     }
     public final TagKey<Block> COMMON_GLASS = registerCommonTagKey("glass_blocks");
-    public final TagKey<Block> MINECRAFT_IMPERMEABLE = BlockTags.IMPERMEABLE;
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         for(Block block : ModBlocks.BLOCKS) {
             String key = block.getTranslationKey();
             boolean isGlass = key.contains("glass");
+            boolean isLeaves = key.contains("leaves");
             if (isGlass) {
                 getOrCreateTagBuilder(COMMON_GLASS).add(block);
-                getOrCreateTagBuilder(MINECRAFT_IMPERMEABLE).add(block);
+                getOrCreateTagBuilder(BlockTags.IMPERMEABLE).add(block);
+            }
+            if (isLeaves) {
+                getOrCreateTagBuilder(BlockTags.LEAVES).add(block);
             }
         }
     }

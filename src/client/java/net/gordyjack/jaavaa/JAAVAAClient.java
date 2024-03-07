@@ -10,13 +10,20 @@ public class JAAVAAClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
+		configureBlockRenderLayerMap();
+	}
+	private void configureBlockRenderLayerMap() {
 		for (Block block : ModBlocks.BLOCKS) {
 			String key = block.getTranslationKey();
 			boolean isGlass = key.contains("glass");
 			boolean isSlime = key.contains("slime");
 			boolean isHoney = key.contains("honey_");
+			boolean isLeaves = key.contains("leaves");
 			if (isGlass || isSlime || isHoney) {
 				BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
+			}
+			if (isLeaves) {
+				BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
 			}
 		}
 	}
