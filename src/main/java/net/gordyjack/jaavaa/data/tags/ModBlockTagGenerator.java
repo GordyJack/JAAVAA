@@ -30,7 +30,7 @@ implements ModTagInterface<Block>{
         }
     }
     @Override
-    public TagKey registerTagKey(String namespace, String name) {
+    public TagKey<Block> registerTagKey(String namespace, String name) {
         return TagKey.of(this.registryRef, new Identifier(namespace, name));
     }
 }
