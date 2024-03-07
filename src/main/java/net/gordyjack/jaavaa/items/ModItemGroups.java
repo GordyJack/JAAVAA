@@ -12,8 +12,10 @@ import java.util.*;
 
 public class ModItemGroups {
     public static final List<RegistryKey<ItemGroup>> ITEM_GROUPS = new ArrayList<>();
-    //public static final RegistryKey<ItemGroup> JAMBA_ITEM_GROUP = registerItemGroup(JAMBA.MOD_ID, ModBlocks.EXAMPLE_BLOCK.asItem());
     public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerKey("jaavaa_slabs");
+    public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerKey("jaavaa_walls");
+    public static final RegistryKey<ItemGroup> JAAVAA_STAIRS = registerKey("jaavaa_stairs");
+    public static final RegistryKey<ItemGroup> JAAVAA_ITEMS = registerKey("jaavaa_items");
     
     /**
      * Registers all ItemGroups for ModBlocks.
@@ -22,21 +24,42 @@ public class ModItemGroups {
         JAAVAA.logInfo("Registering ItemGroups");
         
         Registry.register(Registries.ITEM_GROUP, JAAVAA_SLABS,
-                ItemGroup.create(ItemGroup.Row.TOP, 87)
+                ItemGroup.create(ItemGroup.Row.TOP, 0)
                         .displayName(Text.translatable("jaavaa.itemGroup.slabs"))
                         .icon(() -> new ItemStack(ModBlocks.SLABS.get(0))).build());
-        for (Block block : ModBlocks.SLABS) {
-            addToGroup(block, JAAVAA_SLABS);
+        Registry.register(Registries.ITEM_GROUP, JAAVAA_WALLS,
+                ItemGroup.create(ItemGroup.Row.TOP, 1)
+                        .displayName(Text.translatable("jaavaa.itemGroup.walls"))
+                        .icon(() -> new ItemStack(ModBlocks.WALLS.get(0))).build());
+        Registry.register(Registries.ITEM_GROUP, JAAVAA_STAIRS,
+                ItemGroup.create(ItemGroup.Row.TOP, 2)
+                        .displayName(Text.translatable("jaavaa.itemGroup.stairs"))
+                        .icon(() -> new ItemStack(ModBlocks.STAIRS.get(0))).build());
+        Registry.register(Registries.ITEM_GROUP, JAAVAA_ITEMS,
+                ItemGroup.create(ItemGroup.Row.TOP, 3)
+                        .displayName(Text.translatable("jaavaa.itemGroup.items"))
+                        .icon(() -> new ItemStack(ModItems.ITEMS.get(0))).build());
+        for (Block slabBlock : ModBlocks.SLABS) {
+            addToGroup(slabBlock, JAAVAA_SLABS);
+        }
+        for (Block wallBlock : ModBlocks.WALLS) {
+            addToGroup(wallBlock, JAAVAA_WALLS);
+        }
+        for (Block stairsBlock : ModBlocks.STAIRS) {
+            addToGroup(stairsBlock, JAAVAA_STAIRS);
+        }
+        for (Item item : ModItems.ITEMS) {
+            addToGroup(item, JAAVAA_ITEMS);
         }
     }
     /**
      * Adds a given Block to a given ItemGroup.
      *
-     * @param block The Block to add
+     * @param itemConvertible The item to add
      * @param group The ItemGroup to add the Block to
      */
-    private static void addToGroup(Block block, RegistryKey<ItemGroup> group) {
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(block.asItem()));
+    private static void addToGroup(ItemConvertible itemConvertible, RegistryKey<ItemGroup> group) {
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(itemConvertible.asItem()));
     }
     
     private static RegistryKey<ItemGroup> registerKey(String name) {
