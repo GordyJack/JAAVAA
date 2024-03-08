@@ -22,14 +22,13 @@ implements ModTagInterface<Block>{
         for(Block block : ModBlocks.BLOCKS) {
             String key = block.getTranslationKey();
             boolean isGlass = key.contains("glass");
-            boolean isLeaves = key.contains("leaves");
             if (isGlass) {
                 getOrCreateTagBuilder(COMMON_GLASS).add(block);
                 getOrCreateTagBuilder(BlockTags.IMPERMEABLE).add(block);
             }
-            if (isLeaves) {
-                getOrCreateTagBuilder(BlockTags.LEAVES).add(block);
-            }
+        }
+        for(WallBlock wallBlock : ModBlocks.WALLS) {
+            getOrCreateTagBuilder(BlockTags.WALLS).add(wallBlock);
         }
     }
     @Override

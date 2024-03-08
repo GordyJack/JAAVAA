@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-07T15:31:19.783011	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
-32d64cde5e37d87f8f8beec1f9151420753c14b6 data/c/tags/blocks/glass_blocks.json
-a63a4401b3d89d2c5fb51f5dc5bb553cb4fcdf49 data/minecraft/tags/blocks/leaves.json
-32d64cde5e37d87f8f8beec1f9151420753c14b6 data/minecraft/tags/blocks/impermeable.json
+// 1.20.4	2024-03-08T00:43:21.593086	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
+e2463281521284cd4d4c959ddb2412f59397df82 data/c/tags/blocks/glass_blocks.json
+e2463281521284cd4d4c959ddb2412f59397df82 data/minecraft/tags/blocks/impermeable.json
+f066246d4bd1b782153878bfdb6e4c7bdf6af328 data/minecraft/tags/blocks/walls.json

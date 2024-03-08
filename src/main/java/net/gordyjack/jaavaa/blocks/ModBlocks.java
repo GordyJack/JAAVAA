@@ -52,16 +52,6 @@ public class ModBlocks {
             Blocks.COAL_ORE,
             Blocks.DEEPSLATE_COAL_ORE,
             Blocks.NETHER_GOLD_ORE,
-            Blocks.OAK_LEAVES,
-            Blocks.SPRUCE_LEAVES,
-            Blocks.BIRCH_LEAVES,
-            Blocks.JUNGLE_LEAVES,
-            Blocks.ACACIA_LEAVES,
-            Blocks.CHERRY_LEAVES,
-            Blocks.DARK_OAK_LEAVES,
-            Blocks.MANGROVE_LEAVES,
-            Blocks.AZALEA_LEAVES,
-            Blocks.FLOWERING_AZALEA_LEAVES,
             Blocks.GLASS,
             Blocks.LAPIS_ORE,
             Blocks.DEEPSLATE_LAPIS_ORE,
@@ -365,22 +355,49 @@ public class ModBlocks {
         return Arrays.stream(BLOCKS_WITH_SLABS).toList().contains(block);
     }
     private static boolean hasWall(Block block) {
-        return false;
+        final Block[] BLOCKS_WITH_WALLS = {
+                Blocks.COBBLESTONE,
+                Blocks.MOSSY_COBBLESTONE,
+                Blocks.BRICKS,
+                Blocks.PRISMARINE,
+                Blocks.RED_SANDSTONE,
+                Blocks.MOSSY_STONE_BRICKS,
+                Blocks.GRANITE,
+                Blocks.STONE_BRICKS,
+                Blocks.MUD_BRICKS,
+                Blocks.NETHER_BRICKS,
+                Blocks.ANDESITE,
+                Blocks.RED_NETHER_BRICKS,
+                Blocks.SANDSTONE,
+                Blocks.END_STONE_BRICKS,
+                Blocks.DIORITE,
+                Blocks.BLACKSTONE,
+                Blocks.POLISHED_BLACKSTONE_BRICKS,
+                Blocks.POLISHED_BLACKSTONE,
+                Blocks.TUFF,
+                Blocks.POLISHED_TUFF,
+                Blocks.TUFF_BRICKS,
+                Blocks.COBBLED_DEEPSLATE,
+                Blocks.POLISHED_DEEPSLATE,
+                Blocks.DEEPSLATE_TILES,
+                Blocks.DEEPSLATE_BRICKS
+        };
+        return Arrays.stream(BLOCKS_WITH_WALLS).toList().contains(block);
     }
     private static boolean hasStairs(Block block) {
         return false;
     }
     
     public static Block getParent(Block block) {
-        if(SLABS.contains((SlabBlock) block)) {
-            return SLAB_PARENTS.get(block);
-        } else if(WALLS.contains((WallBlock) block)) {
-        
-        } else if(STAIRS.contains((StairsBlock) block)) {
-        
-        }
-        return Blocks.AIR;
+    if(block instanceof SlabBlock && SLABS.contains((SlabBlock) block)) {
+        return SLAB_PARENTS.get(block);
+    } else if (block instanceof WallBlock && WALLS.contains((WallBlock) block)) {
+        return WALL_PARENTS.get(block);
+    } else if (block instanceof StairsBlock && STAIRS.contains((StairsBlock) block)) {
+        return STAIR_PARENTS.get(block);
     }
+    return Blocks.AIR;
+}
     public static void registerBlocks() {
         JAAVAA.logInfo("Registering ModBlocks");
         
@@ -417,26 +434,27 @@ public class ModBlocks {
         switch (type) {
             case "glass" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Transparent(parentSettings));
-//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Transparent(parentSettings));
 //                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             case "stained" -> {
                 DyeColor color = getDyeColor(parentBlock);
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.StainedGlass(color, parentSettings));
-//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.StainedGlass(color, parentSettings));
 //                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             case "tinted" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.TintedGlass(parentSettings));
-//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.TintedGlass(parentSettings));
 //                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             case "redstone" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Redstone(parentSettings));
+                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Redstone(parentSettings));
             }
             default -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new SlabBlock(parentSettings));
-//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
 //                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
         }
@@ -446,8 +464,6 @@ public class ModBlocks {
     private static DyeColor getDyeColor(Block parentBlock) {
         String parentKey = parentBlock.getTranslationKey();
         String colorName = parentKey.substring(parentKey.lastIndexOf('.') + 1, parentKey.indexOf("_stained"));
-        JAAVAA.logError(parentKey);
-        JAAVAA.logError(colorName);
         return switch (colorName) {
             case "white" -> DyeColor.WHITE;
             case "orange" -> DyeColor.ORANGE;

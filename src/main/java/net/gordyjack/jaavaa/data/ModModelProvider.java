@@ -18,10 +18,13 @@ public class ModModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(ModBlocks.TEST_BLOCK);
         generateMiniBlockModels();
         
-        for (SlabBlock block: ModBlocks.SLABS) {
-            registerSlabModel(bsmGen, ModBlocks.getParent(block), block);
-//            bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(block, JAAVAA.getID(name + "_bottom"),
+        for (SlabBlock slabBlock : ModBlocks.SLABS) {
+            registerSlabModel(bsmGen, ModBlocks.getParent(slabBlock), slabBlock);
+//            bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, JAAVAA.getID(name + "_bottom"),
 //                            JAAVAA.getID(name + "_top"), JAAVAA.getID(name + "_full")));
+        }
+        for (WallBlock wallBlock : ModBlocks.WALLS) {
+            registerWallModel(bsmGen, ModBlocks.getParent(wallBlock), wallBlock);
         }
     }
     @Override
@@ -41,6 +44,18 @@ public class ModModelProvider extends FabricModelProvider {
         String parentName = parentKey.substring(parentKey.lastIndexOf('.') + 1);
         Identifier doubleID = new Identifier("block/" + parentName);
         bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, bottomID, topID, doubleID));
+    }
+    private void registerWallModel(BlockStateModelGenerator bsmGen, Block parentBlock, WallBlock wallBlock) {
+        TextureMap textureMap = TextureMap.all(parentBlock);
+        registerWallModel(bsmGen, textureMap, parentBlock, wallBlock);
+    }
+    private void registerWallModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, Block parentBlock, WallBlock wallBlock) {
+        Identifier identifier = Models.TEMPLATE_WALL_POST.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, identifier, identifier2, identifier3));
+        Identifier identifier4 = Models.WALL_INVENTORY.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        bsmGen.registerParentedItemModel(wallBlock, identifier4);
     }
     private void generateMiniBlockModels() {
         String bottomSingle = "mini_block_00000001_single.json";
