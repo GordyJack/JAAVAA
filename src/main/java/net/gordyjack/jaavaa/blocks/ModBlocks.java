@@ -385,7 +385,65 @@ public class ModBlocks {
         return Arrays.stream(BLOCKS_WITH_WALLS).toList().contains(block);
     }
     private static boolean hasStairs(Block block) {
-        return false;
+        final Block[] BLOCKS_WITH_STAIRS = {
+                Blocks.OAK_PLANKS,
+                Blocks.COBBLESTONE,
+                Blocks.BRICKS,
+                Blocks.STONE_BRICKS,
+                Blocks.MUD_BRICKS,
+                Blocks.NETHER_BRICKS,
+                Blocks.SANDSTONE,
+                Blocks.SPRUCE_PLANKS,
+                Blocks.BIRCH_PLANKS,
+                Blocks.JUNGLE_PLANKS,
+                Blocks.QUARTZ_BLOCK,
+                Blocks.ACACIA_PLANKS,
+                Blocks.CHERRY_PLANKS,
+                Blocks.DARK_OAK_PLANKS,
+                Blocks.MANGROVE_PLANKS,
+                Blocks.BAMBOO_PLANKS,
+                Blocks.BAMBOO_MOSAIC,
+                Blocks.PRISMARINE,
+                Blocks.PRISMARINE_BRICKS,
+                Blocks.DARK_PRISMARINE,
+                Blocks.RED_SANDSTONE,
+                Blocks.PURPUR_BLOCK,
+                Blocks.POLISHED_GRANITE,
+                Blocks.SMOOTH_RED_SANDSTONE,
+                Blocks.MOSSY_STONE_BRICKS,
+                Blocks.POLISHED_DIORITE,
+                Blocks.MOSSY_COBBLESTONE,
+                Blocks.END_STONE_BRICKS,
+                Blocks.STONE,
+                Blocks.SMOOTH_SANDSTONE,
+                Blocks.SMOOTH_QUARTZ,
+                Blocks.GRANITE,
+                Blocks.ANDESITE,
+                Blocks.RED_NETHER_BRICKS,
+                Blocks.POLISHED_ANDESITE,
+                Blocks.DIORITE,
+                Blocks.CRIMSON_PLANKS,
+                Blocks.WARPED_PLANKS,
+                Blocks.BLACKSTONE,
+                Blocks.POLISHED_BLACKSTONE_BRICKS,
+                Blocks.POLISHED_BLACKSTONE,
+                Blocks.TUFF,
+                Blocks.POLISHED_TUFF,
+                Blocks.TUFF_BRICKS,
+                Blocks.OXIDIZED_CUT_COPPER,
+                Blocks.WEATHERED_CUT_COPPER,
+                Blocks.EXPOSED_CUT_COPPER,
+                Blocks.CUT_COPPER,
+                Blocks.WAXED_OXIDIZED_CUT_COPPER,
+                Blocks.WAXED_WEATHERED_CUT_COPPER,
+                Blocks.WAXED_EXPOSED_CUT_COPPER,
+                Blocks.WAXED_CUT_COPPER,
+                Blocks.COBBLED_DEEPSLATE,
+                Blocks.POLISHED_DEEPSLATE,
+                Blocks.DEEPSLATE_TILES,
+                Blocks.DEEPSLATE_BRICKS
+        };
+        return Arrays.stream(BLOCKS_WITH_STAIRS).toList().contains(block);
     }
     
     public static Block getParent(Block block) {
@@ -435,27 +493,28 @@ public class ModBlocks {
             case "glass" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Transparent(parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Transparent(parentSettings));
-//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             case "stained" -> {
                 DyeColor color = getDyeColor(parentBlock);
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.StainedGlass(color, parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.StainedGlass(color, parentSettings));
-//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             case "tinted" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.TintedGlass(parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.TintedGlass(parentSettings));
-//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             case "redstone" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Redstone(parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Redstone(parentSettings));
+                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             default -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new SlabBlock(parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
-//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
         }
         return map;

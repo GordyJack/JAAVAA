@@ -26,6 +26,9 @@ public class ModModelProvider extends FabricModelProvider {
         for (WallBlock wallBlock : ModBlocks.WALLS) {
             registerWallModel(bsmGen, ModBlocks.getParent(wallBlock), wallBlock);
         }
+        for (StairsBlock stairsBlock : ModBlocks.STAIRS) {
+            registerStairsModel(bsmGen, ModBlocks.getParent(stairsBlock), stairsBlock);
+        }
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
@@ -47,15 +50,26 @@ public class ModModelProvider extends FabricModelProvider {
     }
     private void registerWallModel(BlockStateModelGenerator bsmGen, Block parentBlock, WallBlock wallBlock) {
         TextureMap textureMap = TextureMap.all(parentBlock);
-        registerWallModel(bsmGen, textureMap, parentBlock, wallBlock);
+        registerWallModel(bsmGen, textureMap, wallBlock);
     }
-    private void registerWallModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, Block parentBlock, WallBlock wallBlock) {
+    private void registerWallModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, WallBlock wallBlock) {
         Identifier identifier = Models.TEMPLATE_WALL_POST.upload(wallBlock, textureMap, bsmGen.modelCollector);
         Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textureMap, bsmGen.modelCollector);
         Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textureMap, bsmGen.modelCollector);
         bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, identifier, identifier2, identifier3));
         Identifier identifier4 = Models.WALL_INVENTORY.upload(wallBlock, textureMap, bsmGen.modelCollector);
         bsmGen.registerParentedItemModel(wallBlock, identifier4);
+    }
+    private void registerStairsModel(BlockStateModelGenerator bsmGen, Block parentBlock, StairsBlock stairsBlock) {
+        TextureMap textureMap = TextureMap.all(parentBlock);
+        registerStairsModel(bsmGen, textureMap, stairsBlock);
+    }
+    private void registerStairsModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, StairsBlock stairsBlock) {
+        Identifier identifier = Models.INNER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
+        Identifier identifier2 = Models.STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
+        Identifier identifier3 = Models.OUTER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
+        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairsBlock, identifier, identifier2, identifier3));
+        bsmGen.registerParentedItemModel(stairsBlock, identifier2);
     }
     private void generateMiniBlockModels() {
         String bottomSingle = "mini_block_00000001_single.json";
