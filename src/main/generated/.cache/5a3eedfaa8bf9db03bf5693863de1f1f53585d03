@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-08T06:12:31.1447009	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
+// 1.20.4	2024-03-08T06:17:28.2836282	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
+e0b272b28b436942342b2a8b0d45674991d0b0ab data\c\tags\blocks\glass_blocks.json
 f066246d4bd1b782153878bfdb6e4c7bdf6af328 data\minecraft\tags\blocks\walls.json
-32d64cde5e37d87f8f8beec1f9151420753c14b6 data\c\tags\blocks\glass_blocks.json
-32d64cde5e37d87f8f8beec1f9151420753c14b6 data\minecraft\tags\blocks\impermeable.json
+e0b272b28b436942342b2a8b0d45674991d0b0ab data\minecraft\tags\blocks\impermeable.json

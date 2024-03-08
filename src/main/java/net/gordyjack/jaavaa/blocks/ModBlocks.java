@@ -555,7 +555,7 @@ public class ModBlocks {
             WALL_PARENTS.put(registeredWall, parentBlock);
         }
         if (blockMap.get("stairs") != null) {
-            StairsBlock registeredStair = (StairsBlock) registerBlock(name + "_stair", blockMap.get("stairs"));
+            StairsBlock registeredStair = (StairsBlock) registerBlock(name + "_stairs", blockMap.get("stairs"));
             STAIRS.add(registeredStair);
             STAIR_PARENTS.put(registeredStair, parentBlock);
         }
