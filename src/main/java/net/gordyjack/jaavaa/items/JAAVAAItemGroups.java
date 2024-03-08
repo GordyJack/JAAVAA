@@ -10,7 +10,7 @@ import net.minecraft.text.*;
 
 import java.util.*;
 
-public class ModItemGroups {
+public class JAAVAAItemGroups {
     public static final List<RegistryKey<ItemGroup>> ITEM_GROUPS = new ArrayList<>();
     public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerKey("jaavaa_slabs");
     public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerKey("jaavaa_walls");
@@ -26,29 +26,29 @@ public class ModItemGroups {
         Registry.register(Registries.ITEM_GROUP, JAAVAA_SLABS,
                 ItemGroup.create(ItemGroup.Row.TOP, 0)
                         .displayName(Text.translatable("jaavaa.itemGroup.slabs"))
-                        .icon(() -> new ItemStack(ModBlocks.SLABS.get(0))).build());
+                        .icon(() -> new ItemStack(JAAVAABlocks.SLABS.get(0))).build());
         Registry.register(Registries.ITEM_GROUP, JAAVAA_WALLS,
                 ItemGroup.create(ItemGroup.Row.TOP, 1)
                         .displayName(Text.translatable("jaavaa.itemGroup.walls"))
-                        .icon(() -> new ItemStack(ModBlocks.WALLS.get(0))).build());
+                        .icon(() -> new ItemStack(JAAVAABlocks.WALLS.get(0))).build());
         Registry.register(Registries.ITEM_GROUP, JAAVAA_STAIRS,
                 ItemGroup.create(ItemGroup.Row.TOP, 2)
                         .displayName(Text.translatable("jaavaa.itemGroup.stairs"))
-                        .icon(() -> new ItemStack(ModBlocks.STAIRS.get(0))).build());
+                        .icon(() -> new ItemStack(JAAVAABlocks.STAIRS.get(0))).build());
         Registry.register(Registries.ITEM_GROUP, JAAVAA_ITEMS,
                 ItemGroup.create(ItemGroup.Row.TOP, 3)
                         .displayName(Text.translatable("jaavaa.itemGroup.items"))
-                        .icon(() -> new ItemStack(ModItems.ITEMS.get(0))).build());
-        for (Block slabBlock : ModBlocks.SLABS) {
+                        .icon(() -> new ItemStack(JAAVAAItems.ITEMS.get(0))).build());
+        for (Block slabBlock : JAAVAABlocks.SLABS) {
             addToGroup(slabBlock, JAAVAA_SLABS);
         }
-        for (Block wallBlock : ModBlocks.WALLS) {
+        for (Block wallBlock : JAAVAABlocks.WALLS) {
             addToGroup(wallBlock, JAAVAA_WALLS);
         }
-        for (Block stairsBlock : ModBlocks.STAIRS) {
+        for (Block stairsBlock : JAAVAABlocks.STAIRS) {
             addToGroup(stairsBlock, JAAVAA_STAIRS);
         }
-        for (Item item : ModItems.ITEMS) {
+        for (Item item : JAAVAAItems.ITEMS) {
             addToGroup(item, JAAVAA_ITEMS);
         }
     }

@@ -18,10 +18,10 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		
-		enUSLangProvider = pack.addProvider(ENUSLangProvider::new);
-		modelProvider = pack.addProvider(ModModelProvider::new);
-		recipeProvider = pack.addProvider(ModRecipeProvider::new);
-		blockTagProvider = pack.addProvider(ModBlockTagGenerator::new);
-		blockLootTableProvider = pack.addProvider(ModBlockLootTableGenerator::new);
+		enUSLangProvider = pack.addProvider(JAAVAALangProviderEnUs::new);
+		modelProvider = pack.addProvider(JAAVAAModelProvider::new);
+		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);
+		blockTagProvider = pack.addProvider(JAAVAABlockTagGenerator::new);
+		blockLootTableProvider = pack.addProvider(JAAVAABlockLootTableGenerator::new);
 	}
 }

@@ -6,22 +6,21 @@ import net.gordyjack.jaavaa.blocks.*;
 import net.gordyjack.jaavaa.items.*;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
-import net.minecraft.registry.*;
 import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
 
-public class ENUSLangProvider
+public class JAAVAALangProviderEnUs
 extends FabricLanguageProvider{
-    public ENUSLangProvider(FabricDataOutput dataOutput) {
+    public JAAVAALangProviderEnUs(FabricDataOutput dataOutput) {
         super(dataOutput, "en_us");
     }
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
-        for (Block block : ModBlocks.BLOCKS) {
+        for (Block block : JAAVAABlocks.BLOCKS) {
             translationBuilder.add(block, getTranslatedName(block));
         }
-        for(Item item : ModItems.ITEMS) {
+        for(Item item : JAAVAAItems.ITEMS) {
             translationBuilder.add(item, getTranslatedName(item));
         }
         

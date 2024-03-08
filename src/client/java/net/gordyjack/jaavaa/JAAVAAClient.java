@@ -13,7 +13,7 @@ public class JAAVAAClient implements ClientModInitializer {
 		configureBlockRenderLayerMap();
 	}
 	private void configureBlockRenderLayerMap() {
-		for (Block block : ModBlocks.BLOCKS) {
+		for (Block block : JAAVAABlocks.BLOCKS) {
 			String key = block.getTranslationKey();
 			boolean isGlass = key.contains("glass");
 			boolean isSlime = key.contains("slime");

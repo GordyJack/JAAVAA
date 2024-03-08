@@ -25,7 +25,7 @@ import org.jetbrains.annotations.*;
 public class MiniBlock
 extends Block
 implements Waterloggable, VoxelShapeUtils {
-    private static final IntProperty POSITION = ModBlockProperties.MINI_BLOCK_POSITION;
+    private static final IntProperty POSITION = JAAVAABlockProperties.MINI_BLOCK_POSITION;
     private static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private final Block BASE_BLOCK;
     private final BlockState BASE_BLOCK_STATE;

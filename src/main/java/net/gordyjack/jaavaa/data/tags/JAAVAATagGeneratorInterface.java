@@ -1,11 +1,9 @@
 package net.gordyjack.jaavaa.data.tags;
 
 import net.gordyjack.jaavaa.*;
-import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
-import net.minecraft.util.*;
 
-public interface ModTagInterface<T> {
+public interface JAAVAATagGeneratorInterface<T> {
     default void generateTags() {
         JAAVAA.logInfo("Registering Tags");
     }

@@ -9,7 +9,7 @@ import net.minecraft.util.*;
 
 import java.util.*;
 
-public class ModItems {
+public class JAAVAAItems {
     public static final List<Item> ITEMS = new ArrayList<>();
     
     public static final Item STARSTEEL_INGOT = registerItem("starsteel_ingot", new GlintingItem(

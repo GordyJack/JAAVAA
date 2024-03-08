@@ -13,7 +13,7 @@ import org.jetbrains.annotations.*;
 
 import java.util.*;
 
-public class ModBlocks {
+public class JAAVAABlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
     public static final List<SlabBlock> SLABS = new ArrayList<>();
     private static final Map<SlabBlock, Block> SLAB_PARENTS = new HashMap<>();

@@ -10,16 +10,16 @@ import net.minecraft.util.*;
 
 import java.util.concurrent.*;
 
-public class ModBlockTagGenerator
+public class JAAVAABlockTagGenerator
 extends FabricTagProvider.BlockTagProvider
-implements ModTagInterface<Block>{
-    public ModBlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+implements JAAVAATagGeneratorInterface<Block> {
+    public JAAVAABlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
     public final TagKey<Block> COMMON_GLASS = registerCommonTagKey("glass_blocks");
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        for(Block block : ModBlocks.BLOCKS) {
+        for(Block block : JAAVAABlocks.BLOCKS) {
             String key = block.getTranslationKey();
             boolean isGlass = key.contains("glass");
             if (isGlass) {
@@ -27,7 +27,7 @@ implements ModTagInterface<Block>{
                 getOrCreateTagBuilder(BlockTags.IMPERMEABLE).add(block);
             }
         }
-        for(WallBlock wallBlock : ModBlocks.WALLS) {
+        for(WallBlock wallBlock : JAAVAABlocks.WALLS) {
             getOrCreateTagBuilder(BlockTags.WALLS).add(wallBlock);
         }
     }

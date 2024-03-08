@@ -18,9 +18,9 @@ public class JAAVAA implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModBlocks.registerBlocks();
-		ModItems.registerItems();
-		ModItemGroups.registerItemGroups();
+		JAAVAABlocks.registerBlocks();
+		JAAVAAItems.registerItems();
+		JAAVAAItemGroups.registerItemGroups();
 	}
 	
 	@Contract("_,_ -> new")

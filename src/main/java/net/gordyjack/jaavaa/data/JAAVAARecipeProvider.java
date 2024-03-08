@@ -9,18 +9,16 @@ import net.minecraft.item.*;
 import net.minecraft.recipe.book.*;
 import net.minecraft.util.*;
 
-import java.util.function.*;
-
-public class ModRecipeProvider
+public class JAAVAARecipeProvider
 extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output) {
+    public JAAVAARecipeProvider(FabricDataOutput output) {
         super(output);
     }
     @Override
     public void generate(RecipeExporter exporter) {
         offerShapedCraftingRecipe(exporter,
                 " # |#A#| # ", RecipeCategory.MISC,
-                ModItems.STARSTEEL_INGOT, 2,
+                JAAVAAItems.STARSTEEL_INGOT, 2,
                 Items.NETHERITE_INGOT, Items.NETHER_STAR);
     }
     /**

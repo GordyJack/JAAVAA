@@ -9,34 +9,34 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 
-public class ModModelProvider extends FabricModelProvider {
-    public ModModelProvider(FabricDataOutput output) {
+public class JAAVAAModelProvider extends FabricModelProvider {
+    public JAAVAAModelProvider(FabricDataOutput output) {
         super(output);
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
-        bsmGen.registerSimpleCubeAll(ModBlocks.TEST_BLOCK);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.TEST_BLOCK);
         registerVanillaBlockSets(bsmGen);
         generateMiniBlockModels();
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
-        for (Item item : ModItems.ITEMS) {
+        for (Item item : JAAVAAItems.ITEMS) {
             imGen.register(item, Models.GENERATED);
         }
     }
 
     private void registerVanillaBlockSets(BlockStateModelGenerator bsmGen) {
-        for (SlabBlock slabBlock : ModBlocks.SLABS) {
-            Block parentBlock = ModBlocks.getParent(slabBlock);
+        for (SlabBlock slabBlock : JAAVAABlocks.SLABS) {
+            Block parentBlock = JAAVAABlocks.getParent(slabBlock);
             registerSlabModel(bsmGen, createTextureMap(parentBlock), parentBlock, slabBlock);
         }
-        for (WallBlock wallBlock : ModBlocks.WALLS) {
-            Block parentBlock = ModBlocks.getParent(wallBlock);
+        for (WallBlock wallBlock : JAAVAABlocks.WALLS) {
+            Block parentBlock = JAAVAABlocks.getParent(wallBlock);
             registerWallModel(bsmGen, createTextureMap(parentBlock), wallBlock);
         }
-        for (StairsBlock stairsBlock : ModBlocks.STAIRS) {
-            Block parentBlock = ModBlocks.getParent(stairsBlock);
+        for (StairsBlock stairsBlock : JAAVAABlocks.STAIRS) {
+            Block parentBlock = JAAVAABlocks.getParent(stairsBlock);
             registerStairsModel(bsmGen, createTextureMap(parentBlock), stairsBlock);
         }
     }
