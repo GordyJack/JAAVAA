@@ -29,10 +29,9 @@ extends SlabBlock {
          */
         @Override
         public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
-            if (stateFrom.isOf(this) && (
-                    state.get(SlabBlock.TYPE) == stateFrom.get(SlabBlock.TYPE)
-                            || isTopWithBottom(state, stateFrom, direction)
-            )) {
+            if (stateFrom.isOf(this)
+                    && (sideIsSameType(state, stateFrom, direction)
+                    || doesTopTouchBottom(state, stateFrom, direction))) {
                 return true;
             }
             return super.isSideInvisible(state, stateFrom, direction);
@@ -45,8 +44,20 @@ extends SlabBlock {
          * @param direction The direction from the current block to the block in question.
          * @return true if the bottom and top faces of a block touch, false otherwise.
          */
-        private boolean isTopWithBottom(BlockState state, BlockState stateFrom, Direction direction) {
-            return direction.getAxis() == Direction.Axis.Y && state.get(SlabBlock.TYPE) != stateFrom.get(SlabBlock.TYPE);
+        private boolean doesTopTouchBottom(BlockState state, BlockState stateFrom, Direction direction) {
+            SlabType stateType = state.get(SlabBlock.TYPE);
+            SlabType stateFromType = stateFrom.get(SlabBlock.TYPE);
+
+            boolean isTopOrDouble = stateType == SlabType.TOP || stateType == SlabType.DOUBLE;
+            boolean isBottomOrDouble = stateType == SlabType.BOTTOM || stateType == SlabType.DOUBLE;
+            boolean fromIsTopOrDouble = stateFromType == SlabType.TOP || stateFromType == SlabType.DOUBLE;
+            boolean fromIsBottomOrDouble = stateFromType == SlabType.BOTTOM || stateFromType == SlabType.DOUBLE;
+
+            return ((isTopOrDouble && fromIsBottomOrDouble && direction == Direction.UP)
+                    || (isBottomOrDouble && fromIsTopOrDouble && direction == Direction.DOWN));
+        }
+        private boolean sideIsSameType(BlockState state, BlockState stateFrom, Direction direction) {
+            return direction.getAxis() != Direction.Axis.Y && state.get(SlabBlock.TYPE) == stateFrom.get(SlabBlock.TYPE);
         }
     }
     public static class Transparent extends Translucent {
@@ -79,7 +90,7 @@ extends SlabBlock {
             return this.COLOR;
         }
     }
-    public static class TintedGlass extends JAAVAASlab {
+    public static class TintedGlass extends Translucent {
         public TintedGlass(Settings settings) {
             super(settings);
         }
