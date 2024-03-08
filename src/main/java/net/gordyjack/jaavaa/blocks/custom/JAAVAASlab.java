@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.blocks.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.*;
@@ -63,7 +64,7 @@ extends SlabBlock {
         }
         @Override
         public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
-            return true;
+            return !state.get(WATERLOGGED) || this.hasSidedTransparency(state);
         }
     }
     public static class StainedGlass extends Transparent implements Stainable {
@@ -78,18 +79,18 @@ extends SlabBlock {
             return this.COLOR;
         }
     }
-    public static class TintedGlass extends Translucent {
+    public static class TintedGlass extends JAAVAASlab {
         public TintedGlass(Settings settings) {
             super(settings);
         }
         
         @Override
-        public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
-            return false;
-        }
-        @Override
         public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
             return world.getMaxLightLevel();
+        }
+        @Override
+        public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
+            return false;
         }
     }
     public static class Redstone extends JAAVAASlab {
@@ -103,7 +104,10 @@ extends SlabBlock {
         }
         @Override
         public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-            return state.isSideSolidFullSquare(world, pos, direction.getOpposite()) ? 15 : 0;
+            boolean isTop = state.get(SlabBlock.TYPE) == SlabType.TOP;
+            boolean isBottom = state.get(SlabBlock.TYPE) == SlabType.BOTTOM;
+            boolean isDouble = state.get(SlabBlock.TYPE) == SlabType.DOUBLE;
+            return isDouble || (isTop && direction != Direction.UP) || (isBottom && direction != Direction.DOWN) ? 15 : 0;
         }
     }
 }

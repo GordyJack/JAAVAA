@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.blocks.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.*;
@@ -68,14 +69,19 @@ extends WallBlock {
             super(settings);
         }
         
-        @Override
-        public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
-            return false;
-        }
-        @Override
-        public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
-            return world.getMaxLightLevel();
-        }
+//        @Override
+//        public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
+//            boolean tall = state.get(NORTH_SHAPE) == WallShape.TALL || state.get(EAST_SHAPE) == WallShape.TALL
+//                    || state.get(SOUTH_SHAPE) == WallShape.TALL || state.get(WEST_SHAPE) == WallShape.TALL;
+//            boolean none = state.get(NORTH_SHAPE) == WallShape.NONE && state.get(EAST_SHAPE) == WallShape.NONE
+//                    && state.get(SOUTH_SHAPE) == WallShape.NONE && state.get(WEST_SHAPE) == WallShape.NONE;
+//            boolean post = state.get(UP) && !none;
+//            return (tall || post) && !state.get(WATERLOGGED);
+//        }
+//        @Override
+//        public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
+//            return world.getMaxLightLevel();
+//        }
     }
     public static class Redstone extends JAAVAAWall {
         public Redstone(Settings settings) {
@@ -88,7 +94,7 @@ extends WallBlock {
         }
         @Override
         public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-            return state.isSideSolidFullSquare(world, pos, direction.getOpposite()) ? 15 : 0;
+            return direction.getAxis() == Direction.Axis.Y ? 15 : 0;
         }
     }
 }
