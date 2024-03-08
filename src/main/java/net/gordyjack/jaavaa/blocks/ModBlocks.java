@@ -177,7 +177,7 @@ public class ModBlocks {
             Blocks.GREEN_CONCRETE,
             Blocks.RED_CONCRETE,
             Blocks.BLACK_CONCRETE,
-            Blocks.DRIED_KELP_BLOCK,
+//            Blocks.DRIED_KELP_BLOCK,
             Blocks.DEAD_TUBE_CORAL_BLOCK,
             Blocks.DEAD_BRAIN_CORAL_BLOCK,
             Blocks.DEAD_BUBBLE_CORAL_BLOCK,

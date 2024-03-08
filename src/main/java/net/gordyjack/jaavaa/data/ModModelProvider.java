@@ -40,11 +40,13 @@ public class ModModelProvider extends FabricModelProvider {
 
     private TextureMap createTextureMap(Block parentBlock) {
         TextureMap textureMap = TextureMap.all(parentBlock);
-        if (parentBlock == Blocks.DRIED_KELP_BLOCK) {
-            textureMap.put(TextureKey.ALL, new Identifier("block/dried_kelp_side"));
-            textureMap.put(TextureKey.UP, new Identifier("block/dried_kelp_top"));
-            textureMap.put(TextureKey.DOWN, new Identifier("block/dried_kelp_bottom"));
-        }
+//        if (parentBlock == Blocks.DRIED_KELP_BLOCK) {
+//            textureMap.put(TextureKey.ALL, new Identifier("block/dried_kelp_side"));
+//            textureMap.put(TextureKey.UP, new Identifier("block/dried_kelp_top"));
+//            textureMap.put(TextureKey.TOP, new Identifier("block/dried_kelp_top"));
+//            textureMap.put(TextureKey.DOWN, new Identifier("block/dried_kelp_bottom"));
+//            textureMap.put(TextureKey.BOTTOM, new Identifier("block/dried_kelp_bottom"));
+//        }
         if (parentBlock == Blocks.SMOOTH_QUARTZ) {
             textureMap.put(TextureKey.ALL, new Identifier("block/quartz_block_bottom"));
         }
