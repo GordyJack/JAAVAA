@@ -12,6 +12,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider modelProvider;
 	public DataProvider recipeProvider;
 	public DataProvider blockTagProvider;
+	public DataProvider blockLootTableProvider;
 	
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
@@ -21,5 +22,6 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		modelProvider = pack.addProvider(ModModelProvider::new);
 		recipeProvider = pack.addProvider(ModRecipeProvider::new);
 		blockTagProvider = pack.addProvider(ModBlockTagGenerator::new);
+		blockLootTableProvider = pack.addProvider(ModBlockLootTableGenerator::new);
 	}
 }
