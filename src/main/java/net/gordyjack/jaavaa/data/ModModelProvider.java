@@ -47,6 +47,7 @@ public class ModModelProvider extends FabricModelProvider {
 //            textureMap.put(TextureKey.DOWN, new Identifier("block/dried_kelp_bottom"));
 //            textureMap.put(TextureKey.BOTTOM, new Identifier("block/dried_kelp_bottom"));
 //        }
+        //TODO: Implement all special cases
         if (parentBlock == Blocks.SMOOTH_QUARTZ) {
             textureMap.put(TextureKey.ALL, new Identifier("block/quartz_block_bottom"));
         }
