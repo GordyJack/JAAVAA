@@ -16,8 +16,17 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(ModBlocks.TEST_BLOCK);
+        registerVanillaBlockSets(bsmGen);
         generateMiniBlockModels();
-        
+    }
+    @Override
+    public void generateItemModels(ItemModelGenerator imGen) {
+        for (Item item : ModItems.ITEMS) {
+            imGen.register(item, Models.GENERATED);
+        }
+    }
+
+    private void registerVanillaBlockSets(BlockStateModelGenerator bsmGen) {
         for (SlabBlock slabBlock : ModBlocks.SLABS) {
             Block parentBlock = ModBlocks.getParent(slabBlock);
             registerSlabModel(bsmGen, createTextureMap(parentBlock), parentBlock, slabBlock);
@@ -31,13 +40,6 @@ public class ModModelProvider extends FabricModelProvider {
             registerStairsModel(bsmGen, createTextureMap(parentBlock), stairsBlock);
         }
     }
-    @Override
-    public void generateItemModels(ItemModelGenerator imGen) {
-        for (Item item : ModItems.ITEMS) {
-            imGen.register(item, Models.GENERATED);
-        }
-    }
-
     private TextureMap createTextureMap(Block parentBlock) {
         TextureMap textureMap = TextureMap.all(parentBlock);
 //        if (parentBlock == Blocks.DRIED_KELP_BLOCK) {
