@@ -70,6 +70,11 @@ public class ModModelProvider extends FabricModelProvider {
             textureMap.put(TextureKey.END, new Identifier("block/red_sandstone_top"));
             textureMap.put(TextureKey.SIDE, new Identifier("block/chiseled_red_sandstone"));
         }
+        if (parentBlock == Blocks.REINFORCED_DEEPSLATE) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/reinforced_deepslate_side"));
+            textureMap.put(TextureKey.TOP, new Identifier("block/reinforced_deepslate_top"));
+            textureMap.put(TextureKey.BOTTOM, new Identifier("block/reinforced_deepslate_bottom"));
+        }
         return textureMap;
     }
     private void registerSlabModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, Block parentBlock, SlabBlock slabBlock) {
@@ -80,20 +85,22 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier doubleID = new Identifier("block/" + parentName);
         bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, bottomID, topID, doubleID));
     }
+    //TODO: Vanilla walls only use one texture/TextureKey for all sides, will need to implement custom template models to fix.
+    //Reference minecraft:block/template_wall_post.json, minecraft:block/template_wall_side.json, and minecraft:block/template_wall_side_tall.json
     private void registerWallModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, WallBlock wallBlock) {
-        Identifier identifier = Models.TEMPLATE_WALL_POST.upload(wallBlock, textureMap, bsmGen.modelCollector);
-        Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textureMap, bsmGen.modelCollector);
-        Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textureMap, bsmGen.modelCollector);
-        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, identifier, identifier2, identifier3));
-        Identifier identifier4 = Models.WALL_INVENTORY.upload(wallBlock, textureMap, bsmGen.modelCollector);
-        bsmGen.registerParentedItemModel(wallBlock, identifier4);
+        Identifier postId = Models.TEMPLATE_WALL_POST.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        Identifier sideId = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        Identifier tallId = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, postId, sideId, tallId));
+        Identifier invId = Models.WALL_INVENTORY.upload(wallBlock, textureMap, bsmGen.modelCollector);
+        bsmGen.registerParentedItemModel(wallBlock, invId);
     }
     private void registerStairsModel(BlockStateModelGenerator bsmGen, TextureMap textureMap, StairsBlock stairsBlock) {
-        Identifier identifier = Models.INNER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
-        Identifier identifier2 = Models.STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
-        Identifier identifier3 = Models.OUTER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
-        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairsBlock, identifier, identifier2, identifier3));
-        bsmGen.registerParentedItemModel(stairsBlock, identifier2);
+        Identifier innerStairId = Models.INNER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
+        Identifier stairId = Models.STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
+        Identifier outerStairId = Models.OUTER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
+        bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairsBlock, innerStairId, stairId, outerStairId));
+        bsmGen.registerParentedItemModel(stairsBlock, stairId);
     }
     private void generateMiniBlockModels() {
         String bottomSingle = "mini_block_00000001_single.json";
