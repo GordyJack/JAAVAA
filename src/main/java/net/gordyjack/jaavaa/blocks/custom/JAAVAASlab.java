@@ -94,14 +94,15 @@ extends SlabBlock {
         public TintedGlass(Settings settings) {
             super(settings);
         }
-        
+
+        //I'm still unsure if this is the best way to do this. But it works in a way that at least makes some sense.
         @Override
         public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
-            return world.getMaxLightLevel();
+            return state.get(TYPE) == SlabType.DOUBLE ? world.getMaxLightLevel() : super.getOpacity(state, world, pos);
         }
         @Override
         public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
-            return false;
+            return state.get(TYPE) == SlabType.DOUBLE;
         }
     }
     public static class Redstone extends JAAVAASlab {
