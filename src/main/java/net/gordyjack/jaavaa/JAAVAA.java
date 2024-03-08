@@ -14,7 +14,7 @@ public class JAAVAA implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MODID = "jaavaa";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
 	@Override
 	public void onInitialize() {
@@ -37,5 +37,11 @@ public class JAAVAA implements ModInitializer {
 	}
 	public static void logError(String message) {
 	    LOGGER.error(message);
+	}
+	public static void logWarn(String message) {
+	    LOGGER.warn(message);
+	}
+	public static void logDebug(String message) {
+	    LOGGER.debug(message);
 	}
 }
