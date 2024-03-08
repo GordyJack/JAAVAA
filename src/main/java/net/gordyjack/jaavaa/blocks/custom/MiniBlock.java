@@ -1,5 +1,6 @@
-package net.gordyjack.jaavaa.blocks;
+package net.gordyjack.jaavaa.blocks.custom;
 
+import net.gordyjack.jaavaa.blocks.*;
 import net.gordyjack.jaavaa.blocks.utils.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;

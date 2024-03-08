@@ -4,9 +4,12 @@ import net.fabricmc.fabric.api.object.builder.v1.block.*;
 import net.gordyjack.jaavaa.JAAVAA;
 
 import net.fabricmc.fabric.api.item.v1.*;
+import net.gordyjack.jaavaa.blocks.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.util.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
 
@@ -59,7 +62,7 @@ public class ModBlocks {
             Blocks.MANGROVE_LEAVES,
             Blocks.AZALEA_LEAVES,
             Blocks.FLOWERING_AZALEA_LEAVES,
-            Blocks.GLASS, //TODO CUSTOM FUNCTION
+            Blocks.GLASS,
             Blocks.LAPIS_ORE,
             Blocks.DEEPSLATE_LAPIS_ORE,
             Blocks.LAPIS_BLOCK,
@@ -99,22 +102,22 @@ public class ModBlocks {
             Blocks.SOUL_SAND, //TODO CUSTOM FUNCTION
             Blocks.SOUL_SOIL,
             Blocks.GLOWSTONE, //TODO CUSTOM FUNCTION
-            Blocks.WHITE_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.ORANGE_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.MAGENTA_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.LIGHT_BLUE_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.YELLOW_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.LIME_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.PINK_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.GRAY_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.LIGHT_GRAY_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.CYAN_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.PURPLE_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.BLUE_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.BROWN_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.GREEN_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.RED_STAINED_GLASS, //TODO CUSTOM FUNCTION
-            Blocks.BLACK_STAINED_GLASS, //TODO CUSTOM FUNCTION
+            Blocks.WHITE_STAINED_GLASS,
+            Blocks.ORANGE_STAINED_GLASS,
+            Blocks.MAGENTA_STAINED_GLASS,
+            Blocks.LIGHT_BLUE_STAINED_GLASS,
+            Blocks.YELLOW_STAINED_GLASS,
+            Blocks.LIME_STAINED_GLASS,
+            Blocks.PINK_STAINED_GLASS,
+            Blocks.GRAY_STAINED_GLASS,
+            Blocks.LIGHT_GRAY_STAINED_GLASS,
+            Blocks.CYAN_STAINED_GLASS,
+            Blocks.PURPLE_STAINED_GLASS,
+            Blocks.BLUE_STAINED_GLASS,
+            Blocks.BROWN_STAINED_GLASS,
+            Blocks.GREEN_STAINED_GLASS,
+            Blocks.RED_STAINED_GLASS,
+            Blocks.BLACK_STAINED_GLASS,
             Blocks.STONE_BRICKS,
             Blocks.MOSSY_STONE_BRICKS,
             Blocks.CRACKED_STONE_BRICKS,
@@ -128,7 +131,7 @@ public class ModBlocks {
             //Blocks.REDSTONE_LAMP, //TODO CUSTOM FUNCTION
             Blocks.EMERALD_ORE,
             Blocks.DEEPSLATE_EMERALD_ORE,
-            Blocks.REDSTONE_BLOCK, //TODO CUSTOM FUNCTION
+            Blocks.REDSTONE_BLOCK,
             Blocks.NETHER_QUARTZ_ORE,
             Blocks.QUARTZ_BLOCK,
             Blocks.CHISELED_QUARTZ_BLOCK,
@@ -361,6 +364,12 @@ public class ModBlocks {
         };
         return Arrays.stream(BLOCKS_WITH_SLABS).toList().contains(block);
     }
+    private static boolean hasWall(Block block) {
+        return false;
+    }
+    private static boolean hasStairs(Block block) {
+        return false;
+    }
     
     public static Block getParent(Block block) {
         if(SLABS.contains((SlabBlock) block)) {
@@ -375,27 +384,105 @@ public class ModBlocks {
     public static void registerBlocks() {
         JAAVAA.logInfo("Registering ModBlocks");
         
-        for (Block block : VANILLA_BLOCKS) {
-            String translationKey = block.getTranslationKey();
+        for (Block parentBlock : VANILLA_BLOCKS) {
+            String translationKey = parentBlock.getTranslationKey();
             String name = translationKey.substring(translationKey.lastIndexOf(".") + 1);
-            //JAAVAA.logError("REGISTERING: " + name);
-            if (!hasSlab(block)) {
-                SlabBlock slabBlock = (SlabBlock) registerBlock(name + "_slab", new SlabBlock(FabricBlockSettings.copyOf(block)));
-                SLABS.add(slabBlock);
-                SLAB_PARENTS.put(slabBlock, block);
-            }
-            WallBlock wallBlock = (WallBlock) registerBlock(name + "_wall", new WallBlock(
-                    FabricBlockSettings.copyOf(block)
-            ));
-            StairsBlock stairsBlock = (StairsBlock) registerBlock(name + "_stair", new StairsBlock(
-                    block.getDefaultState(),
-                    FabricBlockSettings.copyOf(block)
-            ));
+            Map<String, Block> blockSet;
             
-            WALLS.add(wallBlock);
-            WALL_PARENTS.put(wallBlock, block);
-            STAIRS.add(stairsBlock);
-            STAIR_PARENTS.put(stairsBlock, block);
+            boolean isGlass = name.contains("glass");
+            boolean isStainedGlass = name.contains("stained") && isGlass;
+            boolean isTinted = name.contains("tinted") && isGlass;
+            if (isGlass) {
+                if (isStainedGlass) {
+                    blockSet = getBlockSet(parentBlock, "stained");
+                } else if (isTinted) {
+                    blockSet = getBlockSet(parentBlock, "tinted");
+                }else {
+                    blockSet = getBlockSet(parentBlock, "glass");
+                }
+            } else if (parentBlock == Blocks.REDSTONE_BLOCK) {
+                blockSet = getBlockSet(parentBlock, "redstone");
+            } else {
+                blockSet = getBlockSet(parentBlock);
+            }
+            registerBlockSet(parentBlock, blockSet, name);
+        }
+    }
+    private static Map<String, Block> getBlockSet(Block parentBlock) {
+        return getBlockSet(parentBlock, "none");
+    }
+    private static Map<String, Block> getBlockSet(Block parentBlock, String type) {
+        Map<String, Block> map = new HashMap<>();
+        FabricBlockSettings parentSettings = FabricBlockSettings.copyOf(parentBlock);
+        switch (type) {
+            case "glass" -> {
+                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Transparent(parentSettings));
+//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+            }
+            case "stained" -> {
+                DyeColor color = getDyeColor(parentBlock);
+                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.StainedGlass(color, parentSettings));
+//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+            }
+            case "tinted" -> {
+                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.TintedGlass(parentSettings));
+//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+            }
+            case "redstone" -> {
+                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Redstone(parentSettings));
+            }
+            default -> {
+                if (!hasSlab(parentBlock)) map.put("slab", new SlabBlock(parentSettings));
+//                if (!hasWall(parentBlock)) map.put("wall", new WallBlock(parentSettings));
+//                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+            }
+        }
+        return map;
+    }
+    @NotNull
+    private static DyeColor getDyeColor(Block parentBlock) {
+        String parentKey = parentBlock.getTranslationKey();
+        String colorName = parentKey.substring(parentKey.lastIndexOf('.') + 1, parentKey.indexOf("_stained"));
+        JAAVAA.logError(parentKey);
+        JAAVAA.logError(colorName);
+        return switch (colorName) {
+            case "white" -> DyeColor.WHITE;
+            case "orange" -> DyeColor.ORANGE;
+            case "magenta" -> DyeColor.MAGENTA;
+            case "light_blue" -> DyeColor.LIGHT_BLUE;
+            case "yellow" -> DyeColor.YELLOW;
+            case "lime" -> DyeColor.LIME;
+            case "pink" -> DyeColor.PINK;
+            case "gray" -> DyeColor.GRAY;
+            case "light_gray" -> DyeColor.LIGHT_GRAY;
+            case "cyan" -> DyeColor.CYAN;
+            case "purple" -> DyeColor.PURPLE;
+            case "blue" -> DyeColor.BLUE;
+            case "brown" -> DyeColor.BROWN;
+            case "green" -> DyeColor.GREEN;
+            case "red" -> DyeColor.RED;
+            case "black" -> DyeColor.BLACK;
+            default -> DyeColor.WHITE;
+        };
+    }
+    private static void registerBlockSet(Block parentBlock, Map<String, Block> blockMap, String name) {
+        if (blockMap.get("slab") != null) {
+            SlabBlock registeredSlab = (SlabBlock) registerBlock(name + "_slab", blockMap.get("slab"));
+            SLABS.add(registeredSlab);
+            SLAB_PARENTS.put(registeredSlab, parentBlock);
+        }
+        if (blockMap.get("wall") != null) {
+            WallBlock registeredWall = (WallBlock) registerBlock(name + "_wall", blockMap.get("wall"));
+            WALLS.add(registeredWall);
+            WALL_PARENTS.put(registeredWall, parentBlock);
+        }
+        if (blockMap.get("stairs") != null) {
+            StairsBlock registeredStair = (StairsBlock) registerBlock(name + "_stair", blockMap.get("stairs"));
+            STAIRS.add(registeredStair);
+            STAIR_PARENTS.put(registeredStair, parentBlock);
         }
     }
 }
