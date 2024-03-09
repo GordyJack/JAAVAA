@@ -477,7 +477,9 @@ public class JAAVAABlocks {
                 }
             } else if (parentBlock == Blocks.REDSTONE_BLOCK) {
                 blockSet = getBlockSet(parentBlock, "redstone");
-            } else {
+            } else if (parentBlock == Blocks.SLIME_BLOCK) {
+                blockSet = getBlockSet(parentBlock, "slime");
+            }else {
                 blockSet = getBlockSet(parentBlock);
             }
             registerBlockSet(parentBlock, blockSet, name);
@@ -509,6 +511,11 @@ public class JAAVAABlocks {
             case "redstone" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Redstone(parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Redstone(parentSettings));
+                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
+            }
+            case "slime" -> {
+                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Slime(parentSettings));
+                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Transparent(parentSettings));
                 if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             default -> {

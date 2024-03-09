@@ -21,7 +21,7 @@ public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 		enUSLangProvider = pack.addProvider(JAAVAALangProviderEnUs::new);
 		modelProvider = pack.addProvider(JAAVAAModelProvider::new);
 		recipeProvider = pack.addProvider(JAAVAARecipeProvider::new);
-		blockTagProvider = pack.addProvider(JAAVAABlockTagGenerator::new);
 		blockLootTableProvider = pack.addProvider(JAAVAABlockLootTableGenerator::new);
+		blockTagProvider = pack.addProvider(JAAVAABlockTagGenerator::new);
 	}
 }
