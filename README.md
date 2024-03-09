@@ -1,5 +1,6 @@
 # JAAVAA
 ## (Just Another Actually Vanilla Additions Addon)
+### Still in development, but the first release is coming soon™.
 ___
 The purpose of this mod is 4-fold:
 ### 1. Adding features that should be in _Vanilla_ by default. 
