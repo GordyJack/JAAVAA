@@ -1,9 +1,7 @@
 package net.gordyjack.jaavaa.items.custom;
 
-import net.gordyjack.jaavaa.JAAVAA;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
