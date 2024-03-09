@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:reinforced_deepslate",
+    "minecraft:glowstone",
     {
       "id": "#c:glass_blocks",
       "required": false
@@ -69,6 +70,9 @@
     "jaavaa:netherrack_slab",
     "jaavaa:netherrack_wall",
     "jaavaa:netherrack_stairs",
+    "jaavaa:glowstone_slab",
+    "jaavaa:glowstone_wall",
+    "jaavaa:glowstone_stairs",
     "jaavaa:cracked_stone_bricks_slab",
     "jaavaa:cracked_stone_bricks_wall",
     "jaavaa:cracked_stone_bricks_stairs",
