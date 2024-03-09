@@ -7,6 +7,7 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.shape.*;
 import net.minecraft.world.*;
 
+@SuppressWarnings("deprecation")
 public class JAAVAAWall
 extends WallBlock {
     public JAAVAAWall(Settings settings) {
@@ -68,20 +69,20 @@ extends WallBlock {
         public TintedGlass(Settings settings) {
             super(settings);
         }
-        
-//        @Override
-//        public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
-//            boolean tall = state.get(NORTH_SHAPE) == WallShape.TALL || state.get(EAST_SHAPE) == WallShape.TALL
-//                    || state.get(SOUTH_SHAPE) == WallShape.TALL || state.get(WEST_SHAPE) == WallShape.TALL;
-//            boolean none = state.get(NORTH_SHAPE) == WallShape.NONE && state.get(EAST_SHAPE) == WallShape.NONE
-//                    && state.get(SOUTH_SHAPE) == WallShape.NONE && state.get(WEST_SHAPE) == WallShape.NONE;
-//            boolean post = state.get(UP) && !none;
-//            return (tall || post) && !state.get(WATERLOGGED);
-//        }
-//        @Override
-//        public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
-//            return world.getMaxLightLevel();
-//        }
+
+        @Override
+        public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
+            return !isTransparent(state, world, pos) ? world.getMaxLightLevel() : super.getOpacity(state, world, pos);
+        }
+        @Override
+        public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
+            boolean tall = state.get(NORTH_SHAPE) == WallShape.TALL || state.get(EAST_SHAPE) == WallShape.TALL
+                    || state.get(SOUTH_SHAPE) == WallShape.TALL || state.get(WEST_SHAPE) == WallShape.TALL;
+            boolean none = state.get(NORTH_SHAPE) == WallShape.NONE && state.get(EAST_SHAPE) == WallShape.NONE
+                    && state.get(SOUTH_SHAPE) == WallShape.NONE && state.get(WEST_SHAPE) == WallShape.NONE;
+            boolean post = state.get(UP) && !none;
+            return !tall && !state.get(WATERLOGGED);
+        }
     }
     public static class Redstone extends JAAVAAWall {
         public Redstone(Settings settings) {
