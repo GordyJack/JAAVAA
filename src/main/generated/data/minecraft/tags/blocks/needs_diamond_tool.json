@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:obsidian_slab",
+    "jaavaa:obsidian_wall",
+    "jaavaa:obsidian_stairs",
+    "jaavaa:netherite_block_slab",
+    "jaavaa:netherite_block_wall",
+    "jaavaa:netherite_block_stairs",
+    "jaavaa:ancient_debris_slab",
+    "jaavaa:ancient_debris_wall",
+    "jaavaa:ancient_debris_stairs",
+    "jaavaa:crying_obsidian_slab",
+    "jaavaa:crying_obsidian_wall",
+    "jaavaa:crying_obsidian_stairs"
+  ]
+}

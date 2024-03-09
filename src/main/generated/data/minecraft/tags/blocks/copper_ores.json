@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:copper_ore_slab",
+    "jaavaa:copper_ore_wall",
+    "jaavaa:copper_ore_stairs",
+    "jaavaa:deepslate_copper_ore_slab",
+    "jaavaa:deepslate_copper_ore_wall",
+    "jaavaa:deepslate_copper_ore_stairs"
+  ]
+}

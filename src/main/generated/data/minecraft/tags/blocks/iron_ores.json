@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:iron_ore_slab",
+    "jaavaa:iron_ore_wall",
+    "jaavaa:iron_ore_stairs",
+    "jaavaa:deepslate_iron_ore_slab",
+    "jaavaa:deepslate_iron_ore_wall",
+    "jaavaa:deepslate_iron_ore_stairs"
+  ]
+}

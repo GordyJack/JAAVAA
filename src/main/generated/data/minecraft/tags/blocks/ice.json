@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:ice_slab",
+    "jaavaa:ice_wall",
+    "jaavaa:ice_stairs",
+    "jaavaa:packed_ice_slab",
+    "jaavaa:packed_ice_wall",
+    "jaavaa:packed_ice_stairs",
+    "jaavaa:blue_ice_slab",
+    "jaavaa:blue_ice_wall",
+    "jaavaa:blue_ice_stairs"
+  ]
+}

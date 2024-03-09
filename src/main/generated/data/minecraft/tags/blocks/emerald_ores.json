@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:emerald_ore_slab",
+    "jaavaa:emerald_ore_wall",
+    "jaavaa:emerald_ore_stairs",
+    "jaavaa:deepslate_emerald_ore_slab",
+    "jaavaa:deepslate_emerald_ore_wall",
+    "jaavaa:deepslate_emerald_ore_stairs"
+  ]
+}

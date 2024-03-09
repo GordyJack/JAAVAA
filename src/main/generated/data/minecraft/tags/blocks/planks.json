@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:oak_planks_wall",
+    "jaavaa:spruce_planks_wall",
+    "jaavaa:birch_planks_wall",
+    "jaavaa:jungle_planks_wall",
+    "jaavaa:acacia_planks_wall",
+    "jaavaa:cherry_planks_wall",
+    "jaavaa:dark_oak_planks_wall",
+    "jaavaa:mangrove_planks_wall",
+    "jaavaa:bamboo_planks_wall",
+    "jaavaa:crimson_planks_wall",
+    "jaavaa:warped_planks_wall"
+  ]
+}

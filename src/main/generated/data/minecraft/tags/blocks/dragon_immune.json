@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:obsidian_slab",
+    "jaavaa:obsidian_wall",
+    "jaavaa:obsidian_stairs",
+    "jaavaa:crying_obsidian_slab",
+    "jaavaa:crying_obsidian_wall",
+    "jaavaa:crying_obsidian_stairs",
+    "jaavaa:reinforced_deepslate_slab",
+    "jaavaa:reinforced_deepslate_wall",
+    "jaavaa:reinforced_deepslate_stairs"
+  ]
+}

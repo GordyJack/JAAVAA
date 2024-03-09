@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:soul_sand_slab",
+    "jaavaa:soul_sand_wall",
+    "jaavaa:soul_sand_stairs",
+    "jaavaa:soul_soil_slab",
+    "jaavaa:soul_soil_wall",
+    "jaavaa:soul_soil_stairs"
+  ]
+}

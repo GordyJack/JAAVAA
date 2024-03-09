@@ -490,7 +490,7 @@ public class JAAVAABlocks {
     }
     private static Map<String, Block> getBlockSet(Block parentBlock, String type) {
         Map<String, Block> map = new HashMap<>();
-        FabricBlockSettings parentSettings = FabricBlockSettings.copyOf(parentBlock);
+        AbstractBlock.Settings parentSettings = FabricBlockSettings.copy(parentBlock);
         switch (type) {
             case "glass" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Transparent(parentSettings));

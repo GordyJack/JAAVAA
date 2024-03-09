@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:nether_wart_block_slab",
+    "jaavaa:nether_wart_block_wall",
+    "jaavaa:nether_wart_block_stairs",
+    "jaavaa:warped_wart_block_slab",
+    "jaavaa:warped_wart_block_wall",
+    "jaavaa:warped_wart_block_stairs",
+    "jaavaa:shroomlight_slab",
+    "jaavaa:shroomlight_wall",
+    "jaavaa:shroomlight_stairs",
+    "jaavaa:sculk_slab",
+    "jaavaa:sculk_wall",
+    "jaavaa:sculk_stairs",
+    "jaavaa:moss_block_slab",
+    "jaavaa:moss_block_wall",
+    "jaavaa:moss_block_stairs"
+  ]
+}

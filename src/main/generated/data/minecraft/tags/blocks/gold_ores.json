@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:gold_ore_slab",
+    "jaavaa:gold_ore_wall",
+    "jaavaa:gold_ore_stairs",
+    "jaavaa:deepslate_gold_ore_slab",
+    "jaavaa:deepslate_gold_ore_wall",
+    "jaavaa:deepslate_gold_ore_stairs",
+    "jaavaa:nether_gold_ore_slab",
+    "jaavaa:nether_gold_ore_wall",
+    "jaavaa:nether_gold_ore_stairs"
+  ]
+}

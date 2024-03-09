@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:gold_ore_slab",
+    "jaavaa:gold_ore_wall",
+    "jaavaa:gold_ore_stairs",
+    "jaavaa:deepslate_gold_ore_slab",
+    "jaavaa:deepslate_gold_ore_wall",
+    "jaavaa:deepslate_gold_ore_stairs",
+    "jaavaa:gold_block_slab",
+    "jaavaa:gold_block_wall",
+    "jaavaa:gold_block_stairs",
+    "jaavaa:diamond_ore_slab",
+    "jaavaa:diamond_ore_wall",
+    "jaavaa:diamond_ore_stairs",
+    "jaavaa:deepslate_diamond_ore_slab",
+    "jaavaa:deepslate_diamond_ore_wall",
+    "jaavaa:deepslate_diamond_ore_stairs",
+    "jaavaa:diamond_block_slab",
+    "jaavaa:diamond_block_wall",
+    "jaavaa:diamond_block_stairs",
+    "jaavaa:emerald_ore_slab",
+    "jaavaa:emerald_ore_wall",
+    "jaavaa:emerald_ore_stairs",
+    "jaavaa:deepslate_emerald_ore_slab",
+    "jaavaa:deepslate_emerald_ore_wall",
+    "jaavaa:deepslate_emerald_ore_stairs",
+    "jaavaa:raw_gold_block_slab",
+    "jaavaa:raw_gold_block_wall",
+    "jaavaa:raw_gold_block_stairs"
+  ]
+}
