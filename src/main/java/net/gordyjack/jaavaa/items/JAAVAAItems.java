@@ -15,6 +15,16 @@ public class JAAVAAItems {
     public static final Item STARSTEEL_INGOT = registerItem("starsteel_ingot", new GlintingItem(
             new FabricItemSettings().rarity(Rarity.EPIC)
     ));
+    //TODO: Add textures for these items
+    public static final Item STARSTEEL_NUGGET = registerItem("starsteel_nugget", new GlintingItem(
+            new FabricItemSettings().rarity(Rarity.EPIC)
+    ));
+    public static final Item ALLAY_ESSENCE = registerItem("allay_essence", new Item(
+            new FabricItemSettings()
+    ));
+    public static final Item PERSONAL_ALLAY_COLLECTOR = registerItem("personal_allay_collector", new MagnetItem(
+            new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)
+    ));
     
     private static Item registerItem (String name, Item item) {
         ITEMS.add(item);
