@@ -3,13 +3,12 @@
 	"id": "jaavaa",
 	"version": "${version}",
 	"name": "JustAnotherActuallyVanillaAdditionsAddon",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Fixing and Enhancing Minecraft. The way it is meant to be played.",
 	"authors": [
 		"GordyJack"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/GordyJack/JAAVAA"
 	},
 	"license": "All Rights Reserved",
 	"icon": "assets/jaavaa/icon.png",
