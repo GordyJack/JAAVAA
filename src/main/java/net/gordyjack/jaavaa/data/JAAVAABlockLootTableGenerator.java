@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.gordyjack.jaavaa.blocks.JAAVAABlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.SlabBlock;
 
 public class JAAVAABlockLootTableGenerator
 extends FabricBlockLootTableProvider {
@@ -17,6 +18,8 @@ extends FabricBlockLootTableProvider {
             String blockKey = block.getTranslationKey();
             if (blockKey.contains("glass")) {
                 addDrop(block,  dropsWithSilkTouch(block));
+            } else if (block instanceof SlabBlock) {
+                addDrop(block, slabDrops(block));
             } else {
                 addDrop(block);
             }
