@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-09T03:04:40.0149551	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
+// 1.20.4	2024-03-09T03:14:15.0137265	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
 9dc783757f24870f9483dab2c71c169397afa9d7 data\minecraft\tags\blocks\copper_ores.json
 3966b7801478c4f4cd15295204455c0c075b4c55 data\minecraft\tags\blocks\terracotta.json
 54652e21d28c61b28fd533f7cd00f7cd710f848d data\minecraft\tags\blocks\iron_ores.json
@@ -23,7 +23,7 @@ e0b272b28b436942342b2a8b0d45674991d0b0ab data\c\tags\blocks\glass_blocks.json
 543268f40ca6ab8419064785bada0564863361d4 data\minecraft\tags\blocks\dragon_immune.json
 e0b272b28b436942342b2a8b0d45674991d0b0ab data\minecraft\tags\blocks\impermeable.json
 9e3651f5d365e2fac4501a03cee2f0ce430a2ab7 data\minecraft\tags\blocks\needs_diamond_tool.json
-ec12412b6de221f297f497b523965ac7de52291e data\minecraft\tags\blocks\mineable\pickaxe.json
+b74332b3d332263192482732a3db934eae7b163e data\minecraft\tags\blocks\mineable\pickaxe.json
 acad862b2a7a85dbb59f1e799a82831b4f42f4b0 data\minecraft\tags\blocks\wool.json
 d2cee31c304074d476524b1768707793e83a5192 data\minecraft\tags\blocks\needs_stone_tool.json
 0ceacfcabffefe150ad80a54a469f54769b24622 data\minecraft\tags\blocks\snow.json

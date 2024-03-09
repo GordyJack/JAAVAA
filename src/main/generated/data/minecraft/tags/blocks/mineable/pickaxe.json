@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "minecraft:reinforced_deepslate",
+    {
+      "id": "#c:glass_blocks",
+      "required": false
+    },
     "jaavaa:stone_wall",
     "jaavaa:polished_granite_wall",
     "jaavaa:polished_diorite_wall",

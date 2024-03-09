@@ -300,6 +300,7 @@ implements JAAVAATagGeneratorInterface<Block> {
                 Blocks.WAXED_WEATHERED_COPPER_GRATE,
                 Blocks.WAXED_OXIDIZED_COPPER_GRATE,
 
+                Blocks.GLOWSTONE,
                 Blocks.REINFORCED_DEEPSLATE
         };
         return Arrays.stream(MINEABLE_PICKAXE).toList().contains(parentBlock);
@@ -322,7 +323,9 @@ implements JAAVAATagGeneratorInterface<Block> {
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(Blocks.REINFORCED_DEEPSLATE);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(Blocks.REINFORCED_DEEPSLATE, Blocks.GLOWSTONE)
+                .addOptionalTag(COMMON_GLASS);
 
         for (Block block : JAAVAABlocks.BLOCKS) {
             String key = block.getTranslationKey();
