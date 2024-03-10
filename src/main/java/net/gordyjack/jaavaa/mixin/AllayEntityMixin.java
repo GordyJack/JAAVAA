@@ -18,8 +18,8 @@ public class AllayEntityMixin {
 	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
 	private void interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
 		// This code is injected into the start of AllayEntity.interactMob()
+		JAAVAA.logError("Player right-clicked on an AllayEntity with: " + player.getStackInHand(Hand.MAIN_HAND));
 		if (player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof MagnetItem) {
-			JAAVAA.logError("Player right-clicked on an AllayEntity with a MagnetItem");
 			cir.setReturnValue(ActionResult.PASS);
 		}
 	}

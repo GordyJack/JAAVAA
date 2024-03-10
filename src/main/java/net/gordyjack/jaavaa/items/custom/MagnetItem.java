@@ -8,8 +8,8 @@ import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsage;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -30,9 +30,6 @@ public class MagnetItem
 extends Item {
     //Fields
     private static final String DATA_KEY = JAAVAA.MODID + "_magnetstate";
-    private static final byte STATE_NOT_CAPTURED = 0;
-    private static final byte STATE_ACTIVE = 1;
-    private static final byte STATE_INACTIVE = 2;
 
     //Constructor
     public MagnetItem(Settings settings) {
@@ -40,57 +37,25 @@ extends Item {
     }
 
     //Inherited Methods
-    /**
-     * When the player right-clicks with the magnet in their main hand while sneaking, the magnet will be enabled or disabled.
-     * @param world The world the player is in
-     * @param user The player using the magnet
-     * @param hand The hand the player used to right-click
-     * @return The result of the action
-     */
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (!world.isClient() && hand == Hand.MAIN_HAND && user.isSneaking()) {
-            final ItemStack stack = user.getStackInHand(hand);
-            if (toggleItemState(stack)) {
-                return TypedActionResult.success(stack);
-            } else {
-                user.sendMessage(Text.literal("You need to capture an Allay first!"), true);
-            }
-        }
-        return super.use(world, user, hand);
-    }
-
-    /**
-     * When the player right-clicks on an AllayEntity with the magnet in their main hand,
-     * if the magnet is not captured, the AllayEntity will be removed and the magnet will be enabled.
-     * @param stack The magnet item
-     * @param user The player using the magnet
-     * @param entity The entity the player right-clicked on
-     * @param hand The hand the player used to right-click
-     * @return The result of the action
-     */
-    @Override
-    public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if (!user.getWorld().isClient() && hand == Hand.MAIN_HAND && entity instanceof AllayEntity && getItemState(stack) == STATE_NOT_CAPTURED) {
-            user.getWorld().playSound(null, user.getBlockPos(), SoundEvents.ENTITY_WITHER_SHOOT, SoundCategory.PLAYERS, 0.5f, 2.0f);
-            entity.remove(Entity.RemovalReason.DISCARDED);
-            changeItemState(stack, STATE_NOT_CAPTURED, STATE_ACTIVE);
-
-            return ActionResult.SUCCESS;
-        }
-        return super.useOnEntity(stack, user, entity, hand);
-    }
     @Override
     public boolean hasGlint(ItemStack stack) {
-        return getItemState(stack) == STATE_ACTIVE;
+        return isActive(stack);
     }
+    /**
+     * When the player has the magnet in their inventory, the magnet will attract items to the player if it is enabled.
+     * @param stack The magnet item
+     * @param world The world the player is in
+     * @param entity The player holding the magnet
+     * @param slot The slot the magnet is in
+     * @param selected Whether the magnet is selected
+     */
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (world.isClient()) {
             super.inventoryTick(stack, world, entity, slot, selected);
             return;
         }
-        if (getItemState(stack) == STATE_ACTIVE) {
+        if (isActive(stack)) {
             world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), entity.getBoundingBox().expand(5.0, 5.0, 5.0), itemEntity -> {
                 if (itemEntity.isAlive() ) {
                     itemEntity.setVelocity(
@@ -104,36 +69,67 @@ extends Item {
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
+    /**
+     * When the player right-clicks with the magnet in their main hand while sneaking, the magnet will be enabled or disabled.
+     * @param world The world the player is in
+     * @param user The player using the magnet
+     * @param hand The hand the player used to right-click
+     * @return The result of the action
+     */
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if (!world.isClient() && hand == Hand.MAIN_HAND && user.isSneaking()) {
+            final ItemStack stack = user.getStackInHand(hand);
+            world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.5f, 2.0f);
+            toggleActive(stack);
+            user.sendMessage(Text.of("Magnet " + (isActive(stack) ? "disabled" : "enabled")), true);
+            return TypedActionResult.success(stack);
+        }
+        return super.use(world, user, hand);
+    }
 
     //Helper Methods
-    private static boolean changeItemState(ItemStack stack, byte currentItemState, byte newItemState) {
-        final byte validNewState = getNextValidItemState(currentItemState);
-        if (STATE_NOT_CAPTURED != validNewState && validNewState == newItemState) {
-            stack.getOrCreateNbt().putByte(DATA_KEY, validNewState);
-            return true;
-        }
-        return false;
-    }
-    private static byte getNextValidItemState(byte currentItemState) {
-        return switch (currentItemState) {
-            case STATE_NOT_CAPTURED, STATE_INACTIVE -> STATE_ACTIVE;
-            case STATE_ACTIVE -> STATE_INACTIVE;
-            default -> STATE_NOT_CAPTURED;
-        };
-    }
-    private static byte getItemState(ItemStack stack) {
+    private static boolean isActive(ItemStack stack) {
         final NbtCompound nbt = stack.getNbt();
-        if (null != nbt && nbt.contains(DATA_KEY, NbtElement.BYTE_TYPE)) {
-            final byte stateValue = nbt.getByte(DATA_KEY);
-            return switch (stateValue) {
-                case STATE_ACTIVE, STATE_INACTIVE -> stateValue;
-                default -> STATE_NOT_CAPTURED;
-            };
-        }
-        return STATE_NOT_CAPTURED;
+        return null != nbt && nbt.contains(DATA_KEY) && nbt.getBoolean(DATA_KEY);
     }
-    private static boolean toggleItemState(ItemStack stack) {
-        final byte currentState = getItemState(stack);
-        return STATE_NOT_CAPTURED != currentState && changeItemState(stack, currentState, getNextValidItemState(currentState));
+    private static void setActive(ItemStack stack, boolean active) {
+        stack.getOrCreateNbt().putBoolean(DATA_KEY, active);
+    }
+    private static void toggleActive(ItemStack stack) {
+        final boolean currentState = isActive(stack);
+        setActive(stack, !currentState);
+    }
+    public static class Empty extends MagnetItem {
+        private final Class<? extends Entity> CAPTURABLE_ENTITY;
+        private final Item FILLED_ITEM;
+        public Empty(Settings settings, Class<? extends Entity> capturableEntity, Item filledItem) {
+            super(settings);
+
+            this.CAPTURABLE_ENTITY = capturableEntity;
+            this.FILLED_ITEM = filledItem;
+        }
+
+        @Override
+        public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+            if (!world.isClient()) {
+                user.sendMessage(Text.of("This item is empty"), true);
+            }
+            return TypedActionResult.pass(user.getStackInHand(hand));
+        }
+        //TODO: FIX: filledStack is air if stack has count 1
+        @Override
+        public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+            if (!user.getWorld().isClient() && hand == Hand.MAIN_HAND && entity.getClass() == CAPTURABLE_ENTITY) {
+                user.getWorld().playSound(null, user.getBlockPos(), SoundEvents.ENTITY_WITHER_SHOOT, SoundCategory.PLAYERS, 0.5f, 2.0f);
+                entity.remove(Entity.RemovalReason.DISCARDED);
+
+                final ItemStack filledStack = ItemUsage.exchangeStack(stack, user, new ItemStack(FILLED_ITEM), false);
+                JAAVAA.logError("Filled stack: " + filledStack + ", Stack in Hand: " + user.getStackInHand(hand));
+                //MagnetItem.setActive(filledStack, true);
+                return ActionResult.SUCCESS;
+            }
+            return super.useOnEntity(stack, user, entity, hand);
+        }
     }
 }
