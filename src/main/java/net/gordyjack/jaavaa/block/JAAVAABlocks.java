@@ -277,6 +277,9 @@ public class JAAVAABlocks {
             TEST_BLOCK,
             FabricBlockSettings.copyOf(TEST_BLOCK)
     ));
+    public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new AllayCollector(
+            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK)
+    ));
     
     private static Block registerBlock(String name, Block block) {
         BLOCKS.add(block);

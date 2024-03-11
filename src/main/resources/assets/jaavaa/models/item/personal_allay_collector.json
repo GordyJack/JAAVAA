@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "generated",
+	"parent": "builtin/entity",
 	"textures": {
 		"particle": "block/obsidian",
 		"base_1": "block/obsidian",
@@ -68,40 +68,6 @@
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"translation": [0, 2, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 45, 0],
-			"translation": [0, 2, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"gui": {
-			"rotation": [30, 225, 0],
-			"translation": [0, -1, 0],
-			"scale": [0.55, 0.55, 0.55]
-		},
-		"fixed": {
-			"translation": [0, -2.5, 0],
-			"scale": [0.8, 0.8, 0.8]
-		}
-	},
 	"groups": [
 		{
 			"name": "Base",

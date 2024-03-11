@@ -1,11 +1,13 @@
 package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.JAAVAA;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -26,13 +28,13 @@ import net.minecraft.world.World;
  * Some code is inspired by ZeroNoRyouki on Discord.
  */
 public class CollectorItem
-extends Item {
+extends BlockItem {
     //Fields
     private static final String DATA_KEY = JAAVAA.MODID + "_magnetstate";
 
     //Constructor
-    public CollectorItem(Settings settings) {
-        super(settings);
+    public CollectorItem(Block block, Settings settings) {
+        super(block, settings);
     }
 
     //Inherited Methods
@@ -81,7 +83,7 @@ extends Item {
             final ItemStack stack = user.getStackInHand(hand);
             world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.5f, 2.0f);
             toggleActive(stack);
-            user.sendMessage(Text.of("Collector " + (isActive(stack) ? "Enabled" : "Disabled")), true);
+            user.sendMessage(Text.of("§eCollector " + (isActive(stack) ? "§2Enabled" : "§4Disabled")), true);
             return TypedActionResult.success(stack);
         }
         return super.use(world, user, hand);
@@ -114,7 +116,7 @@ extends Item {
         setActive(stack, !currentState);
     }
     
-    public static class Empty extends CollectorItem {
+    public static class Empty extends Item {
         private final CollectorItem FILLED_ITEM;
         public Empty(Settings settings, CollectorItem filledItem) {
             super(settings);

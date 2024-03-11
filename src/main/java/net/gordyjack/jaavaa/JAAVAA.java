@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa;
 import net.fabricmc.api.ModInitializer;
 
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.util.*;
 import org.jetbrains.annotations.*;
@@ -19,6 +20,7 @@ public class JAAVAA implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		JAAVAABlocks.registerBlocks();
+		JAAVAABlockEntityTypes.registerBlockEntityTypes();
 		JAAVAAItems.registerItems();
 		JAAVAAItemGroups.registerItemGroups();
 	}

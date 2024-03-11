@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa.item;
 
 import net.fabricmc.fabric.api.item.v1.*;
 import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.block.JAAVAABlocks;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
@@ -22,8 +23,9 @@ public class JAAVAAItems {
     public static final Item ALLAY_ESSENCE = registerItem("allay_essence", new Item(
             new FabricItemSettings()
     ));
+    //TODO: Turn PERSONAL_ALLAY_COLLECTOR into a block entity that will act as a magnet in the inventory but a collector in the world.
     public static final Item PERSONAL_ALLAY_COLLECTOR = registerItem("personal_allay_collector", new CollectorItem(
-            new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)
+            JAAVAABlocks.ALLAY_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)
     ));
     public static final Item EMPTY_PERSONAL_COLLECTOR = registerItem("empty_personal_collector", new CollectorItem.Empty(
             new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(16), (CollectorItem) PERSONAL_ALLAY_COLLECTOR
