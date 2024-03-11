@@ -1,6 +1,6 @@
-package net.gordyjack.jaavaa.blocks;
+package net.gordyjack.jaavaa.block;
 
-import net.gordyjack.jaavaa.blocks.enums.*;
+import net.gordyjack.jaavaa.block.enums.*;
 import net.minecraft.state.property.*;
 
 public class JAAVAABlockProperties {

@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.gordyjack.jaavaa.data.*;
 import net.gordyjack.jaavaa.data.lang.*;
+import net.gordyjack.jaavaa.data.recipe.*;
 import net.gordyjack.jaavaa.data.tags.*;
 import net.minecraft.data.*;
 

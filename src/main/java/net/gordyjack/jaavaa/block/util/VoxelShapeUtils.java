@@ -1,4 +1,4 @@
-package net.gordyjack.jaavaa.blocks.utils;
+package net.gordyjack.jaavaa.block.util;
 
 import net.minecraft.block.*;
 import net.minecraft.util.function.*;

@@ -2,9 +2,9 @@ package net.gordyjack.jaavaa.data;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
-import net.gordyjack.jaavaa.blocks.*;
-import net.gordyjack.jaavaa.items.*;
-import net.gordyjack.jaavaa.items.custom.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.data.client.*;
 import net.minecraft.item.*;
@@ -23,7 +23,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
         for (Item item : JAAVAAItems.ITEMS) {
-            if (item instanceof MagnetItem) {
+            if (item instanceof CollectorItem) {
                 continue;
             }
             imGen.register(item, Models.GENERATED);

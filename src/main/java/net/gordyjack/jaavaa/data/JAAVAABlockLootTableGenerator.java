@@ -2,7 +2,7 @@ package net.gordyjack.jaavaa.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.gordyjack.jaavaa.blocks.JAAVAABlocks;
+import net.gordyjack.jaavaa.block.JAAVAABlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 
