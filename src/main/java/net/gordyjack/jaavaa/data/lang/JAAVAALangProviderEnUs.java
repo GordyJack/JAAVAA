@@ -2,8 +2,8 @@ package net.gordyjack.jaavaa.data.lang;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
-import net.gordyjack.jaavaa.blocks.*;
-import net.gordyjack.jaavaa.items.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
 import org.apache.commons.lang3.text.*;

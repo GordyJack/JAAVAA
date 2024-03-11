@@ -1,4 +1,4 @@
-package net.gordyjack.jaavaa.blocks.custom;
+package net.gordyjack.jaavaa.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.*;

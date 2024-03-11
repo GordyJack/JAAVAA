@@ -1,7 +1,7 @@
-package net.gordyjack.jaavaa.blocks.custom;
+package net.gordyjack.jaavaa.block.custom;
 
-import net.gordyjack.jaavaa.blocks.*;
-import net.gordyjack.jaavaa.blocks.utils.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.util.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.pathing.*;

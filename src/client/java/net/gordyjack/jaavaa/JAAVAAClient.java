@@ -2,7 +2,7 @@ package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.*;
-import net.gordyjack.jaavaa.blocks.*;
+import net.gordyjack.jaavaa.block.*;
 import net.minecraft.block.*;
 import net.minecraft.client.render.*;
 

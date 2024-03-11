@@ -2,8 +2,8 @@ package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.gordyjack.jaavaa.blocks.*;
-import net.gordyjack.jaavaa.items.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.*;
 import net.minecraft.util.*;
 import org.jetbrains.annotations.*;
 import org.slf4j.Logger;

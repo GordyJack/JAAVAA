@@ -1,4 +1,4 @@
-package net.gordyjack.jaavaa.items.custom;
+package net.gordyjack.jaavaa.item.custom;
 
 import net.minecraft.item.*;
 
