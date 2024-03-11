@@ -54,9 +54,9 @@ extends Item {
             super.inventoryTick(stack, world, entity, slot, selected);
             return;
         }
-        if (isActive(stack)) {
-            world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), entity.getBoundingBox().expand(5.0, 5.0, 5.0), itemEntity -> {
-                if (itemEntity.isAlive() ) {
+        if (isActive(stack) && !entity.isSneaking()) {
+            world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), entity.getBoundingBox().expand(8.0, 8.0, 8.0), itemEntity -> {
+                if (itemEntity.isAlive() && !itemEntity.cannotPickup()) {
                     itemEntity.setVelocity(
                             (entity.getX() - itemEntity.getX()) / 10.0,
                             (entity.getY() - itemEntity.getY()) / 10.0,
