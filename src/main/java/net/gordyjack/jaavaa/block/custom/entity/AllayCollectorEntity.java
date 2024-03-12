@@ -2,28 +2,23 @@ package net.gordyjack.jaavaa.block.custom.entity;
 
 import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.custom.AllayCollectorBlock;
-import net.gordyjack.jaavaa.block.util.ImplementedInventory;
-import net.gordyjack.jaavaa.mixin.ItemEntityMixin;
 import net.gordyjack.jaavaa.mixinterfaces.ItemEntityMixinInterface;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.HopperBlockEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
-import net.minecraft.inventory.SingleStackInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.entity.EntityPredicates;
+import net.minecraft.util.Clearable;
 import net.minecraft.util.TypeFilter;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,35 +28,26 @@ import java.util.stream.IntStream;
 
 public class AllayCollectorEntity
 extends BlockEntity
-implements SingleStackInventory {
+implements Clearable {
     private static final float ATTRACT_RANGE = 8.0f;
-    private static final float PICKUP_RANGE = 0.501f;
+    private static final float PICKUP_RANGE = 0.001f;
     private ItemStack filter = ItemStack.EMPTY;
 
-    //TODO: All of this
+    //Constructor
     public AllayCollectorEntity(BlockPos pos, BlockState state) {
         super(JAAVAABlockEntityTypes.ALLAY_COLLECTOR, pos, state);
     }
+
     //Inherrited Methods
     @Override
+    public void clear() {
+        this.filter = ItemStack.EMPTY;
+    }
     public ItemStack getStack() {
         return filter;
     }
-    @Override
-    public ItemStack decreaseStack(int count) {
-        ItemStack itemStack = this.filter.split(count);
-        if (this.filter.isEmpty()) {
-            this.filter = ItemStack.EMPTY;
-        }
-        return itemStack;
-    }
-    @Override
     public void setStack(ItemStack stack) {
         this.filter = stack;
-    }
-    @Override
-    public BlockEntity asBlockEntity() {
-        return this;
     }
     //NBT
     @Override
@@ -87,17 +73,33 @@ implements SingleStackInventory {
     private static void attractItems(World world, BlockPos pos, AllayCollectorEntity blockEntity) {
         world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), Box.from(Vec3d.of(pos)).expand(ATTRACT_RANGE), itemEntity -> {
             if (itemEntity.isAlive() && blockEntity.doesFilterMatch(itemEntity.getStack())) {
-                if (itemEntity.getPos() != ((ItemEntityMixinInterface)itemEntity).jaavaa$getOldPos()) {
-                    itemEntity.setPickupDelay(10);
-                    itemEntity.setNeverDespawn();
+                if (itemEntity.getPos() != ((ItemEntityMixinInterface)itemEntity).jaavaa$getOldPos()
+                        && !((ItemEntityMixinInterface)itemEntity).jaavaa$delayEnded()) {
+                    JAAVAA.logError("SETTING");
+                    itemEntity.setPickupDelay(200);
+                    itemEntity.setNoGravity(true);
                     ((ItemEntityMixinInterface)itemEntity).jaavaa$setOldPos(itemEntity.getPos());
                 }
-                final float velocityScale = 35.0f;
-                itemEntity.addVelocity(
-                    (pos.getX() + 0.5f - itemEntity.getX()) / velocityScale,
-                    (pos.getY() + 0.5f - itemEntity.getY()) / velocityScale,
-                    (pos.getZ() + 0.5f - itemEntity.getZ()) / velocityScale
-                );
+                if (!itemEntity.cannotPickup()) {
+                    JAAVAA.logError("CAN'T PICKUP");
+                    ((ItemEntityMixinInterface)itemEntity).jaavaa$setDelayEnded(true);
+                    itemEntity.setNoGravity(false);
+                } else {
+                    JAAVAA.logError("ATTRACTING");
+                    if (getInputItemEntities(world, pos).contains(itemEntity)) {
+                        itemEntity.setVelocity(Vec3d.ZERO);
+                    } else {
+                        final double VEL_S = 15;
+                        final double MAX_V = .1;
+                        double xDistance = pos.getX() + 0.5f - itemEntity.getX();
+                        double yDistance = pos.getY() - itemEntity.getY();
+                        double zDistance = pos.getZ() + 0.5f - itemEntity.getZ();
+                        double xVelocity = xDistance / VEL_S;
+                        double yVelocity = yDistance / VEL_S;
+                        double zVelocity = zDistance / VEL_S;
+                        itemEntity.setVelocity(xVelocity, yVelocity, zVelocity);
+                    }
+                }
             }
             return false;
         });
@@ -143,8 +145,10 @@ implements SingleStackInventory {
         return IntStream.range(0, inventory.size());
     }
     public static List<ItemEntity> getInputItemEntities(World world, BlockPos pos) {
-        return VoxelShapes.cuboid(-PICKUP_RANGE, -PICKUP_RANGE, -PICKUP_RANGE, PICKUP_RANGE, PICKUP_RANGE, PICKUP_RANGE).getBoundingBoxes().stream().flatMap(
-                box -> world.getEntitiesByClass(ItemEntity.class, box.offset(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5), EntityPredicates.VALID_ENTITY).stream()
+        BlockState state = world.getBlockState(pos);
+        VoxelShape shape = state.getOutlineShape(world, pos);
+        return shape.getBoundingBoxes().stream().flatMap(
+                box -> world.getEntitiesByClass(ItemEntity.class, box.offset(pos.getX(), pos.getY(), pos.getZ()).expand(PICKUP_RANGE), EntityPredicates.VALID_ENTITY).stream()
         ).collect(Collectors.toList());
     }
     @Nullable

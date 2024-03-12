@@ -8,4 +8,9 @@ public interface ItemEntityMixinInterface {
     }
     default void jaavaa$setOldPos(Vec3d pos) {
     }
+    default boolean jaavaa$delayEnded() {
+        return false;
+    }
+    default void jaavaa$setDelayEnded(boolean ended) {
+    }
 }
