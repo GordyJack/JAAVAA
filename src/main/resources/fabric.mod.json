@@ -39,5 +39,10 @@
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"loom:injected_interfaces": {
+			"net/minecraft/class_1542": ["net/gordyjack/jaavaa/mixinterfaces/ItemEntityMixinInterface"]
+		}
 	}
 }

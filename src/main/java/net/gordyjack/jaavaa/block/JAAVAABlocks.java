@@ -5,6 +5,7 @@ import net.gordyjack.jaavaa.JAAVAA;
 
 import net.fabricmc.fabric.api.item.v1.*;
 import net.gordyjack.jaavaa.block.custom.*;
+import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
@@ -277,8 +278,8 @@ public class JAAVAABlocks {
             TEST_BLOCK,
             FabricBlockSettings.copyOf(TEST_BLOCK)
     ));
-    public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new AllayCollector(
-            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK)
+    public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new AllayCollectorBlock(
+            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR
     ));
     
     private static Block registerBlock(String name, Block block) {

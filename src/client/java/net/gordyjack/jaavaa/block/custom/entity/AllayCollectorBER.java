@@ -6,11 +6,10 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class AllayCollectorEntityRenderer
-implements BlockEntityRenderer<AllayCollectorEntity> {
-    //TODO: All of this
+public class AllayCollectorBER
+implements BlockEntityRenderer<AllayCollectorEntity>{
     private final EntityRenderDispatcher entityRenderDispatcher;
-    public AllayCollectorEntityRenderer(BlockEntityRendererFactory.Context ctx) {
+    public AllayCollectorBER(BlockEntityRendererFactory.Context ctx) {
         this.entityRenderDispatcher = ctx.getEntityRenderDispatcher();
     }
     @Override

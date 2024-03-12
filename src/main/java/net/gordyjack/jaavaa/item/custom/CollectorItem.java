@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.JAAVAA;
+import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -59,10 +60,11 @@ extends BlockItem {
         if (isActive(stack) && !entity.isSneaking()) {
             world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), entity.getBoundingBox().expand(8.0, 8.0, 8.0), itemEntity -> {
                 if (itemEntity.isAlive() && !itemEntity.cannotPickup()) {
-                    itemEntity.setVelocity(
-                            (entity.getX() - itemEntity.getX()) / 10.0,
-                            (entity.getY() - itemEntity.getY()) / 10.0,
-                            (entity.getZ() - itemEntity.getZ()) / 10.0
+                    final float velocityScale = 40.0f;
+                    itemEntity.addVelocity(
+                            (entity.getX() - itemEntity.getX()) / velocityScale,
+                            (entity.getY() - itemEntity.getY()) / velocityScale,
+                            (entity.getZ() - itemEntity.getZ()) / velocityScale
                     );
                 }
                 return false;
