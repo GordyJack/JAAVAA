@@ -1,7 +1,6 @@
 package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -9,7 +8,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -26,7 +24,6 @@ import net.minecraft.world.World;
  * A magnet item that can be enabled and disabled by right-clicking while sneaking.
  * When enabled, items surrounding the player will be attracted to the player at the movement speed of an AllayEntity.
  * When disabled, items will not be attracted to the player.
- *
  * Some code is inspired by ZeroNoRyouki on Discord.
  */
 public class CollectorItem
