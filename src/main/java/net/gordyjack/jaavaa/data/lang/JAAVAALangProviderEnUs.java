@@ -10,6 +10,7 @@ import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
 
+@SuppressWarnings({"deprecation", "OptionalGetWithoutIsPresent"})
 public class JAAVAALangProviderEnUs
 extends FabricLanguageProvider{
     public JAAVAALangProviderEnUs(FabricDataOutput dataOutput) {
@@ -34,7 +35,6 @@ extends FabricLanguageProvider{
     private String getTranslatedName(ItemConvertible itemConvertible) {
         return getTranslatedName(itemConvertible.asItem().getTranslationKey());
     }
-    @SuppressWarnings("deprecation")
     private String getTranslatedName(String name) {
         name = name.substring(name.lastIndexOf('.') + 1);
         name = name.replace("_block", "");
