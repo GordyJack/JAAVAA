@@ -8,6 +8,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -29,7 +30,7 @@ import net.minecraft.world.World;
  * Some code is inspired by ZeroNoRyouki on Discord.
  */
 public class CollectorItem
-extends BlockItem {
+extends AliasedBlockItem {
     //Fields
     private static final String DATA_KEY = JAAVAA.MODID + "_magnetstate";
 

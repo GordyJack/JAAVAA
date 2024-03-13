@@ -21,9 +21,6 @@ extends FabricLanguageProvider{
             translationBuilder.add(block, getTranslatedName(block));
         }
         for(Item item : JAAVAAItems.ITEMS) {
-            if (item == JAAVAAItems.PERSONAL_ALLAY_COLLECTOR) {
-                continue;
-            }
             translationBuilder.add(item, getTranslatedName(item));
         }
         

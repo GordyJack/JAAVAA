@@ -1,6 +1,6 @@
 {
   "block.jaavaa.acacia_planks_wall": "Acacia Planks Wall",
-  "block.jaavaa.allay_collector": "Allay Collector",
+  "block.jaavaa.allay_collector": "Personal Allay Collector",
   "block.jaavaa.amethyst_block_slab": "Amethyst Slab",
   "block.jaavaa.amethyst_block_stairs": "Amethyst Stairs",
   "block.jaavaa.amethyst_block_wall": "Amethyst Wall",
@@ -590,6 +590,7 @@
   "block.jaavaa.yellow_wool_wall": "Yellow Wool Wall",
   "item.jaavaa.allay_essence": "Allay Essence",
   "item.jaavaa.empty_personal_collector": "Empty Personal Collector",
+  "item.jaavaa.personal_allay_collector": "Personal Allay Collector",
   "item.jaavaa.starsteel_ingot": "Starsteel Ingot",
   "item.jaavaa.starsteel_nugget": "Starsteel Nugget",
   "jaavaa.itemGroup.items": "JAAVAA Items",
