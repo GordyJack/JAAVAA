@@ -2,13 +2,17 @@ package net.gordyjack.jaavaa.data;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.AllayCollectorBlock;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.data.client.*;
 import net.minecraft.item.*;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
+import net.minecraft.util.math.Direction;
 
 public class JAAVAAModelProvider extends FabricModelProvider {
     public JAAVAAModelProvider(FabricDataOutput output) {
@@ -17,19 +21,20 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.TEST_BLOCK);
+        bsmGen.blockStateCollector.accept(generateAllayCollectorState(bsmGen, (AllayCollectorBlock)JAAVAABlocks.ALLAY_COLLECTOR));
         registerVanillaBlockSets(bsmGen);
         generateMiniBlockModels();
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
         for (Item item : JAAVAAItems.ITEMS) {
-            if (item instanceof CollectorItem) {
+            if (item instanceof CollectorItem || item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR) {
                 continue;
             }
             imGen.register(item, Models.GENERATED);
         }
     }
-
+    //Vanilla-style Blocks
     private void registerVanillaBlockSets(BlockStateModelGenerator bsmGen) {
         for (SlabBlock slabBlock : JAAVAABlocks.SLABS) {
             Block parentBlock = JAAVAABlocks.getParent(slabBlock);
@@ -108,6 +113,32 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         Identifier outerStairId = Models.OUTER_STAIRS.upload(stairsBlock, textureMap, bsmGen.modelCollector);
         bsmGen.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairsBlock, innerStairId, stairId, outerStairId));
         bsmGen.registerParentedItemModel(stairsBlock, stairId);
+    }
+    //Modded Blocks
+    private VariantsBlockStateSupplier generateAllayCollectorState(BlockStateModelGenerator bsmGen, AllayCollectorBlock block) {
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+        BlockStateVariantMap.SingleProperty<Direction> variantMap = BlockStateVariantMap.create(Properties.FACING);
+
+        for (Direction facing : Direction.values()) {
+            VariantSettings.Rotation[] rotations = switch (facing) {
+                case DOWN -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R90, VariantSettings.Rotation.R180};
+                case UP -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R270, VariantSettings.Rotation.R0};
+                case NORTH -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R0};
+                case SOUTH -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R180};
+                case WEST -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R270};
+                case EAST -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R90};
+            };
+
+            boolean uvlock = rotations[0] != VariantSettings.Rotation.R0 || rotations[1] != VariantSettings.Rotation.R0;
+
+            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, JAAVAA.getID("block/allay_collector"));
+            if (rotations[0] != VariantSettings.Rotation.R0) variant.put(VariantSettings.X, rotations[0]);
+            if (rotations[1] != VariantSettings.Rotation.R0) variant.put(VariantSettings.Y, rotations[1]);
+            if (uvlock) variant.put(VariantSettings.UVLOCK, true);
+
+            variantMap.register(facing, variant);
+        }
+        return variantSupplier.coordinate(variantMap);
     }
     private void generateMiniBlockModels() {
         String bottomSingle = "mini_block_00000001_single.json";

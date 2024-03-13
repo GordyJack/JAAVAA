@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "generated",
+	"parent": "block/block",
 	"textures": {
 		"particle": "block/obsidian",
 		"base_1": "block/obsidian",

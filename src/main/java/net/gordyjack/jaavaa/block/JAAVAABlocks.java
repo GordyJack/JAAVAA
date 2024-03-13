@@ -283,8 +283,6 @@ public class JAAVAABlocks {
     ));
     
     private static Block registerBlock(String name, Block block) {
-        BLOCKS.add(block);
-        
         registerBlockItem(name, block);
         return registerBlockWithoutItem(name, block);
     }
@@ -292,6 +290,7 @@ public class JAAVAABlocks {
         return Registry.register(Registries.ITEM, JAAVAA.getID(name), new BlockItem(block, new FabricItemSettings()));
     }
     private static Block registerBlockWithoutItem(String name, Block block) {
+        BLOCKS.add(block);
         return Registry.register(Registries.BLOCK, JAAVAA.getID(name), block);
     }
     private static boolean hasSlab(Block block) {
