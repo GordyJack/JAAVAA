@@ -1,0 +1,13 @@
+{
+  "type": "patchouli:shapeless_book_recipe",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jaavaa:allay_essence"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "book": "jaavaa:jaavaa_guide"
+}
