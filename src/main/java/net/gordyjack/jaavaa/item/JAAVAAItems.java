@@ -28,7 +28,7 @@ public class JAAVAAItems {
             JAAVAABlocks.ALLAY_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)
     ));
     public static final Item EMPTY_PERSONAL_COLLECTOR = registerItem("empty_personal_collector", new CollectorItem.Empty(
-            new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(16), (CollectorItem) PERSONAL_ALLAY_COLLECTOR
+            new FabricItemSettings().maxCount(16), (CollectorItem) PERSONAL_ALLAY_COLLECTOR
     ));
     
     private static Item registerItem (String name, Item item) {

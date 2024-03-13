@@ -121,8 +121,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
 
         for (Direction facing : Direction.values()) {
             VariantSettings.Rotation[] rotations = switch (facing) {
-                case DOWN -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R90, VariantSettings.Rotation.R180};
-                case UP -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R270, VariantSettings.Rotation.R0};
+                case DOWN -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R90, VariantSettings.Rotation.R0};
+                case UP -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R270, VariantSettings.Rotation.R180};
                 case NORTH -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R0};
                 case SOUTH -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R180};
                 case WEST -> new VariantSettings.Rotation[]{VariantSettings.Rotation.R0, VariantSettings.Rotation.R270};
@@ -130,8 +130,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             };
 
             boolean uvlock = rotations[0] != VariantSettings.Rotation.R0 || rotations[1] != VariantSettings.Rotation.R0;
-
-            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, JAAVAA.getID("block/allay_collector"));
+            
+            Identifier modelId = JAAVAA.getID("block/allay_collector");
+            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, modelId);
             if (rotations[0] != VariantSettings.Rotation.R0) variant.put(VariantSettings.X, rotations[0]);
             if (rotations[1] != VariantSettings.Rotation.R0) variant.put(VariantSettings.Y, rotations[1]);
             if (uvlock) variant.put(VariantSettings.UVLOCK, true);

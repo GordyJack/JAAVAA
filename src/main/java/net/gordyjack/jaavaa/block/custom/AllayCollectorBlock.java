@@ -2,9 +2,9 @@ package net.gordyjack.jaavaa.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorEntity;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
+import net.gordyjack.jaavaa.block.util.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -41,26 +41,18 @@ import java.util.stream.Stream;
 @SuppressWarnings("deprecation")
 public class AllayCollectorBlock
 extends BlockWithEntity
-implements Waterloggable {
+implements Waterloggable,
+VoxelShapeUtils {
     //Fields
     private static final MapCodec<AllayCollectorBlock> CODEC = AllayCollectorBlock.createCodec(settings -> new AllayCollectorBlock(settings, () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR));
     public static final DirectionProperty FACING = FacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty ENABLED = Properties.ENABLED;
     private static final VoxelShape SHAPE = Stream.of(
-    Block.createCuboidShape(1, 4, 1, 15, 18, 15),
-        Block.createCuboidShape(0, 18, 0, 16, 20, 16),
-            Block.createCuboidShape(2, 20, 2, 14, 22, 14),
-            Block.createCuboidShape(0, 2, 0, 16, 20, 16),
-            Block.createCuboidShape(2, 0, 2, 14, 2, 14)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
-    private static final VoxelShape Y_SHAPE = Stream.of(
-            Block.createCuboidShape(1, 1, 1, 15, 15, 15),
-            Block.createCuboidShape(0, 0, -1, 16, 16, 1),
-            Block.createCuboidShape(2, 2, -3, 14, 14, -1),
-            Block.createCuboidShape(0, 0, 15, 16, 16, 17),
-            Block.createCuboidShape(2, 2, 17, 14, 14, 19)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+            Block.createCuboidShape(-0.05, -1, -0.05, 16.05, 17, 16.05),
+            Block.createCuboidShape(2, -3, 2, 14, -1, 14),
+            Block.createCuboidShape(2, 17, 2, 14, 19, 14)
+                                                     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     //Constructor
     public AllayCollectorBlock(Settings settings, Supplier<BlockEntityType<? extends AllayCollectorEntity>> supplier) {
@@ -102,7 +94,7 @@ implements Waterloggable {
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return state.get(FACING).getAxis() == Direction.Axis.Y ? Y_SHAPE : SHAPE;
+        return state.get(FACING).getAxis() != Direction.Axis.Y ? SHAPE : rotateShape(SHAPE, Direction.DOWN);
     }
     @Nullable
     @Override

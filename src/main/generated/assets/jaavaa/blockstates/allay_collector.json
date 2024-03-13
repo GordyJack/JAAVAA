@@ -3,8 +3,7 @@
     "facing=down": {
       "model": "jaavaa:block/allay_collector",
       "uvlock": true,
-      "x": 90,
-      "y": 180
+      "x": 90
     },
     "facing=east": {
       "model": "jaavaa:block/allay_collector",
@@ -22,7 +21,8 @@
     "facing=up": {
       "model": "jaavaa:block/allay_collector",
       "uvlock": true,
-      "x": 270
+      "x": 270,
+      "y": 180
     },
     "facing=west": {
       "model": "jaavaa:block/allay_collector",
