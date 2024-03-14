@@ -1,0 +1,18 @@
+{
+  "name": "Allay Essence",
+  "icon": "jaavaa:allay_essence",
+  "category": "jaavaa:materials",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": {
+        "item": "jaavaa:allay_essence"
+      },
+      "text": "Allay Essence is a relatively common drop from the Allay. It is used to craft the $(l:functional_blocks/allay_collector)Empty Personal Collector/$."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jaavaa:empty_personal_collector"
+    }
+  ]
+}
