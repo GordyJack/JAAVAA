@@ -35,16 +35,14 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 @SuppressWarnings("deprecation")
 public class AllayCollectorBlock
-extends BlockWithEntity
-implements Waterloggable,
-VoxelShapeUtils {
+        extends BlockWithEntity
+        implements Waterloggable,
+        VoxelShapeUtils {
     //Fields
-    private static final MapCodec<AllayCollectorBlock> CODEC = AllayCollectorBlock.createCodec(settings -> new AllayCollectorBlock(settings, () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR));
     public static final DirectionProperty FACING = FacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty ENABLED = Properties.ENABLED;
@@ -55,8 +53,12 @@ VoxelShapeUtils {
                                                      ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     //Constructor
-    public AllayCollectorBlock(Settings settings, Supplier<BlockEntityType<? extends AllayCollectorEntity>> supplier) {
+    public AllayCollectorBlock(Settings settings) {
         super(settings);
+    }
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return createCodec(AllayCollectorBlock::new);
     }
 
     //Inherrited Methods
@@ -72,10 +74,6 @@ VoxelShapeUtils {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new AllayCollectorEntity(pos, state);
-    }
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
     }
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
@@ -117,7 +115,7 @@ VoxelShapeUtils {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient() ? null : validateTicker(type, JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorEntity::tick);
+        return validateTicker(type, JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorEntity::tick);
     }
     @Override
     public boolean hasComparatorOutput(BlockState state) {
