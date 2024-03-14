@@ -1,6 +1,5 @@
 package net.gordyjack.jaavaa.block.custom.entity;
 
-import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.custom.CollectorBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ItemEntity;
@@ -8,8 +7,6 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class EnderCollectorEntity
         extends AbstractCollectorEntity {

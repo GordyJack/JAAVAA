@@ -65,8 +65,7 @@ public abstract class AbstractCollectorEntity extends BlockEntity implements Cle
         return HopperBlockEntity.getInventoryAt(world, pos.offset(direction));
     }
     public static boolean insertStack(Inventory outputInventory, ItemStack stack, @Nullable Direction side) {
-        if (outputInventory instanceof SidedInventory) {
-            SidedInventory sidedInventory = (SidedInventory) outputInventory;
+        if (outputInventory instanceof SidedInventory sidedInventory) {
             if (side != null) {
                 int[] is = sidedInventory.getAvailableSlots(side);
                 int i = 0;

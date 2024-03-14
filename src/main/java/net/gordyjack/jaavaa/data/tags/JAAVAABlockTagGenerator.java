@@ -3,7 +3,6 @@ package net.gordyjack.jaavaa.data.tags;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.block.*;
-import net.gordyjack.jaavaa.block.custom.CollectorBlock;
 import net.minecraft.block.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
