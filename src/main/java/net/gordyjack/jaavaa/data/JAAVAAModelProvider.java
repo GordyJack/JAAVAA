@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.*;
-import net.gordyjack.jaavaa.block.custom.AllayCollectorBlock;
+import net.gordyjack.jaavaa.block.custom.CollectorBlock;
 import net.gordyjack.jaavaa.item.*;
 import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
@@ -21,7 +21,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.TEST_BLOCK);
-        bsmGen.blockStateCollector.accept(generateAllayCollectorState(bsmGen, (AllayCollectorBlock)JAAVAABlocks.ALLAY_COLLECTOR));
+        bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ALLAY_COLLECTOR, "allay_collector"));
+        bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ENDER_COLLECTOR, "ender_collector"));
         registerVanillaBlockSets(bsmGen);
         generateMiniBlockModels();
     }
@@ -115,7 +116,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerParentedItemModel(stairsBlock, stairId);
     }
     //Modded Blocks
-    private VariantsBlockStateSupplier generateAllayCollectorState(BlockStateModelGenerator bsmGen, AllayCollectorBlock block) {
+    private VariantsBlockStateSupplier generateCollectorState(CollectorBlock block, String name) {
         VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
         BlockStateVariantMap.SingleProperty<Direction> variantMap = BlockStateVariantMap.create(Properties.FACING);
 
@@ -131,7 +132,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
 
             boolean uvlock = rotations[0] != VariantSettings.Rotation.R0 || rotations[1] != VariantSettings.Rotation.R0;
             
-            Identifier modelId = JAAVAA.getID("block/allay_collector");
+            Identifier modelId = JAAVAA.getID("block/" + name);
             BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, modelId);
             if (rotations[0] != VariantSettings.Rotation.R0) variant.put(VariantSettings.X, rotations[0]);
             if (rotations[1] != VariantSettings.Rotation.R0) variant.put(VariantSettings.Y, rotations[1]);

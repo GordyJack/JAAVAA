@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    {
+      "id": "#jaavaa:collectors",
+      "required": false
+    },
     "jaavaa:obsidian_slab",
     "jaavaa:obsidian_wall",
     "jaavaa:obsidian_stairs",

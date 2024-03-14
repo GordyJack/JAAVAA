@@ -7,6 +7,10 @@
       "id": "#c:glass_blocks",
       "required": false
     },
+    {
+      "id": "#jaavaa:collectors",
+      "required": false
+    },
     "jaavaa:stone_wall",
     "jaavaa:polished_granite_wall",
     "jaavaa:polished_diorite_wall",

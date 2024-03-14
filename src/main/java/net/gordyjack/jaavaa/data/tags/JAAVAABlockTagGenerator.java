@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa.data.tags;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.CollectorBlock;
 import net.minecraft.block.*;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.*;
@@ -18,6 +19,7 @@ implements JAAVAATagGeneratorInterface<Block> {
         super(output, registriesFuture);
     }
     public final TagKey<Block> COMMON_GLASS = registerCommonTagKey("glass_blocks");
+    public final TagKey<Block> JAAVAA_COLLECTORS = registerModTagKey("collectors");
     private boolean needsDiamond(Block parentBlock) {
         final Block[] NEEDS_DIAMOND_TOOL = {
                 Blocks.OBSIDIAN,
@@ -322,9 +324,15 @@ implements JAAVAATagGeneratorInterface<Block> {
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        getOrCreateTagBuilder(JAAVAA_COLLECTORS)
+                .add(JAAVAABlocks.ALLAY_COLLECTOR,
+                        JAAVAABlocks.ENDER_COLLECTOR);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(Blocks.REINFORCED_DEEPSLATE, Blocks.GLOWSTONE)
-                .addOptionalTag(COMMON_GLASS);
+                .addOptionalTag(COMMON_GLASS)
+                .addOptionalTag(JAAVAA_COLLECTORS);
+        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+                .addOptionalTag(JAAVAA_COLLECTORS);
 
         for (Block block : JAAVAABlocks.BLOCKS) {
             String key = block.getTranslationKey();

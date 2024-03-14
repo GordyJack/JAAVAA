@@ -278,8 +278,11 @@ public class JAAVAABlocks {
             TEST_BLOCK,
             FabricBlockSettings.copyOf(TEST_BLOCK)
     ));
-    public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new AllayCollectorBlock(
-            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK)
+    public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new CollectorBlock(
+            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR
+    ));
+    public static final Block ENDER_COLLECTOR = registerBlockWithoutItem("ender_collector", new CollectorBlock(
+            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ENDER_COLLECTOR
     ));
     
     private static Block registerBlock(String name, Block block) {

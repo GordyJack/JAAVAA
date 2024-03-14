@@ -1,8 +1,9 @@
 package net.gordyjack.jaavaa.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.gordyjack.jaavaa.block.custom.entity.AbstractCollectorEntity;
 import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorEntity;
+import net.gordyjack.jaavaa.block.custom.entity.EnderCollectorEntity;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.gordyjack.jaavaa.block.util.*;
 import net.minecraft.block.*;
@@ -34,11 +35,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 @SuppressWarnings("deprecation")
-public class AllayCollectorBlock
+public class CollectorBlock
         extends BlockWithEntity
         implements Waterloggable,
         VoxelShapeUtils {
@@ -51,14 +52,21 @@ public class AllayCollectorBlock
             Block.createCuboidShape(2, -3, 2, 14, -1, 14),
             Block.createCuboidShape(2, 17, 2, 14, 19, 14)
                                                      ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    private final Supplier<BlockEntityType<? extends AbstractCollectorEntity>> SUPPLIER;
 
     //Constructor
-    public AllayCollectorBlock(Settings settings) {
+    public CollectorBlock(Settings settings, Supplier<BlockEntityType<? extends AbstractCollectorEntity>> supplier) {
         super(settings);
+        this.SUPPLIER = supplier;
     }
+
+    public CollectorBlock(Settings settings) {
+        this(settings, null);
+    }
+
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return createCodec(AllayCollectorBlock::new);
+        return SUPPLIER != null ? createCodec(CollectorBlock::new) : null;
     }
 
     //Inherrited Methods
@@ -73,15 +81,15 @@ public class AllayCollectorBlock
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new AllayCollectorEntity(pos, state);
+        return SUPPLIER.get().instantiate(pos, state);
     }
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (!(blockEntity instanceof AllayCollectorEntity collectorEntity)) {
+        if (!(blockEntity instanceof AbstractCollectorEntity collectorEntity)) {
             return 0;
         }
-        return collectorEntity.getStack().isEmpty() ? 0 : 15;
+        return collectorEntity.getFilter().isEmpty() ? 0 : 15;
     }
     @Override
     public FluidState getFluidState(BlockState state) {
@@ -115,7 +123,13 @@ public class AllayCollectorBlock
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorEntity::tick);
+        if (SUPPLIER.get() == JAAVAABlockEntityTypes.ALLAY_COLLECTOR) {
+            return validateTicker(type, JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorEntity::tick);
+        }
+        if (SUPPLIER.get() == JAAVAABlockEntityTypes.ENDER_COLLECTOR) {
+            return validateTicker(type, JAAVAABlockEntityTypes.ENDER_COLLECTOR, EnderCollectorEntity::tick);
+        }
+        return null;
     }
     @Override
     public boolean hasComparatorOutput(BlockState state) {
@@ -128,17 +142,17 @@ public class AllayCollectorBlock
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (world.isClient() || !(blockEntity instanceof AllayCollectorEntity collectorEntity)) {
+        if (world.isClient() || !(blockEntity instanceof AbstractCollectorEntity collectorEntity)) {
             return ActionResult.CONSUME;
         }
 
         ItemStack heldStack = player.getStackInHand(hand);
-        ItemStack filterStack = collectorEntity.getStack();
+        ItemStack filterStack = collectorEntity.getFilter();
 
         if (!filterStack.isEmpty()) {
             collectorEntity.clear();
         } else {
-            collectorEntity.setStack(heldStack.copyWithCount(1));
+            collectorEntity.setFilter(heldStack.copyWithCount(1));
         }
         collectorEntity.markDirty();
         return ActionResult.SUCCESS;
@@ -156,9 +170,6 @@ public class AllayCollectorBlock
         return state.with(FACING, rotation.rotate(state.get(FACING)));
     }
     //Helper Methods
-    public static <B extends Block> MapCodec<B> createCodec(Function<Settings, B> blockFromSettings) {
-        return RecordCodecBuilder.mapCodec(instance -> instance.group(AbstractBlock.createSettingsCodec()).apply(instance, blockFromSettings));
-    }
     private void updateEnabled(World world, BlockPos pos, BlockState state) {
         boolean shouldBeEnabled = !world.isReceivingRedstonePower(pos);
         if (shouldBeEnabled != state.get(ENABLED)) {

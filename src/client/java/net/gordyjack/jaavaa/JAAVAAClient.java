@@ -19,10 +19,11 @@ public class JAAVAAClient implements ClientModInitializer {
 		configureBlockRenderLayerMap();
 
 //		BlockEntityRendererFactories.register(JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorBER::new);
-		BuiltinItemRendererRegistry.INSTANCE.register(JAAVAAItems.PERSONAL_ALLAY_COLLECTOR, new AllayCollectorItemRenderer());
+//		BuiltinItemRendererRegistry.INSTANCE.register(JAAVAAItems.PERSONAL_ALLAY_COLLECTOR, new AllayCollectorItemRenderer());
 	}
 	private void configureBlockRenderLayerMap() {
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.ALLAY_COLLECTOR, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.ENDER_COLLECTOR, RenderLayer.getTranslucent());
 		for (Block block : JAAVAABlocks.BLOCKS) {
 			String key = block.getTranslationKey();
 			boolean isGlass = key.contains("glass");

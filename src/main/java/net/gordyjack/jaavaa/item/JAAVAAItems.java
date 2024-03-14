@@ -16,22 +16,25 @@ public class JAAVAAItems {
     public static final Item STARSTEEL_INGOT = registerItem("starsteel_ingot", new GlintingItem(
             new FabricItemSettings().rarity(Rarity.RARE)
     ));
-    //TODO: Add textures for these items
     public static final Item STARSTEEL_NUGGET = registerItem("starsteel_nugget", new GlintingItem(
             new FabricItemSettings().rarity(Rarity.RARE)
     ));
     public static final Item ALLAY_ESSENCE = registerItem("allay_essence", new Item(
             new FabricItemSettings()
     ));
-    //TODO: Turn PERSONAL_ALLAY_COLLECTOR into a block entity that will act as a magnet in the inventory but a collector in the world.
     public static final Item PERSONAL_ALLAY_COLLECTOR = registerItem("personal_allay_collector", new CollectorItem(
-            JAAVAABlocks.ALLAY_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)
+            JAAVAABlocks.ALLAY_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()
+    ));
+    //TODO: Change CollectorItem to be able to support different magnet and entity pickup logic for the Ender Collector.
+    //Maybe use a tag to determine the pickup logic?
+    public static final Item PERSONAL_ENDER_COLLECTOR = registerItem("personal_ender_collector", new CollectorItem(
+            JAAVAABlocks.ENDER_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()
     ));
     public static final Item EMPTY_PERSONAL_COLLECTOR = registerItem("empty_personal_collector", new CollectorItem.Empty(
-            new FabricItemSettings().maxCount(16), (CollectorItem) PERSONAL_ALLAY_COLLECTOR
+            new FabricItemSettings().maxCount(16).fireproof(), (CollectorItem) PERSONAL_ALLAY_COLLECTOR
     ));
     
-    private static Item registerItem (String name, Item item) {
+    private static Item registerItem(String name, Item item) {
         ITEMS.add(item);
         return Registry.register(Registries.ITEM, JAAVAA.getID(name), item);
     }

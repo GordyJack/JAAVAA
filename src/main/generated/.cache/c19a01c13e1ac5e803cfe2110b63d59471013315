@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-13T10:51:55.3638435	JustAnotherActuallyVanillaAdditionsAddon/Block Loot Tables
+// 1.20.4	2024-03-14T16:38:11.2257346	JustAnotherActuallyVanillaAdditionsAddon/Block Loot Tables
 e6a3f7ab35c21ae898e9955046f97371e30efc1d data\jaavaa\loot_tables\blocks\yellow_wool_slab.json
 e4e5003f652d57800fce713cd8ed2f454de3cdce data\jaavaa\loot_tables\blocks\nether_gold_ore_stairs.json
 9c4eda998f6d065ecddb40627041e22b43c6f23b data\jaavaa\loot_tables\blocks\blue_terracotta_slab.json
@@ -190,6 +190,7 @@ d0e9af906894e2ca006b5f14fd476b5db1b51172 data\jaavaa\loot_tables\blocks\ice_stai
 aa1df9d222827f75ac26dc47f28cba5f8b62ab9c data\jaavaa\loot_tables\blocks\sea_lantern_slab.json
 f7121d6457c12cb8d1f10e480a07e24c5d067470 data\jaavaa\loot_tables\blocks\slime_block_slab.json
 4564f7e7d53b087e93730e24b2c911ed24c896f2 data\jaavaa\loot_tables\blocks\gray_wool_slab.json
+d40aa5076986d84da3a2e6f97804e6e73c1fe134 data\jaavaa\loot_tables\blocks\ender_collector.json
 c8f622bbdc3c50bea9ceb299b1bcd88fe4476c18 data\jaavaa\loot_tables\blocks\blue_terracotta_stairs.json
 43d50e4533845ef6404c70eb71b141bee3fc8e5a data\jaavaa\loot_tables\blocks\honeycomb_block_slab.json
 90bccf3576dbef1ac279f70541c942c36b46c3cb data\jaavaa\loot_tables\blocks\waxed_exposed_chiseled_copper_stairs.json
@@ -445,8 +446,8 @@ fa38120cad9fb1812291671445932a4a8a172b53 data\jaavaa\loot_tables\blocks\chiseled
 56c554046463b917723ed3a468660a83e0cd329d data\jaavaa\loot_tables\blocks\crimson_planks_wall.json
 a3ad68df3ca9f56bee02703b95977c4275f2b0c2 data\jaavaa\loot_tables\blocks\orange_concrete_stairs.json
 068f91094657e896dd74bdc3f64f26fb3da2ee9f data\jaavaa\loot_tables\blocks\purple_concrete_stairs.json
-6cae1db672a246e67f9b2157064dc41bd304760b data\jaavaa\loot_tables\blocks\dark_oak_planks_wall.json
 0cafadf8b7d7b923a7b278a0b9861ce0c42be619 data\jaavaa\loot_tables\blocks\pumpkin_slab.json
+6cae1db672a246e67f9b2157064dc41bd304760b data\jaavaa\loot_tables\blocks\dark_oak_planks_wall.json
 dc7c75a73aa70262b351b7cd46a3da141de1afa7 data\jaavaa\loot_tables\blocks\brain_coral_block_stairs.json
 3ecf48c3669be88d2bd926aa12386737504ef819 data\jaavaa\loot_tables\blocks\oxidized_copper_wall.json
 aa7f2fde47a4fe386b1e203e5faa0708aeb642f6 data\jaavaa\loot_tables\blocks\bamboo_planks_wall.json
