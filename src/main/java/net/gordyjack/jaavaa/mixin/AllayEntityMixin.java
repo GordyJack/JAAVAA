@@ -1,6 +1,6 @@
 package net.gordyjack.jaavaa.mixin;
 
-import net.gordyjack.jaavaa.item.custom.collectors.AbstractCollectorItem;
+import net.gordyjack.jaavaa.item.custom.AbstractCollectorItem;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;

@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.item.v1.*;
 import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.JAAVAABlocks;
 import net.gordyjack.jaavaa.item.custom.*;
-import net.gordyjack.jaavaa.item.custom.collectors.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
 import net.minecraft.util.*;

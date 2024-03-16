@@ -6,7 +6,7 @@ import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.CollectorBlock;
 import net.gordyjack.jaavaa.item.*;
-import net.gordyjack.jaavaa.item.custom.collectors.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.data.client.*;
 import net.minecraft.item.*;
