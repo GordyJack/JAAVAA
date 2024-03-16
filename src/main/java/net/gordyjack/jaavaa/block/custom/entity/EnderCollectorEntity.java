@@ -43,6 +43,7 @@ public class EnderCollectorEntity
             for (ItemEntity itemEntity : collectorEntity.getInputItemEntities(world, pos)) {
                 if (itemEntity.isAlive()) {
                     ItemStack currentInput = itemEntity.getStack().copy();
+                    itemEntity.resetPickupDelay();
                     if (currentInput.isEmpty() || isInventoryFull(outputInventory, state.get(CollectorBlock.FACING).getOpposite())
                             || !collectorEntity.doesFilterMatch(currentInput) || collectorEntity.ticksSinceLastPickup < PICKUP_DELAY) {
                         collectorEntity.ticksSinceLastPickup++;

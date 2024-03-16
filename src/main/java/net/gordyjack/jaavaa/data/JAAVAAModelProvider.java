@@ -6,7 +6,7 @@ import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.CollectorBlock;
 import net.gordyjack.jaavaa.item.*;
-import net.gordyjack.jaavaa.item.custom.*;
+import net.gordyjack.jaavaa.item.custom.collectors.*;
 import net.minecraft.block.*;
 import net.minecraft.data.client.*;
 import net.minecraft.item.*;
@@ -29,7 +29,7 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
         for (Item item : JAAVAAItems.ITEMS) {
-            if (item instanceof CollectorItem || item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR) {
+            if (item instanceof AbstractCollectorItem || item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR) {
                 continue;
             }
             imGen.register(item, Models.GENERATED);

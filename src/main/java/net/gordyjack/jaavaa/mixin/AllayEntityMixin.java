@@ -1,7 +1,6 @@
 package net.gordyjack.jaavaa.mixin;
 
-import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.item.custom.CollectorItem;
+import net.gordyjack.jaavaa.item.custom.collectors.AbstractCollectorItem;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
@@ -16,7 +15,7 @@ public class AllayEntityMixin {
 	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
 	private void interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
 		// This code is injected into the start of AllayEntity.interactMob()
-		if (player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof CollectorItem) {
+		if (player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof AbstractCollectorItem) {
 			cir.setReturnValue(ActionResult.PASS);
 		}
 	}

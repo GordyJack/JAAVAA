@@ -56,8 +56,9 @@ public abstract class AbstractCollectorEntity extends BlockEntity implements Cle
         BlockState state = world.getBlockState(pos);
         VoxelShape shape = state.getOutlineShape(world, pos);
         return shape.getBoundingBoxes().stream().flatMap(
-                box -> world.getEntitiesByClass(ItemEntity.class, box.offset(pos.getX(), pos.getY(), pos.getZ()).expand(this.getPickupRange()), EntityPredicates.VALID_ENTITY).stream()
-        ).collect(Collectors.toList());
+                box -> world.getEntitiesByClass(ItemEntity.class,
+                        box.offset(pos.getX(), pos.getY(), pos.getZ()).expand(this.getPickupRange()),
+                        EntityPredicates.VALID_ENTITY).stream()).collect(Collectors.toList());
     }
     @Nullable
     static Inventory getOutputInventory(World world, BlockPos pos, BlockState state) {
