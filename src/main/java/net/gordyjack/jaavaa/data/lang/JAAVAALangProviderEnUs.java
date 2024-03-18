@@ -22,6 +22,12 @@ extends FabricLanguageProvider{
             translationBuilder.add(block, getTranslatedName(block));
         }
         for(Item item : JAAVAAItems.ITEMS) {
+            if (item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR_GLINTING
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR_GLINTING) {
+                translationBuilder.add(item, "Internal use only - Non-functional");
+                continue;
+            }
             translationBuilder.add(item, getTranslatedName(item));
         }
         

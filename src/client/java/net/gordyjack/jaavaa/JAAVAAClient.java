@@ -2,9 +2,16 @@ package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.*;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorBER;
+import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
+import net.gordyjack.jaavaa.item.JAAVAAItems;
+import net.gordyjack.jaavaa.item.custom.AllayCollectorItemRenderer;
+import net.gordyjack.jaavaa.item.custom.EnderCollectorItemRenderer;
 import net.minecraft.block.*;
 import net.minecraft.client.render.*;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class JAAVAAClient implements ClientModInitializer {
 	@Override
@@ -12,8 +19,9 @@ public class JAAVAAClient implements ClientModInitializer {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		configureBlockRenderLayerMap();
 
-//		BlockEntityRendererFactories.register(JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorBER::new);
-//		BuiltinItemRendererRegistry.INSTANCE.register(JAAVAAItems.PERSONAL_ALLAY_COLLECTOR, new AllayCollectorItemRenderer());
+		BlockEntityRendererFactories.register(JAAVAABlockEntityTypes.ALLAY_COLLECTOR, AllayCollectorBER::new);
+		BuiltinItemRendererRegistry.INSTANCE.register(JAAVAAItems.PERSONAL_ALLAY_COLLECTOR, new AllayCollectorItemRenderer());
+		BuiltinItemRendererRegistry.INSTANCE.register(JAAVAAItems.PERSONAL_ENDER_COLLECTOR, new EnderCollectorItemRenderer());
 	}
 	private void configureBlockRenderLayerMap() {
 		BlockRenderLayerMap.INSTANCE.putBlock(JAAVAABlocks.ALLAY_COLLECTOR, RenderLayer.getCutout());

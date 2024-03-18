@@ -11,11 +11,9 @@ import net.minecraft.text.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
-public class EmptyCollectorItem extends Item{
-    private final AbstractCollectorItem FILLED_ITEM;
-    public EmptyCollectorItem(Item.Settings settings, AbstractCollectorItem filledItem) {
+public class EmptyCollectorItem extends Item {
+    public EmptyCollectorItem(Item.Settings settings) {
         super(settings);
-        this.FILLED_ITEM = filledItem;
     }
     
     /**

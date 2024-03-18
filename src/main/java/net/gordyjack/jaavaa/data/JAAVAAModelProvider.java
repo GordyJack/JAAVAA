@@ -14,6 +14,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.math.Direction;
 
+import java.util.Optional;
+
 public class JAAVAAModelProvider extends FabricModelProvider {
     public JAAVAAModelProvider(FabricDataOutput output) {
         super(output);
@@ -29,7 +31,17 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
         for (Item item : JAAVAAItems.ITEMS) {
-            if (item instanceof AbstractCollectorItem || item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR) {
+            if (item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR
+                    || item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR_GLINTING
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR_GLINTING) {
+                continue;
+            }
+            if (item instanceof AbstractCollectorItem) {
+                imGen.register(item, new Model(
+                        Optional.of(JAAVAA.getID("minecraft", "builtin/entity")),
+                        Optional.empty())
+                );
                 continue;
             }
             imGen.register(item, Models.GENERATED);

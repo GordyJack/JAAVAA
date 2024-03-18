@@ -324,8 +324,7 @@ implements JAAVAATagGeneratorInterface<Block> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(JAAVAA_COLLECTORS)
-                .add(JAAVAABlocks.ALLAY_COLLECTOR,
-                        JAAVAABlocks.ENDER_COLLECTOR);
+                .add(JAAVAABlocks.ALLAY_COLLECTOR, JAAVAABlocks.ENDER_COLLECTOR);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(Blocks.REINFORCED_DEEPSLATE, Blocks.GLOWSTONE)
                 .addOptionalTag(COMMON_GLASS)

@@ -24,12 +24,10 @@ public class JAAVAA implements ModInitializer {
 		JAAVAAItems.registerItems();
 		JAAVAAItemGroups.registerItemGroups();
 	}
-	
-	@Contract("_,_ -> new")
+
 	public static @NotNull Identifier getID(String namespace, String name) {
 		return new Identifier(namespace, name);
 	}
-	@Contract("_ -> new")
 	public static @NotNull Identifier getID(String name) {
 		return getID(MODID, name);
 	}

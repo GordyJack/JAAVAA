@@ -22,14 +22,23 @@ public class JAAVAAItems {
     public static final Item ALLAY_ESSENCE = registerItem("allay_essence", new Item(
             new FabricItemSettings()
     ));
+    public static final Item EMPTY_PERSONAL_COLLECTOR = registerItem("empty_personal_collector", new EmptyCollectorItem(
+            new FabricItemSettings().maxCount(16).fireproof()
+    ));
+    public static final Item EMPTY_PERSONAL_COLLECTOR_GLINTING = registerItem("empty_personal_collector_glinting", new GlintingItem(
+            new FabricItemSettings().maxCount(0).fireproof()
+    ));
+    public static final Item EMPTY_ENDER_COLLECTOR = registerItem("empty_ender_collector", new Item(
+            new FabricItemSettings().maxCount(0).fireproof()
+    ));
+    public static final Item EMPTY_ENDER_COLLECTOR_GLINTING = registerItem("empty_ender_collector_glinting", new GlintingItem(
+            new FabricItemSettings().maxCount(0).fireproof()
+    ));
     public static final Item PERSONAL_ALLAY_COLLECTOR = registerItem("personal_allay_collector", new AllayCollectorItem(
-            JAAVAABlocks.ALLAY_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()
+            JAAVAABlocks.ALLAY_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof().recipeRemainder(EMPTY_PERSONAL_COLLECTOR)
     ));
     public static final Item PERSONAL_ENDER_COLLECTOR = registerItem("personal_ender_collector", new EnderCollectorItem(
-            JAAVAABlocks.ENDER_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()
-    ));
-    public static final Item EMPTY_PERSONAL_COLLECTOR = registerItem("empty_personal_collector", new EmptyCollectorItem(
-            new FabricItemSettings().maxCount(16).fireproof(), (AbstractCollectorItem) PERSONAL_ALLAY_COLLECTOR
+            JAAVAABlocks.ENDER_COLLECTOR, new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof().recipeRemainder(EMPTY_PERSONAL_COLLECTOR)
     ));
     
     private static Item registerItem(String name, Item item) {
