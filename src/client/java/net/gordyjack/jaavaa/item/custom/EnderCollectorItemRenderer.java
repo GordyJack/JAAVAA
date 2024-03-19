@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 
 public class EnderCollectorItemRenderer
 implements BuiltinItemRendererRegistry.DynamicItemRenderer {
-    //TODO: These need to reference the ender version of the collector.
     private static final ItemStack EMPTY_COLLECTOR = new ItemStack(JAAVAAItems.EMPTY_ENDER_COLLECTOR);
     private static final ItemStack EMPTY_COLLECTOR_GLINTING = new ItemStack(JAAVAAItems.EMPTY_ENDER_COLLECTOR_GLINTING);
     private static EndermanEntity endermanEntity;
