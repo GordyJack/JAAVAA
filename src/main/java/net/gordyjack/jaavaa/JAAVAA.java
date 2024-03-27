@@ -4,13 +4,15 @@ import net.fabricmc.api.ModInitializer;
 
 import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
+import net.gordyjack.jaavaa.data.JAAVAALootTableModifiers;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.util.*;
 import org.jetbrains.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JAAVAA implements ModInitializer {
+public class JAAVAA
+		implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
@@ -23,6 +25,7 @@ public class JAAVAA implements ModInitializer {
 		JAAVAABlockEntityTypes.registerBlockEntityTypes();
 		JAAVAAItems.registerItems();
 		JAAVAAItemGroups.registerItemGroups();
+		JAAVAALootTableModifiers.modifyLootTables();
 	}
 
 	public static @NotNull Identifier getID(String namespace, String name) {
