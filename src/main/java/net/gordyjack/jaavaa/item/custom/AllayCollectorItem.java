@@ -18,22 +18,13 @@ public class AllayCollectorItem
             for (ItemEntity itemEntity : this.getInputItemEntities(world, player.getBlockPos())) {
                 if (itemEntity.isAlive() && !itemEntity.cannotPickup()) {
                     final float velocityScale = 40.0f;
-                    itemEntity.addVelocity(
-                            (player.getX() - itemEntity.getX()) / velocityScale,
-                            (player.getY() - itemEntity.getY()) / velocityScale,
-                            (player.getZ() - itemEntity.getZ()) / velocityScale);
+                    itemEntity.setVelocity(
+                            ((player.getX() + 0.3f) - itemEntity.getX()) / velocityScale,
+                            ((player.getY() + 0.9f) - itemEntity.getY()) / velocityScale,
+                            ((player.getZ() + 0.3f) - itemEntity.getZ()) / velocityScale);
+                    itemEntity.velocityDirty = true;
                 }
             }
-            world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), player.getBoundingBox().expand(PICKUP_RADIUS), itemEntity -> {
-                if (itemEntity.isAlive() && !itemEntity.cannotPickup()) {
-                    final float velocityScale = 40.0f;
-                    itemEntity.addVelocity(
-                            (player.getX() - itemEntity.getX()) / velocityScale,
-                            (player.getY() - itemEntity.getY()) / velocityScale,
-                            (player.getZ() - itemEntity.getZ()) / velocityScale);
-                }
-                return false;
-            });
         }
     }
     @Override

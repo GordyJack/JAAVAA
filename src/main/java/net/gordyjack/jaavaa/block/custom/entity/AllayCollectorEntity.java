@@ -80,6 +80,7 @@ extends AbstractCollectorEntity {
                         double zVelocity = zDistance / VEL_S;
                         itemEntity.setVelocity(xVelocity, yVelocity, zVelocity);
                     }
+                    itemEntity.velocityDirty = true;
                 }
             }
             return false;
