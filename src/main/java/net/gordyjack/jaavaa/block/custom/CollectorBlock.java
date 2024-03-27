@@ -44,7 +44,7 @@ public class CollectorBlock
         implements Waterloggable,
         VoxelShapeUtils {
     //Fields
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty ENABLED = Properties.ENABLED;
     private static final VoxelShape SHAPE = Stream.of(
