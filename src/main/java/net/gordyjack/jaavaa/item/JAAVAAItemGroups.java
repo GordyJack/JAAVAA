@@ -15,7 +15,7 @@ public class JAAVAAItemGroups {
     public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerKey("jaavaa_slabs");
     public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerKey("jaavaa_walls");
     public static final RegistryKey<ItemGroup> JAAVAA_STAIRS = registerKey("jaavaa_stairs");
-    public static final RegistryKey<ItemGroup> JAAVAA_ITEMS = registerKey("jaavaa_items");
+    public static final RegistryKey<ItemGroup> JAAVAA_GROUP = registerKey("jaavaa");
     
     /**
      * Registers all ItemGroups for ModBlocks.
@@ -35,10 +35,11 @@ public class JAAVAAItemGroups {
                 ItemGroup.create(ItemGroup.Row.TOP, 2)
                         .displayName(Text.translatable("jaavaa.itemGroup.stairs"))
                         .icon(() -> new ItemStack(JAAVAABlocks.STAIRS.get(0))).build());
-        Registry.register(Registries.ITEM_GROUP, JAAVAA_ITEMS,
+        Registry.register(Registries.ITEM_GROUP, JAAVAA_GROUP,
                 ItemGroup.create(ItemGroup.Row.TOP, 3)
                         .displayName(Text.translatable("jaavaa.itemGroup.items"))
                         .icon(() -> new ItemStack(JAAVAAItems.ITEMS.get(0))).build());
+
         for (Block slabBlock : JAAVAABlocks.SLABS) {
             addToGroup(slabBlock, JAAVAA_SLABS);
         }
@@ -49,7 +50,7 @@ public class JAAVAAItemGroups {
             addToGroup(stairsBlock, JAAVAA_STAIRS);
         }
         for (Item item : JAAVAAItems.ITEMS) {
-            addToGroup(item, JAAVAA_ITEMS);
+            addToGroup(item, JAAVAA_GROUP);
         }
     }
     /**
