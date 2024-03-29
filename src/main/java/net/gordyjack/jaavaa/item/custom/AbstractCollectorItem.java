@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa.item.custom;
 
 import net.gordyjack.jaavaa.JAAVAA;
 import net.minecraft.block.*;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -22,6 +23,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.*;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.stream.*;
@@ -43,6 +45,11 @@ extends AliasedBlockItem {
     }
 
     //Inherited Methods
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(getStatusText(stack));
+        super.appendTooltip(stack, world, tooltip, context);
+    }
     @Override
     public boolean hasGlint(ItemStack stack) {
         return isActive(stack);
@@ -82,7 +89,7 @@ extends AliasedBlockItem {
             final ItemStack stack = user.getStackInHand(hand);
             world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.5f, 2.0f);
             toggleActive(stack);
-            user.sendMessage(Text.of("§eCollector " + (isActive(stack) ? "§2Enabled" : "§4Disabled")), true);
+            user.sendMessage(getStatusText(stack), true);
             return TypedActionResult.success(stack);
         }
         return super.use(world, user, hand);
@@ -97,6 +104,9 @@ extends AliasedBlockItem {
     private static boolean isActive(ItemStack stack) {
         final NbtCompound nbt = stack.getNbt();
         return null != nbt && nbt.contains(DATA_KEY) && nbt.getBoolean(DATA_KEY);
+    }
+    private static Text getStatusText(ItemStack stack) {
+        return Text.literal("§6Collector " + (isActive(stack) ? "§2§lEnabled" : "§4§lDisabled"));
     }
     /**
      * Sets the active state of the collector.
