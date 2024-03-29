@@ -15,7 +15,12 @@
         {
             "type": "patchouli:text",
             "title": "More Details",
-            "text": "The lamp will also emit a comparator signal equal to it's brighness level.$(br)Due to limitations in Minecraft, lamps of brightness 14 and 15 output the same amount of light. Redstone functionality is still retained appropriately though."
+            "text": "The lamp will emit a comparator signal equal to it's brightness level.$(br)Due to limitations in Minecraft, lamps of brightness 14 and 15 output the same amount of light. Redstone functionality is still retained appropriately though."
+        },
+        {
+            "type": "patchouli:text",
+            "title": "More Details",
+            "text": "Speaking of Redstone functionality, $(t:Like the Copper Bulb should have)$(6)the lamp updates every tick.$(/t)$(0) This allows for much smoother animation and more precise timing for redstone contraptions."
         }
     ]
 }

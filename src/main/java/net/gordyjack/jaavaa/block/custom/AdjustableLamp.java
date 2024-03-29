@@ -15,6 +15,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
@@ -45,8 +46,12 @@ public class AdjustableLamp
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         if (world instanceof ServerWorld serverWorld) {
-            this.update(state, serverWorld, pos);
+            serverWorld.scheduleBlockTick(pos, this, 1);
         }
+    }
+    @Override
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        this.update(state, world, pos);
     }
     private void update(BlockState state, ServerWorld world, BlockPos pos) {
         int power = world.getReceivedRedstonePower(pos);
