@@ -1,0 +1,20 @@
+{
+  "name": "Starsteel",
+  "icon": "jaavaa:starsteel_ingot",
+  "category": "jaavaa:materials",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "Starsteel",
+      "item": {
+        "item": "jaavaa:starsteel_ingot"
+      },
+      "text": "Starsteel is a rare and powerful material that can be used to craft powerful tools and armor."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jaavaa:starsteel_ingot",
+      "text": "It is created by infusing Netherite Ingots with a Nether Star"
+    }
+  ]
+}

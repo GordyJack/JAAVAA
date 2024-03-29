@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_allay_essence": {
+    "has_comparator": {
       "conditions": {
         "items": [
           {
             "items": [
-              "jaavaa:allay_essence"
+              "minecraft:comparator"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_netherite_scrap": {
+    "has_redstone_lamp": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:netherite_scrap"
+              "minecraft:redstone_lamp"
             ]
           }
         ]
@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:empty_personal_collector"
+        "recipe": "jaavaa:adjustable_lamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -35,13 +35,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_scrap",
-      "has_allay_essence"
+      "has_redstone_lamp",
+      "has_comparator"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:empty_personal_collector"
+      "jaavaa:adjustable_lamp"
     ]
   }
 }

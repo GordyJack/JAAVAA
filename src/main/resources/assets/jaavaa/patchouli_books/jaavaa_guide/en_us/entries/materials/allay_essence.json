@@ -8,7 +8,7 @@
       "item": {
         "item": "jaavaa:allay_essence"
       },
-      "text": "Allay Essence is a relatively common drop from the Allay. It is used to craft the $(l:functional_blocks/allay_collector)Empty Personal Collector/$."
+      "text": "Allay Essence is a relatively common drop from the Allay. It is used to craft the $(l:functional_blocks/collectors)Empty Personal Collector/$."
     },
     {
       "type": "patchouli:crafting",

@@ -25,8 +25,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.TEST_BLOCK);
         bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ALLAY_COLLECTOR, "allay_collector"));
         bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ENDER_COLLECTOR, "ender_collector"));
+        bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_LAMP, "adjustable_lamp"));
         registerVanillaBlockSets(bsmGen);
-        generateMiniBlockModels();
+//        generateMiniBlockModels();
     }
     @Override
     public void generateItemModels(ItemModelGenerator imGen) {
@@ -154,16 +155,28 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         }
         return variantSupplier.coordinate(variantMap);
     }
-    private void generateMiniBlockModels() {
-        String bottomSingle = "mini_block_00000001_single.json";
-        String bottomDualStraight = "mini_block_0000011_dual_straight.json";
-        String bottomDualDiagonal = "mini_block_00001001_dual_diagonal.json";
-        String bottomTriple = "mini_block_00001011_triple.json";
-        String bottomQuad = "mini_block_00001111_quad_slab.json";
-        String topSingle = "mini_block_00010000_single.json";
-        String topDualStraight = "mini_block_00110000_dual_straight.json";
-        String topDualDiagonal = "mini_block_10010000_dual_diagonal.json";
-        String topTriple = "mini_block_10110000_triple.json";
-        String topQuad = "mini_block_11110000_quad_slab.json";
+    private VariantsBlockStateSupplier generateAdjustableState(Block block, String name) {
+        String idPath = "block/" + name;
+        VariantsBlockStateSupplier variantSupplier = VariantsBlockStateSupplier.create(block);
+        BlockStateVariantMap.SingleProperty<Integer> variantMap = BlockStateVariantMap.create(JAAVAABlockProperties.LUMINANCE);
+
+        for (int luminance = 0; luminance <= 15; luminance++) {
+            Identifier modelId = luminance == 0 ? JAAVAA.getID(idPath) : JAAVAA.getID(idPath + "_" + luminance);
+            BlockStateVariant variant = BlockStateVariant.create().put(VariantSettings.MODEL, modelId);
+            variantMap.register(luminance, variant);
+        }
+        return variantSupplier.coordinate(variantMap);
     }
+//    private void generateMiniBlockModels() {
+//        String bottomSingle = "mini_block_00000001_single.json";
+//        String bottomDualStraight = "mini_block_0000011_dual_straight.json";
+//        String bottomDualDiagonal = "mini_block_00001001_dual_diagonal.json";
+//        String bottomTriple = "mini_block_00001011_triple.json";
+//        String bottomQuad = "mini_block_00001111_quad_slab.json";
+//        String topSingle = "mini_block_00010000_single.json";
+//        String topDualStraight = "mini_block_00110000_dual_straight.json";
+//        String topDualDiagonal = "mini_block_10010000_dual_diagonal.json";
+//        String topTriple = "mini_block_10110000_triple.json";
+//        String topQuad = "mini_block_11110000_quad_slab.json";
+//    }
 }

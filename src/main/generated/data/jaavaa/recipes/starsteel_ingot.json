@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
+    "I": {
       "item": "minecraft:netherite_ingot"
     },
-    "A": {
+    "S": {
       "item": "minecraft:nether_star"
     }
   },
   "pattern": [
-    " # ",
-    "#A#",
-    " # "
+    " I ",
+    "ISI",
+    " I "
   ],
   "result": {
     "count": 2,

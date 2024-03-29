@@ -12,33 +12,16 @@ import java.util.*;
 
 public class JAAVAAItemGroups {
     public static final List<RegistryKey<ItemGroup>> ITEM_GROUPS = new ArrayList<>();
-    public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerKey("jaavaa_slabs");
-    public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerKey("jaavaa_walls");
-    public static final RegistryKey<ItemGroup> JAAVAA_STAIRS = registerKey("jaavaa_stairs");
-    public static final RegistryKey<ItemGroup> JAAVAA_GROUP = registerKey("jaavaa");
+    public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerItemGroup("jaavaa_slabs", JAAVAABlocks.SLABS.get(0));
+    public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerItemGroup("jaavaa_walls", JAAVAABlocks.WALLS.get(0));
+    public static final RegistryKey<ItemGroup> JAAVAA_STAIRS = registerItemGroup("jaavaa_stairs", JAAVAABlocks.STAIRS.get(0));
+    public static final RegistryKey<ItemGroup> JAAVAA_GROUP = registerItemGroup("jaavaa", JAAVAAItems.ITEMS.get(0));
     
     /**
      * Registers all ItemGroups for ModBlocks.
      */
     public static void registerItemGroups() {
         JAAVAA.logInfo("Registering ItemGroups");
-        
-        Registry.register(Registries.ITEM_GROUP, JAAVAA_SLABS,
-                ItemGroup.create(ItemGroup.Row.TOP, 0)
-                        .displayName(Text.translatable("jaavaa.itemGroup.slabs"))
-                        .icon(() -> new ItemStack(JAAVAABlocks.SLABS.get(0))).build());
-        Registry.register(Registries.ITEM_GROUP, JAAVAA_WALLS,
-                ItemGroup.create(ItemGroup.Row.TOP, 1)
-                        .displayName(Text.translatable("jaavaa.itemGroup.walls"))
-                        .icon(() -> new ItemStack(JAAVAABlocks.WALLS.get(0))).build());
-        Registry.register(Registries.ITEM_GROUP, JAAVAA_STAIRS,
-                ItemGroup.create(ItemGroup.Row.TOP, 2)
-                        .displayName(Text.translatable("jaavaa.itemGroup.stairs"))
-                        .icon(() -> new ItemStack(JAAVAABlocks.STAIRS.get(0))).build());
-        Registry.register(Registries.ITEM_GROUP, JAAVAA_GROUP,
-                ItemGroup.create(ItemGroup.Row.TOP, 3)
-                        .displayName(Text.translatable("jaavaa.itemGroup.items"))
-                        .icon(() -> new ItemStack(JAAVAAItems.ITEMS.get(0))).build());
 
         for (Block slabBlock : JAAVAABlocks.SLABS) {
             addToGroup(slabBlock, JAAVAA_SLABS);
@@ -50,8 +33,24 @@ public class JAAVAAItemGroups {
             addToGroup(stairsBlock, JAAVAA_STAIRS);
         }
         for (Item item : JAAVAAItems.ITEMS) {
+            if (item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR_GLINTING
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR_GLINTING) {
+                continue;
+            }
             addToGroup(item, JAAVAA_GROUP);
         }
+        addToGroup(JAAVAABlocks.ADJUSTABLE_LAMP, JAAVAA_GROUP);
+    }
+    private static int currentColumn = 0;
+    private static RegistryKey<ItemGroup> registerItemGroup(String name, ItemConvertible icon) {
+        var returnKey = RegistryKey.of(RegistryKeys.ITEM_GROUP, JAAVAA.getID(name));
+        Registry.register(Registries.ITEM_GROUP, returnKey,
+                ItemGroup.create(ItemGroup.Row.TOP, currentColumn++)
+                        .displayName(Text.translatable("itemGroup.jaavaa." + name))
+                        .icon(() -> new ItemStack(icon)).build());
+        ITEM_GROUPS.add(returnKey);
+        return returnKey;
     }
     /**
      * Adds a given Block to a given ItemGroup.
@@ -61,11 +60,5 @@ public class JAAVAAItemGroups {
      */
     private static void addToGroup(ItemConvertible itemConvertible, RegistryKey<ItemGroup> group) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(itemConvertible.asItem()));
-    }
-    
-    private static RegistryKey<ItemGroup> registerKey(String name) {
-        RegistryKey<ItemGroup> returnKey = RegistryKey.of(RegistryKeys.ITEM_GROUP, JAAVAA.getID(name));
-        ITEM_GROUPS.add(returnKey);
-        return returnKey;
     }
 }

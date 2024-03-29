@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.item.*;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
+import net.minecraft.registry.RegistryKey;
 import org.apache.commons.lang3.text.*;
 
 import java.nio.file.*;
@@ -30,6 +31,9 @@ extends FabricLanguageProvider{
             }
             translationBuilder.add(item, getTranslatedName(item));
         }
+        for (RegistryKey<ItemGroup> group : JAAVAAItemGroups.ITEM_GROUPS) {
+            translationBuilder.add(("itemGroup." + group.getValue()).replace(':', '.'), getTranslatedName(group.getValue().getPath()));
+        }
         
         try {
             Path existingFilePath = dataOutput.getModContainer().findPath("assets/jaavaa/lang/en_us.existing.json").get();
@@ -46,8 +50,7 @@ extends FabricLanguageProvider{
         name = name.replace("_block", "");
         name = name.replace('_', ' ');
         name = WordUtils.capitalizeFully(name);
-        if (name.equals("Jaavaa"))
-            name = name.toUpperCase();
+        name = name.replace("Jaavaa", "JAAVAA");
         return name;
     }
 }

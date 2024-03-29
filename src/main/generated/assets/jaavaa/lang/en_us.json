@@ -1,5 +1,6 @@
 {
   "block.jaavaa.acacia_planks_wall": "Acacia Planks Wall",
+  "block.jaavaa.adjustable_lamp": "Adjustable Lamp",
   "block.jaavaa.allay_collector": "Personal Allay Collector",
   "block.jaavaa.amethyst_block_slab": "Amethyst Slab",
   "block.jaavaa.amethyst_block_stairs": "Amethyst Stairs",
@@ -598,8 +599,8 @@
   "item.jaavaa.personal_ender_collector": "Personal Ender Collector",
   "item.jaavaa.starsteel_ingot": "Starsteel Ingot",
   "item.jaavaa.starsteel_nugget": "Starsteel Nugget",
-  "jaavaa.itemGroup.items": "JAAVAA Items",
-  "jaavaa.itemGroup.slabs": "JAAVAA Slabs",
-  "jaavaa.itemGroup.stairs": "JAAVAA Stairs",
-  "jaavaa.itemGroup.walls": "JAAVAA Walls"
+  "itemGroup.jaavaa.jaavaa": "JAAVAA",
+  "itemGroup.jaavaa.jaavaa_slabs": "JAAVAA Slabs",
+  "itemGroup.jaavaa.jaavaa_stairs": "JAAVAA Stairs",
+  "itemGroup.jaavaa.jaavaa_walls": "JAAVAA Walls"
 }

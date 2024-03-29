@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-26T21:28:51.5159747	JustAnotherActuallyVanillaAdditionsAddon/Block Loot Tables
+// 1.20.4	2024-03-29T00:46:42.6265452	JustAnotherActuallyVanillaAdditionsAddon/Block Loot Tables
 e6a3f7ab35c21ae898e9955046f97371e30efc1d data\jaavaa\loot_tables\blocks\yellow_wool_slab.json
 e4e5003f652d57800fce713cd8ed2f454de3cdce data\jaavaa\loot_tables\blocks\nether_gold_ore_stairs.json
 9c4eda998f6d065ecddb40627041e22b43c6f23b data\jaavaa\loot_tables\blocks\blue_terracotta_slab.json
@@ -348,6 +348,7 @@ cec9459e6182d62701d2c13bf7c49df5adc898e0 data\jaavaa\loot_tables\blocks\yellow_t
 e637c874decd939ab7ad46e162da4d339c860b48 data\jaavaa\loot_tables\blocks\gray_wool_wall.json
 08a534c6728dead5afa14900c9e32a5d13cd9f6f data\jaavaa\loot_tables\blocks\green_wool_wall.json
 8587ec4b94a47ad2c838fad84167798beff6c088 data\jaavaa\loot_tables\blocks\gray_stained_glass_wall.json
+eef6f7337de5c08bc6c24251f14e6d86536cc938 data\jaavaa\loot_tables\blocks\adjustable_lamp.json
 73f741855137d0c1c21152706138d7a3499d4e61 data\jaavaa\loot_tables\blocks\cyan_terracotta_slab.json
 80ff2dfca21f62bb3011236f2bda0e85248feab5 data\jaavaa\loot_tables\blocks\diamond_ore_stairs.json
 4274d2f4540127db2ef55c6ed6bc6970ef47830b data\jaavaa\loot_tables\blocks\orange_terracotta_stairs.json
