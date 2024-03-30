@@ -22,6 +22,9 @@ public class JAAVAAItems {
     public static final Item ALLAY_ESSENCE = registerItem("allay_essence", new Item(
             new FabricItemSettings()
     ));
+    public static final Item CREATIVE_COAL = registerItem("creative_coal", new Item(
+            new FabricItemSettings().rarity(Rarity.EPIC)
+    ));
     public static final Item EMPTY_PERSONAL_COLLECTOR = registerItem("empty_personal_collector", new EmptyCollectorItem(
             new FabricItemSettings().maxCount(16).fireproof()
     ));

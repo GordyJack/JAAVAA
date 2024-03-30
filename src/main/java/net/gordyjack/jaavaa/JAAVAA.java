@@ -6,6 +6,7 @@ import net.gordyjack.jaavaa.block.*;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.gordyjack.jaavaa.data.JAAVAALootTableModifiers;
 import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.utils.JAAVAARegistries;
 import net.minecraft.util.*;
 import org.jetbrains.annotations.*;
 import org.slf4j.Logger;
@@ -26,6 +27,7 @@ public class JAAVAA
 		JAAVAAItems.registerItems();
 		JAAVAAItemGroups.registerItemGroups();
 		JAAVAALootTableModifiers.modifyLootTables();
+		JAAVAARegistries.register();
 	}
 
 	public static @NotNull Identifier getID(String namespace, String name) {
