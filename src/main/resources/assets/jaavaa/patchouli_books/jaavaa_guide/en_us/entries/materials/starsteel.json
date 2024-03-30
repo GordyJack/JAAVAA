@@ -15,6 +15,11 @@
       "type": "patchouli:crafting",
       "recipe": "jaavaa:starsteel_ingot",
       "text": "It is created by infusing Netherite Ingots with a Nether Star"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jaavaa:starsteel_block",
+      "text": "When crafted into a block, this Starsteel is nearly indestructible. It is as hard to mine as obsidian and cannot be exploded by any means and mobs will not spawn on top of it."
     }
   ]
 }

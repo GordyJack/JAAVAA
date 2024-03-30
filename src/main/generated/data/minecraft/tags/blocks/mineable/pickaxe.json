@@ -1,9 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:reinforced_deepslate",
     "minecraft:glowstone",
-    "jaavaa:starsteel_block",
     "jaavaa:adjustable_redstone_lamp",
     {
       "id": "#c:glass_blocks",
@@ -13,6 +11,7 @@
       "id": "#jaavaa:collectors",
       "required": false
     },
+    "jaavaa:starsteel_block",
     "jaavaa:stone_wall",
     "jaavaa:polished_granite_wall",
     "jaavaa:polished_diorite_wall",

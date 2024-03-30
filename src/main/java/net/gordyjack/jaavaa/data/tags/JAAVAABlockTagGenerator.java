@@ -332,19 +332,15 @@ implements JAAVAATagGeneratorInterface<Block> {
                         JAAVAABlocks.ENDER_COLLECTOR);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(
-                        Blocks.REINFORCED_DEEPSLATE,
                         Blocks.GLOWSTONE,
-                        JAAVAABlocks.STARSTEEL_BLOCK,
                         JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP)
                 .addOptionalTag(ConventionalBlockTags.GLASS_BLOCKS)
                 .addOptionalTag(JAAVAA_COLLECTORS);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .addOptionalTag(JAAVAA_COLLECTORS);
-        getOrCreateTagBuilder(NEEDS_LEVEL_4_TOOL)
-                .add(
-                        JAAVAABlocks.STARSTEEL_BLOCK);
 
         for (Block block : JAAVAABlocks.BLOCKS) {
+            //Type Tags
             String key = block.getTranslationKey();
             if (block instanceof SlabBlock) {
                 getOrCreateTagBuilder(BlockTags.SLABS).add(block);
@@ -356,6 +352,7 @@ implements JAAVAATagGeneratorInterface<Block> {
                 getOrCreateTagBuilder(BlockTags.STAIRS).add(block);
             }
 
+            //Mineable Tags
             Block parent = JAAVAABlocks.getParent(block);
             if (needsDiamond(parent)) {
                 getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(block);
@@ -379,55 +376,16 @@ implements JAAVAATagGeneratorInterface<Block> {
                 getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block);
             }
 
+            //Special Case Tags
             if (key.contains("glass")) {
                 getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS).add(block);
                 getOrCreateTagBuilder(BlockTags.IMPERMEABLE).add(block);
             }
-            if (key.contains("ice")) {
-                getOrCreateTagBuilder(BlockTags.ICE).add(block);
-            }
             if (key.contains("obsidian")) {
                 getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(block);
             }
-            if (key.contains("ore")) {
-                if (key.contains("coal")) {
-                    getOrCreateTagBuilder(BlockTags.COAL_ORES).add(block);
-                }
-                if (key.contains("copper")) {
-                    getOrCreateTagBuilder(BlockTags.COPPER_ORES).add(block);
-                }
-                if (key.contains("diamond")) {
-                    getOrCreateTagBuilder(BlockTags.DIAMOND_ORES).add(block);
-                }
-                if (key.contains("emerald")) {
-                    getOrCreateTagBuilder(BlockTags.EMERALD_ORES).add(block);
-                }
-                if (key.contains("gold")) {
-                    getOrCreateTagBuilder(BlockTags.GOLD_ORES).add(block);
-                }
-                if (key.contains("iron")) {
-                    getOrCreateTagBuilder(BlockTags.IRON_ORES).add(block);
-                }
-                if (key.contains("lapis")) {
-                    getOrCreateTagBuilder(BlockTags.LAPIS_ORES).add(block);
-                }
-                if (key.contains("redstone")) {
-                    getOrCreateTagBuilder(BlockTags.REDSTONE_ORES).add(block);
-                }
-            }
             if (key.contains("planks")) {
                 getOrCreateTagBuilder(BlockTags.PLANKS).add(block);
-            }
-            if (key.contains("reinforced_deepslate")) {
-                getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(block);
-                getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(block);
-            }
-            if (key.contains("snow")) {
-                getOrCreateTagBuilder(BlockTags.SNOW).add(block);
-            }
-            if (key.contains("soul")) {
-                getOrCreateTagBuilder(BlockTags.SOUL_FIRE_BASE_BLOCKS).add(block);
-                getOrCreateTagBuilder(BlockTags.SOUL_SPEED_BLOCKS).add(block);
             }
             if (key.contains("stone_brick")) {
                 getOrCreateTagBuilder(BlockTags.STONE_BRICKS).add(block);
@@ -435,11 +393,16 @@ implements JAAVAATagGeneratorInterface<Block> {
             if (key.contains("terracotta")) {
                 getOrCreateTagBuilder(BlockTags.TERRACOTTA).add(block);
             }
-            if (key.contains("wart")) {
-                getOrCreateTagBuilder(BlockTags.WART_BLOCKS).add(block);
-            }
             if (key.contains("wool")) {
                 getOrCreateTagBuilder(BlockTags.WOOL).add(block);
+            }
+
+            //Mod Tags
+            if (key.contains("starsteel") || key.contains("dragonsteel")) {
+                getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(block);
+                getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(block);
+                getOrCreateTagBuilder(NEEDS_LEVEL_4_TOOL).add(block);
+                getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block);
             }
         }
     }
