@@ -2,6 +2,8 @@ package net.gordyjack.jaavaa.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.fabricmc.fabric.api.mininglevel.v1.MiningLevelManager;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBlockTags;
 import net.gordyjack.jaavaa.block.*;
 import net.minecraft.block.*;
 import net.minecraft.registry.*;
@@ -17,8 +19,9 @@ implements JAAVAATagGeneratorInterface<Block> {
     public JAAVAABlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
-    public final TagKey<Block> COMMON_GLASS = registerCommonTagKey("glass_blocks");
     public final TagKey<Block> JAAVAA_COLLECTORS = registerModTagKey("collectors");
+    public final TagKey<Block> NEEDS_LEVEL_4_TOOL = MiningLevelManager.getBlockTag(4);
+    public final TagKey<Block> NEEDS_LEVEL_5_TOOL = MiningLevelManager.getBlockTag(5);
     private boolean needsDiamond(Block parentBlock) {
         final Block[] NEEDS_DIAMOND_TOOL = {
                 Blocks.OBSIDIAN,
@@ -324,13 +327,22 @@ implements JAAVAATagGeneratorInterface<Block> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(JAAVAA_COLLECTORS)
-                .add(JAAVAABlocks.ALLAY_COLLECTOR, JAAVAABlocks.ENDER_COLLECTOR);
+                .add(
+                        JAAVAABlocks.ALLAY_COLLECTOR,
+                        JAAVAABlocks.ENDER_COLLECTOR);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(Blocks.REINFORCED_DEEPSLATE, Blocks.GLOWSTONE)
-                .addOptionalTag(COMMON_GLASS)
+                .add(
+                        Blocks.REINFORCED_DEEPSLATE,
+                        Blocks.GLOWSTONE,
+                        JAAVAABlocks.STARSTEEL_BLOCK,
+                        JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP)
+                .addOptionalTag(ConventionalBlockTags.GLASS_BLOCKS)
                 .addOptionalTag(JAAVAA_COLLECTORS);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .addOptionalTag(JAAVAA_COLLECTORS);
+        getOrCreateTagBuilder(NEEDS_LEVEL_4_TOOL)
+                .add(
+                        JAAVAABlocks.STARSTEEL_BLOCK);
 
         for (Block block : JAAVAABlocks.BLOCKS) {
             String key = block.getTranslationKey();
@@ -368,7 +380,7 @@ implements JAAVAATagGeneratorInterface<Block> {
             }
 
             if (key.contains("glass")) {
-                getOrCreateTagBuilder(COMMON_GLASS).add(block);
+                getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS).add(block);
                 getOrCreateTagBuilder(BlockTags.IMPERMEABLE).add(block);
             }
             if (key.contains("ice")) {

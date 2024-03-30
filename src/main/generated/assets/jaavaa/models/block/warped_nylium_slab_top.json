@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "minecraft:block/warped_nylium",
-    "side": "minecraft:block/warped_nylium",
-    "top": "minecraft:block/warped_nylium"
-  }
-}

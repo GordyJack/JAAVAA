@@ -20,6 +20,10 @@ extends FabricLanguageProvider{
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
         for (Block block : JAAVAABlocks.BLOCKS) {
+            if (block == JAAVAABlocks.STARSTEEL_BLOCK) {
+                translationBuilder.add(block, "Block of Starsteel");
+                continue;
+            }
             translationBuilder.add(block, getTranslatedName(block));
         }
         for(Item item : JAAVAAItems.ITEMS) {

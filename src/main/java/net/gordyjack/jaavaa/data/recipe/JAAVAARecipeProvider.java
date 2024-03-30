@@ -10,6 +10,7 @@ import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
@@ -62,10 +63,11 @@ extends FabricRecipeProvider {
         
         //Starsteel Compacting
         generate3x3CompactingRecipes(exporter, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT);
+        generate3x3CompactingRecipes(exporter, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT, RecipeCategory.BUILDING_BLOCKS, JAAVAABlocks.STARSTEEL_BLOCK);
     }
     
-    private static void generate3x3CompactingRecipes(RecipeExporter exporter, RecipeCategory baseCategory, Item baseItem,
-                                                     RecipeCategory compactCategory, Item compactItem) {
+    private static void generate3x3CompactingRecipes(RecipeExporter exporter, RecipeCategory baseCategory, ItemConvertible baseItem,
+                                                     RecipeCategory compactCategory, ItemConvertible compactItem) {
         ShapelessRecipeJsonBuilder.create(baseCategory, baseItem, 9)
                 .input(compactItem)
                 .criterion(hasItem(compactItem), conditionsFromItem(compactItem))

@@ -9,6 +9,7 @@ import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.*;
 import org.jetbrains.annotations.*;
 
@@ -30,10 +31,6 @@ public class JAAVAABlocks {
             Blocks.POLISHED_DIORITE,
             Blocks.ANDESITE,
             Blocks.POLISHED_ANDESITE,
-            Blocks.GRASS_BLOCK,
-            Blocks.DIRT,
-            Blocks.COARSE_DIRT,
-            Blocks.PODZOL,
             Blocks.COBBLESTONE,
             Blocks.OAK_PLANKS,
             Blocks.SPRUCE_PLANKS,
@@ -45,17 +42,7 @@ public class JAAVAABlocks {
             Blocks.MANGROVE_PLANKS,
             Blocks.BAMBOO_PLANKS,
             Blocks.BAMBOO_MOSAIC,
-            Blocks.BEDROCK,
-            Blocks.GOLD_ORE,
-            Blocks.DEEPSLATE_GOLD_ORE,
-            Blocks.IRON_ORE,
-            Blocks.DEEPSLATE_IRON_ORE,
-            Blocks.COAL_ORE,
-            Blocks.DEEPSLATE_COAL_ORE,
-            Blocks.NETHER_GOLD_ORE,
             Blocks.GLASS,
-            Blocks.LAPIS_ORE,
-            Blocks.DEEPSLATE_LAPIS_ORE,
             Blocks.LAPIS_BLOCK,
             Blocks.SANDSTONE,
             Blocks.CHISELED_SANDSTONE,
@@ -81,17 +68,9 @@ public class JAAVAABlocks {
             Blocks.BRICKS,
             Blocks.MOSSY_COBBLESTONE,
             Blocks.OBSIDIAN,
-            Blocks.DIAMOND_ORE,
-            Blocks.DEEPSLATE_DIAMOND_ORE,
             Blocks.DIAMOND_BLOCK,
-            //Blocks.REDSTONE_ORE, //TODO CUSTOM FUNCTION
-            //Blocks.DEEPSLATE_REDSTONE_ORE, //TODO CUSTOM FUNCTION
-            Blocks.SNOW,
             Blocks.ICE, //TODO CUSTOM FUNCTION
-            Blocks.CLAY,
             Blocks.NETHERRACK,
-            Blocks.SOUL_SAND, //TODO CUSTOM FUNCTION
-            Blocks.SOUL_SOIL,
             Blocks.GLOWSTONE, //TODO CUSTOM FUNCTION
             Blocks.WHITE_STAINED_GLASS,
             Blocks.ORANGE_STAINED_GLASS,
@@ -115,15 +94,8 @@ public class JAAVAABlocks {
             Blocks.CHISELED_STONE_BRICKS,
             Blocks.PACKED_MUD,
             Blocks.MUD_BRICKS,
-            Blocks.PUMPKIN,
-            Blocks.MELON,
-            Blocks.MYCELIUM,
             Blocks.NETHER_BRICKS,
-            //Blocks.REDSTONE_LAMP, //TODO CUSTOM FUNCTION
-            Blocks.EMERALD_ORE,
-            Blocks.DEEPSLATE_EMERALD_ORE,
             Blocks.REDSTONE_BLOCK,
-            Blocks.NETHER_QUARTZ_ORE,
             Blocks.QUARTZ_BLOCK,
             Blocks.CHISELED_QUARTZ_BLOCK,
             Blocks.WHITE_TERRACOTTA,
@@ -142,11 +114,9 @@ public class JAAVAABlocks {
             Blocks.GREEN_TERRACOTTA,
             Blocks.RED_TERRACOTTA,
             Blocks.BLACK_TERRACOTTA,
-            Blocks.SLIME_BLOCK, //TODO CUSTOM FUNCTION
             Blocks.PRISMARINE,
             Blocks.PRISMARINE_BRICKS,
             Blocks.DARK_PRISMARINE,
-            Blocks.SEA_LANTERN, //TODO CUSTOM FUNCTION
             Blocks.TERRACOTTA,
             Blocks.COAL_BLOCK,
             Blocks.PACKED_ICE, //TODO CUSTOM FUNCTION
@@ -159,8 +129,6 @@ public class JAAVAABlocks {
             Blocks.SMOOTH_RED_SANDSTONE,
             Blocks.PURPUR_BLOCK,
             Blocks.END_STONE_BRICKS,
-            Blocks.MAGMA_BLOCK, //TODO CUSTOM FUNCTION
-            Blocks.NETHER_WART_BLOCK,
             Blocks.RED_NETHER_BRICKS,
             Blocks.WHITE_CONCRETE,
             Blocks.ORANGE_CONCRETE,
@@ -178,26 +146,10 @@ public class JAAVAABlocks {
             Blocks.GREEN_CONCRETE,
             Blocks.RED_CONCRETE,
             Blocks.BLACK_CONCRETE,
-//            Blocks.DRIED_KELP_BLOCK,
-            Blocks.DEAD_TUBE_CORAL_BLOCK,
-            Blocks.DEAD_BRAIN_CORAL_BLOCK,
-            Blocks.DEAD_BUBBLE_CORAL_BLOCK,
-            Blocks.DEAD_FIRE_CORAL_BLOCK,
-            Blocks.DEAD_HORN_CORAL_BLOCK,
-            Blocks.TUBE_CORAL_BLOCK,
-            Blocks.BRAIN_CORAL_BLOCK,
-            Blocks.BUBBLE_CORAL_BLOCK,
-            Blocks.FIRE_CORAL_BLOCK,
-            Blocks.HORN_CORAL_BLOCK,
             Blocks.BLUE_ICE, //TODO CUSTOM FUNCTION
-            Blocks.WARPED_NYLIUM,
-            Blocks.WARPED_WART_BLOCK,
-            Blocks.CRIMSON_NYLIUM,
             Blocks.SHROOMLIGHT, //TODO CUSTOM FUNCTION
             Blocks.CRIMSON_PLANKS,
             Blocks.WARPED_PLANKS,
-            Blocks.HONEY_BLOCK, //TODO CUSTOM FUNCTION
-            Blocks.HONEYCOMB_BLOCK,
             Blocks.NETHERITE_BLOCK,
             Blocks.ANCIENT_DEBRIS,
             Blocks.CRYING_OBSIDIAN,
@@ -223,8 +175,6 @@ public class JAAVAABlocks {
             Blocks.EXPOSED_COPPER, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.WEATHERED_COPPER, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.OXIDIZED_COPPER, //TODO CUSTOM FUNCTION / RECIPES
-            Blocks.COPPER_ORE,
-            Blocks.DEEPSLATE_COPPER_ORE,
             Blocks.OXIDIZED_CUT_COPPER, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.WEATHERED_CUT_COPPER, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.EXPOSED_CUT_COPPER, //TODO CUSTOM FUNCTION / RECIPES
@@ -254,9 +204,6 @@ public class JAAVAABlocks {
             Blocks.WAXED_WEATHERED_COPPER_GRATE, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.WAXED_OXIDIZED_COPPER_GRATE, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.DRIPSTONE_BLOCK,
-            Blocks.MOSS_BLOCK,
-            Blocks.ROOTED_DIRT,
-            Blocks.MUD, //TODO CUSTOM FUNCTION / RECIPES
             Blocks.COBBLED_DEEPSLATE,
             Blocks.POLISHED_DEEPSLATE,
             Blocks.DEEPSLATE_TILES,
@@ -265,12 +212,9 @@ public class JAAVAABlocks {
             Blocks.CRACKED_DEEPSLATE_BRICKS,
             Blocks.CRACKED_DEEPSLATE_TILES,
             Blocks.SMOOTH_BASALT,
-            Blocks.RAW_IRON_BLOCK,
-            Blocks.RAW_COPPER_BLOCK,
-            Blocks.RAW_GOLD_BLOCK,
-            Blocks.REINFORCED_DEEPSLATE
     };
-    
+
+    //Blocks
     public static final Block TEST_BLOCK = registerBlock("jamba_test_block", new Block(
             FabricBlockSettings.copyOf(Blocks.STONE)
     ));
@@ -278,14 +222,29 @@ public class JAAVAABlocks {
             TEST_BLOCK,
             FabricBlockSettings.copyOf(TEST_BLOCK)
     ));
+    public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block", new Block(
+            FabricBlockSettings.create()
+                    .strength(50.0F, 3600000.0F)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.METAL)
+                    .mapColor(MapColor.WHITE_GRAY)
+                    .allowsSpawning(Blocks::never)
+    ));
+
+    //Storage Components
     public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new CollectorBlock(
             FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR
     ));
     public static final Block ENDER_COLLECTOR = registerBlockWithoutItem("ender_collector", new CollectorBlock(
             FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ENDER_COLLECTOR
     ));
+
+    //Redstone Components
     public static final Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", new AdjustableRedstoneLamp(
-            FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).luminance(state -> state.get(AdjustableRedstoneLamp.LUMINANCE) + 1).solidBlock(Blocks::never)
+            FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP)
+                    .luminance(state -> state.get(AdjustableRedstoneLamp.LUMINANCE) + 1)
+                    .solidBlock(Blocks::never)
+                    .allowsSpawning(Blocks::always)
     ));
     
     private static Block registerBlock(String name, Block block) {
@@ -484,11 +443,7 @@ public class JAAVAABlocks {
                 }else {
                     blockSet = getBlockSet(parentBlock, "glass");
                 }
-            } else if (parentBlock == Blocks.REDSTONE_BLOCK) {
-                blockSet = getBlockSet(parentBlock, "redstone");
-            } else if (parentBlock == Blocks.SLIME_BLOCK) {
-                blockSet = getBlockSet(parentBlock, "slime");
-            }else {
+            } else {
                 blockSet = getBlockSet(parentBlock);
             }
             registerBlockSet(parentBlock, blockSet, name);
@@ -515,16 +470,6 @@ public class JAAVAABlocks {
             case "tinted" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.TintedGlass(parentSettings));
                 if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.TintedGlass(parentSettings));
-                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
-            }
-            case "redstone" -> {
-                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Redstone(parentSettings));
-                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Redstone(parentSettings));
-                if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
-            }
-            case "slime" -> {
-                if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Slime(parentSettings));
-                if (!hasWall(parentBlock)) map.put("wall", new JAAVAAWall.Transparent(parentSettings));
                 if (!hasStairs(parentBlock)) map.put("stairs", new StairsBlock(parentBlock.getDefaultState(), parentSettings));
             }
             default -> {

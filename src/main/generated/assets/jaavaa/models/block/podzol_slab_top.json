@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "minecraft:block/podzol",
-    "side": "minecraft:block/podzol",
-    "top": "minecraft:block/podzol"
-  }
-}

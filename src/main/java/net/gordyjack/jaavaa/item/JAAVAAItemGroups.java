@@ -41,6 +41,8 @@ public class JAAVAAItemGroups {
             addToGroup(item, JAAVAA_GROUP);
         }
         addToGroup(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, JAAVAA_GROUP);
+        addToGroupAfter(JAAVAAItems.STARSTEEL_NUGGET, JAAVAABlocks.STARSTEEL_BLOCK, JAAVAA_GROUP);
+
     }
     private static int currentColumn = 0;
     private static RegistryKey<ItemGroup> registerItemGroup(String name, ItemConvertible icon) {
@@ -60,5 +62,8 @@ public class JAAVAAItemGroups {
      */
     private static void addToGroup(ItemConvertible itemConvertible, RegistryKey<ItemGroup> group) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(itemConvertible.asItem()));
+    }
+    private static void addToGroupAfter(ItemConvertible addAfterItem, ItemConvertible itemConvertible, RegistryKey<ItemGroup> group) {
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.addAfter(addAfterItem, itemConvertible));
     }
 }

@@ -1,18 +1,6 @@
 {
   "replace": false,
   "values": [
-    "jaavaa:iron_ore_slab",
-    "jaavaa:iron_ore_wall",
-    "jaavaa:iron_ore_stairs",
-    "jaavaa:deepslate_iron_ore_slab",
-    "jaavaa:deepslate_iron_ore_wall",
-    "jaavaa:deepslate_iron_ore_stairs",
-    "jaavaa:lapis_ore_slab",
-    "jaavaa:lapis_ore_wall",
-    "jaavaa:lapis_ore_stairs",
-    "jaavaa:deepslate_lapis_ore_slab",
-    "jaavaa:deepslate_lapis_ore_wall",
-    "jaavaa:deepslate_lapis_ore_stairs",
     "jaavaa:lapis_block_slab",
     "jaavaa:lapis_block_wall",
     "jaavaa:lapis_block_stairs",
@@ -31,12 +19,6 @@
     "jaavaa:oxidized_copper_slab",
     "jaavaa:oxidized_copper_wall",
     "jaavaa:oxidized_copper_stairs",
-    "jaavaa:copper_ore_slab",
-    "jaavaa:copper_ore_wall",
-    "jaavaa:copper_ore_stairs",
-    "jaavaa:deepslate_copper_ore_slab",
-    "jaavaa:deepslate_copper_ore_wall",
-    "jaavaa:deepslate_copper_ore_stairs",
     "jaavaa:oxidized_cut_copper_wall",
     "jaavaa:weathered_cut_copper_wall",
     "jaavaa:exposed_cut_copper_wall",
@@ -104,9 +86,6 @@
     "jaavaa:waxed_weathered_copper_grate_stairs",
     "jaavaa:waxed_oxidized_copper_grate_slab",
     "jaavaa:waxed_oxidized_copper_grate_wall",
-    "jaavaa:waxed_oxidized_copper_grate_stairs",
-    "jaavaa:raw_copper_block_slab",
-    "jaavaa:raw_copper_block_wall",
-    "jaavaa:raw_copper_block_stairs"
+    "jaavaa:waxed_oxidized_copper_grate_stairs"
   ]
 }
