@@ -221,7 +221,7 @@ public class JAAVAABlocks {
     ));
     public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block", new Block(
             FabricBlockSettings.create()
-                    .strength(50.0F, 3600000.0F)
+                    .strength(50.0F, 1200.0F)
                     .requiresTool()
                     .sounds(BlockSoundGroup.METAL)
                     .mapColor(MapColor.WHITE_GRAY)
