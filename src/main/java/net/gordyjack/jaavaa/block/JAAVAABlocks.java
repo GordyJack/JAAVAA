@@ -219,7 +219,7 @@ public class JAAVAABlocks {
             TEST_BLOCK,
             FabricBlockSettings.copyOf(TEST_BLOCK)
     ));
-    public static final Block STARSTEEL_BLOCK = registerBlock("starsteel_block", new Block(
+    public static final Block STARSTEEL_BLOCK = registerBlockWithoutItem("starsteel_block", new Block(
             FabricBlockSettings.create()
                     .strength(50.0F, 1200.0F)
                     .requiresTool()

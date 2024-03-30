@@ -33,6 +33,9 @@ extends FabricLanguageProvider{
                 translationBuilder.add(item, "Internal use only - Non-functional");
                 continue;
             }
+            if (item instanceof BlockItem && !(item instanceof AliasedBlockItem)) {
+                continue;
+            }
             translationBuilder.add(item, getTranslatedName(item));
         }
         for (RegistryKey<ItemGroup> group : JAAVAAItemGroups.ITEM_GROUPS) {

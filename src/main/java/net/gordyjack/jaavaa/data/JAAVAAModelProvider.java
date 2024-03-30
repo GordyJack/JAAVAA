@@ -36,7 +36,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             if (item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR
                     || item == JAAVAAItems.EMPTY_PERSONAL_COLLECTOR_GLINTING
                     || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR
-                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR_GLINTING) {
+                    || item == JAAVAAItems.EMPTY_ENDER_COLLECTOR_GLINTING
+                    || item == JAAVAAItems.STARSTEEL_BLOCK) {
                 continue;
             }
             if (item instanceof AbstractCollectorItem) {
