@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jaavaa:adjustable_lamp_alt"
+        "recipe": "jaavaa:adjustable_redstone_lamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jaavaa:adjustable_lamp_alt"
+      "jaavaa:adjustable_redstone_lamp"
     ]
   }
 }

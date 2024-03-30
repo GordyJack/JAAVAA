@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-29T18:17:13.0103089	JustAnotherActuallyVanillaAdditionsAddon/Block Loot Tables
+// 1.20.4	2024-03-29T23:12:07.4346086	JustAnotherActuallyVanillaAdditionsAddon/Block Loot Tables
 e6a3f7ab35c21ae898e9955046f97371e30efc1d data\jaavaa\loot_tables\blocks\yellow_wool_slab.json
 e4e5003f652d57800fce713cd8ed2f454de3cdce data\jaavaa\loot_tables\blocks\nether_gold_ore_stairs.json
 9c4eda998f6d065ecddb40627041e22b43c6f23b data\jaavaa\loot_tables\blocks\blue_terracotta_slab.json
@@ -348,7 +348,6 @@ cec9459e6182d62701d2c13bf7c49df5adc898e0 data\jaavaa\loot_tables\blocks\yellow_t
 e637c874decd939ab7ad46e162da4d339c860b48 data\jaavaa\loot_tables\blocks\gray_wool_wall.json
 08a534c6728dead5afa14900c9e32a5d13cd9f6f data\jaavaa\loot_tables\blocks\green_wool_wall.json
 8587ec4b94a47ad2c838fad84167798beff6c088 data\jaavaa\loot_tables\blocks\gray_stained_glass_wall.json
-eef6f7337de5c08bc6c24251f14e6d86536cc938 data\jaavaa\loot_tables\blocks\adjustable_lamp.json
 73f741855137d0c1c21152706138d7a3499d4e61 data\jaavaa\loot_tables\blocks\cyan_terracotta_slab.json
 80ff2dfca21f62bb3011236f2bda0e85248feab5 data\jaavaa\loot_tables\blocks\diamond_ore_stairs.json
 4274d2f4540127db2ef55c6ed6bc6970ef47830b data\jaavaa\loot_tables\blocks\orange_terracotta_stairs.json
@@ -374,6 +373,7 @@ ff9797b7a58be4fd0fd495942ef3129320b3f047 data\jaavaa\loot_tables\blocks\cyan_ter
 2576f3452500b760c204e992ce61960024524703 data\jaavaa\loot_tables\blocks\white_wool_slab.json
 608b377545787f12fffa52ba867f4c0d869d3707 data\jaavaa\loot_tables\blocks\green_stained_glass_stairs.json
 7d352f3f38f64281da3e5abbad4c751c186d745b data\jaavaa\loot_tables\blocks\glass_slab.json
+8aaac7198d401eb2aa330f050b099e536ac5afe8 data\jaavaa\loot_tables\blocks\adjustable_redstone_lamp.json
 fe275c07e6e146a93096cb77f8fb0fd11119f8d2 data\jaavaa\loot_tables\blocks\waxed_exposed_chiseled_copper_slab.json
 606170d429ceb01cc79a13c71336f1472f7c1e9e data\jaavaa\loot_tables\blocks\polished_diorite_wall.json
 1a6f2b45c7bc0939a34895a19ba41b7e1d1b4f17 data\jaavaa\loot_tables\blocks\magenta_concrete_slab.json

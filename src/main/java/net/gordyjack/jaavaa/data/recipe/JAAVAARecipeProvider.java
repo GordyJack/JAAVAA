@@ -40,8 +40,8 @@ extends FabricRecipeProvider {
                 .criterion(hasItem(JAAVAAItems.ALLAY_ESSENCE), conditionsFromItem(JAAVAAItems.ALLAY_ESSENCE))
                 .offerTo(exporter, JAAVAA.getID(getItemPath(JAAVAAItems.EMPTY_PERSONAL_COLLECTOR)));
         //Adjustable Lamp Crafting Recipes
-        String lampPath = getItemPath(JAAVAABlocks.ADJUSTABLE_LAMP);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.ADJUSTABLE_LAMP, 1)
+        String lampPath = getItemPath(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, 1)
                 .input('L', Items.REDSTONE_LAMP)
                 .input('Q', Items.QUARTZ)
                 .input('B', ItemTags.BUTTONS)
@@ -50,7 +50,7 @@ extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                 .group(lampPath)
                 .offerTo(exporter, JAAVAA.getID(lampPath));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.ADJUSTABLE_LAMP, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, 1)
                 .input('L', Items.REDSTONE_LAMP)
                 .input('Q', Items.QUARTZ)
                 .input('B', ItemTags.BUTTONS)

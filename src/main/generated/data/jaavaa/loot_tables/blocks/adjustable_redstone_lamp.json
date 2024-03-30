@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "jaavaa:adjustable_lamp"
+          "name": "jaavaa:adjustable_redstone_lamp"
         }
       ],
       "rolls": 1.0

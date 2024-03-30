@@ -23,9 +23,10 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator bsmGen) {
         bsmGen.registerSimpleCubeAll(JAAVAABlocks.TEST_BLOCK);
+        bsmGen.registerSimpleCubeAll(JAAVAABlocks.STARSTEEL_BLOCK);
         bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ALLAY_COLLECTOR, "allay_collector"));
         bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ENDER_COLLECTOR, "ender_collector"));
-        bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_LAMP, "adjustable_lamp"));
+        bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
         registerVanillaBlockSets(bsmGen);
 //        generateMiniBlockModels();
     }
@@ -65,13 +66,6 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     }
     private TextureMap createTextureMap(Block parentBlock) {
         TextureMap textureMap = TextureMap.all(parentBlock);
-//        if (parentBlock == Blocks.DRIED_KELP_BLOCK) {
-//            textureMap.put(TextureKey.ALL, new Identifier("block/dried_kelp_side"));
-//            textureMap.put(TextureKey.UP, new Identifier("block/dried_kelp_top"));
-//            textureMap.put(TextureKey.TOP, new Identifier("block/dried_kelp_top"));
-//            textureMap.put(TextureKey.DOWN, new Identifier("block/dried_kelp_bottom"));
-//            textureMap.put(TextureKey.BOTTOM, new Identifier("block/dried_kelp_bottom"));
-//        }
         //TODO: Implement all special cases
         if (parentBlock == Blocks.SMOOTH_QUARTZ) {
             textureMap.put(TextureKey.ALL, new Identifier("block/quartz_block_bottom"));
@@ -95,11 +89,6 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         if (parentBlock == Blocks.CHISELED_RED_SANDSTONE) {
             textureMap.put(TextureKey.END, new Identifier("block/red_sandstone_top"));
             textureMap.put(TextureKey.SIDE, new Identifier("block/chiseled_red_sandstone"));
-        }
-        if (parentBlock == Blocks.REINFORCED_DEEPSLATE) {
-            textureMap.put(TextureKey.ALL, new Identifier("block/reinforced_deepslate_side"));
-            textureMap.put(TextureKey.TOP, new Identifier("block/reinforced_deepslate_top"));
-            textureMap.put(TextureKey.BOTTOM, new Identifier("block/reinforced_deepslate_bottom"));
         }
         return textureMap;
     }

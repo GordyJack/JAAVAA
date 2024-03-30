@@ -23,12 +23,12 @@ import net.minecraft.world.explosion.Explosion;
 import java.util.function.BiConsumer;
 
 @SuppressWarnings("deprecation")
-public class AdjustableLamp
+public class AdjustableRedstoneLamp
         extends Block {
     public static final IntProperty LUMINANCE = JAAVAABlockProperties.LUMINANCE;
     public static final BooleanProperty POWERED = Properties.POWERED;
 
-    public AdjustableLamp(Settings settings) {
+    public AdjustableRedstoneLamp(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(LUMINANCE, 0).with(POWERED, false));
     }

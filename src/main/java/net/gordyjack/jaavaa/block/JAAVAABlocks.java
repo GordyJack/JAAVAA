@@ -284,8 +284,8 @@ public class JAAVAABlocks {
     public static final Block ENDER_COLLECTOR = registerBlockWithoutItem("ender_collector", new CollectorBlock(
             FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ENDER_COLLECTOR
     ));
-    public static final Block ADJUSTABLE_LAMP = registerBlock("adjustable_lamp", new AdjustableLamp(
-            FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).luminance(state -> state.get(AdjustableLamp.LUMINANCE) + 1).solidBlock(Blocks::never)
+    public static final Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", new AdjustableRedstoneLamp(
+            FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).luminance(state -> state.get(AdjustableRedstoneLamp.LUMINANCE) + 1).solidBlock(Blocks::never)
     ));
     
     private static Block registerBlock(String name, Block block) {
