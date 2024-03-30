@@ -69,9 +69,8 @@ public class JAAVAABlocks {
             Blocks.MOSSY_COBBLESTONE,
             Blocks.OBSIDIAN,
             Blocks.DIAMOND_BLOCK,
-            Blocks.ICE, //TODO CUSTOM FUNCTION
             Blocks.NETHERRACK,
-            Blocks.GLOWSTONE, //TODO CUSTOM FUNCTION
+            Blocks.GLOWSTONE,
             Blocks.WHITE_STAINED_GLASS,
             Blocks.ORANGE_STAINED_GLASS,
             Blocks.MAGENTA_STAINED_GLASS,
@@ -119,7 +118,6 @@ public class JAAVAABlocks {
             Blocks.DARK_PRISMARINE,
             Blocks.TERRACOTTA,
             Blocks.COAL_BLOCK,
-            Blocks.PACKED_ICE, //TODO CUSTOM FUNCTION
             Blocks.RED_SANDSTONE,
             Blocks.CHISELED_RED_SANDSTONE,
             Blocks.CUT_RED_SANDSTONE,
@@ -146,8 +144,7 @@ public class JAAVAABlocks {
             Blocks.GREEN_CONCRETE,
             Blocks.RED_CONCRETE,
             Blocks.BLACK_CONCRETE,
-            Blocks.BLUE_ICE, //TODO CUSTOM FUNCTION
-            Blocks.SHROOMLIGHT, //TODO CUSTOM FUNCTION
+            Blocks.SHROOMLIGHT,
             Blocks.CRIMSON_PLANKS,
             Blocks.WARPED_PLANKS,
             Blocks.NETHERITE_BLOCK,

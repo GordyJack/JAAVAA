@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "bottom": "minecraft:block/ancient_debris",
-    "side": "minecraft:block/ancient_debris",
-    "top": "minecraft:block/ancient_debris"
+    "bottom": "minecraft:block/ancient_debris_top",
+    "side": "minecraft:block/ancient_debris_side",
+    "top": "minecraft:block/ancient_debris_top"
   }
 }

@@ -1,20 +1,19 @@
-// 1.20.4	2024-03-30T00:23:20.0930621	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
+// 1.20.4	2024-03-30T00:35:10.1708595	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
 3966b7801478c4f4cd15295204455c0c075b4c55 data\minecraft\tags\blocks\terracotta.json
 7f3c0f66b428637a372332281c0a59a3ec0e9836 data\minecraft\tags\blocks\needs_iron_tool.json
-8d2c3dc57717b0a37b587fa0ff7d958825b9bc45 data\minecraft\tags\blocks\walls.json
-e0b272b28b436942342b2a8b0d45674991d0b0ab data\c\tags\blocks\glass_blocks.json
 be147a47b7804876fed7a6e43daf8905aa951fb7 data\fabric\tags\blocks\needs_tool_level_4.json
+e0b272b28b436942342b2a8b0d45674991d0b0ab data\c\tags\blocks\glass_blocks.json
+2b6b05ee60af8b6294dbac923780ac1e4a0fa9c8 data\minecraft\tags\blocks\walls.json
 382863752b3695dda10e62f4c225423277936019 data\minecraft\tags\blocks\dragon_immune.json
 d9f7e96f86ac347e0385834728e140dfb82b2f46 data\minecraft\tags\blocks\mineable\axe.json
 f9815f703bda44578d66811805e21847ae89c49d data\minecraft\tags\blocks\mineable\hoe.json
 d787414c1a9939f6d810d49818e3ff0769206d45 data\minecraft\tags\blocks\needs_diamond_tool.json
 e0b272b28b436942342b2a8b0d45674991d0b0ab data\minecraft\tags\blocks\impermeable.json
-c60e54f10709de7add230aac6ed1fe68e3b2b0c0 data\minecraft\tags\blocks\mineable\pickaxe.json
+248b06f5f52f16bce493b28fa07bee481a4aa792 data\minecraft\tags\blocks\mineable\pickaxe.json
 acad862b2a7a85dbb59f1e799a82831b4f42f4b0 data\minecraft\tags\blocks\wool.json
 f422e1450607d54d54bc6cdc4e618fc55de28077 data\minecraft\tags\blocks\needs_stone_tool.json
 1324fdd0719b2c9d4fd4d18d627d8de8c1e7a11e data\jaavaa\tags\blocks\collectors.json
-76b2c5f15c02011234ca748085dbce2f7158675d data\minecraft\tags\blocks\stairs.json
-7f55923582bb148d7b560b1de3c715e8ab10e595 data\minecraft\tags\blocks\slabs.json
+4fac0680154eaf9994547b86107b3ca91bfb6a4b data\minecraft\tags\blocks\stairs.json
+486a847e3b059aa54826b451568d4ef435d9fb03 data\minecraft\tags\blocks\slabs.json
 d8fdaf5664adc04b1d44704ab9a7e0e4504027dc data\minecraft\tags\blocks\stone_bricks.json
 9a43e12edb7425bfd6ef49eba00e164f8fd32631 data\minecraft\tags\blocks\planks.json
-0a1e6425c5749b1609d0dce9655f398922a96a7a data\minecraft\tags\blocks\ice.json

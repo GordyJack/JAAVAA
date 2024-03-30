@@ -67,6 +67,13 @@ public class JAAVAAModelProvider extends FabricModelProvider {
     private TextureMap createTextureMap(Block parentBlock) {
         TextureMap textureMap = TextureMap.all(parentBlock);
         //TODO: Implement all special cases
+        if (parentBlock == Blocks.ANCIENT_DEBRIS) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/ancient_debris_side"));
+            textureMap.put(TextureKey.END, new Identifier("block/ancient_debris_top"));
+        }
+        if (parentBlock == Blocks.QUARTZ_BLOCK) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/quartz_block_top"));
+        }
         if (parentBlock == Blocks.SMOOTH_QUARTZ) {
             textureMap.put(TextureKey.ALL, new Identifier("block/quartz_block_bottom"));
         }
@@ -82,6 +89,9 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             textureMap.put(TextureKey.END, new Identifier("block/sandstone_top"));
             textureMap.put(TextureKey.SIDE, new Identifier("block/chiseled_sandstone"));
         }
+        if (parentBlock == Blocks.SMOOTH_SANDSTONE) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/sandstone_top"));
+        }
         if (parentBlock == Blocks.CUT_RED_SANDSTONE) {
             textureMap.put(TextureKey.END, new Identifier("block/red_sandstone_top"));
             textureMap.put(TextureKey.SIDE, new Identifier("block/cut_red_sandstone"));
@@ -89,6 +99,17 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         if (parentBlock == Blocks.CHISELED_RED_SANDSTONE) {
             textureMap.put(TextureKey.END, new Identifier("block/red_sandstone_top"));
             textureMap.put(TextureKey.SIDE, new Identifier("block/chiseled_red_sandstone"));
+        }
+        if (parentBlock == Blocks.SMOOTH_RED_SANDSTONE) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/red_sandstone_top"));
+        }
+        if (parentBlock == Blocks.CHISELED_TUFF) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/chiseled_tuff"));
+            textureMap.put(TextureKey.END, new Identifier("block/chiseled_tuff_top"));
+        }
+        if (parentBlock == Blocks.CHISELED_TUFF_BRICKS) {
+            textureMap.put(TextureKey.ALL, new Identifier("block/chiseled_tuff_bricks"));
+            textureMap.put(TextureKey.END, new Identifier("block/chiseled_tuff_bricks_top"));
         }
         return textureMap;
     }
