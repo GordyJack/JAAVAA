@@ -18,8 +18,8 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "jaavaa:starsteel_block",
-      "text": "When crafted into a block, this Starsteel is nearly indestructible. It is as hard to mine as obsidian and cannot be exploded by any means and mobs will not spawn on top of it."
+      "recipe": "jaavaa:starsteel_block_from_starsteel_ingot",
+      "text": "When crafted into a block, this Starsteel is nearly indestructible. It is both Wither and Dragon proof and no mobs will not spawn on top of it."
     }
   ]
 }
