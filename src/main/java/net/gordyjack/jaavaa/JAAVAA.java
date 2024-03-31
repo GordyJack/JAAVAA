@@ -1,14 +1,14 @@
 package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.ModInitializer;
-
-import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.JAAVAABlocks;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.gordyjack.jaavaa.data.JAAVAALootTableModifiers;
-import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.item.JAAVAAItemGroups;
+import net.gordyjack.jaavaa.item.JAAVAAItems;
 import net.gordyjack.jaavaa.utils.JAAVAARegistries;
-import net.minecraft.util.*;
-import org.jetbrains.annotations.*;
+import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

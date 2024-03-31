@@ -41,7 +41,7 @@ public class JAAVAAItemGroups {
             addToGroup(item, JAAVAA_GROUP);
         }
         addToGroup(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, JAAVAA_GROUP);
-
+        addToGroup(JAAVAABlocks.ADVANCED_REPEATER, JAAVAA_GROUP);
     }
     private static int currentColumn = 0;
     private static RegistryKey<ItemGroup> registerItemGroup(String name, ItemConvertible icon) {

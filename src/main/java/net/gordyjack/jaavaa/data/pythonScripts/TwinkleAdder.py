@@ -2,7 +2,7 @@ import math
 from PIL import Image
 import random
 
-reference_textures_path = r"C:\\Users\\GordyJackPC\\Documents\\Coding\\Minecraft Modding\\JAAVAA\\src\\main\\resources\\assets\\jaavaa\\textures\\reference_textures\\"
+reference_textures_path = r"C:\\Users\\GordyJackPC\\Documents\\Coding\\Minecraft Modding\\JAAVAA\\src\\main\\resources\\assets\\jaavaa\\textures\\reference_textures\\mod\\"
 base_texture = Image.open(reference_textures_path + "starsteel_block_base.png").convert("RGBA")
 
 # Get the size of the block texture

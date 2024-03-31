@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "jaavaa:block/advanced_repeater",
+      "y": 90
+    },
+    "facing=north,powered=false": {
+      "model": "jaavaa:block/advanced_repeater"
+    },
+    "facing=south,powered=false": {
+      "model": "jaavaa:block/advanced_repeater",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "jaavaa:block/advanced_repeater",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "jaavaa:block/advanced_repeater_on",
+      "y": 90
+    },
+    "facing=north,powered=true": {
+      "model": "jaavaa:block/advanced_repeater_on"
+    },
+    "facing=south,powered=true": {
+      "model": "jaavaa:block/advanced_repeater_on",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "jaavaa:block/advanced_repeater_on",
+      "y": 270
+    }
+  }
+}

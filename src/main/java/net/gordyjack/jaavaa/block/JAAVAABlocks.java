@@ -243,6 +243,9 @@ public class JAAVAABlocks {
                     .solidBlock(Blocks::never)
                     .allowsSpawning(Blocks::always)
     ));
+    public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater", new AdvancedRepeaterBlock(
+            FabricBlockSettings.copyOf(Blocks.REPEATER)
+    ));
     
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
