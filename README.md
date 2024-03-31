@@ -1,6 +1,7 @@
 # JAAVAA
 ## (Just Another Actually Vanilla Additions Addon)
-### Still in development, but the first release is coming soon™.
+### Still in development, but the first release is coming _soon™_.
+#### Most of the features on this list are currently unimplemented. _(Some things may stay that way)_
 ___
 The purpose of this mod is 4-fold:
 ### 1. Adding features that should be in _Vanilla_ by default. 
@@ -36,11 +37,12 @@ The purpose of this mod is 4-fold:
     * **Quicksilver**: The best alloy, a combination of mercury and iron. Almost mystical in nature, its durability and speed rival that of diamonds with better magical properties than gold. But keep in mind it is poisonous. So every time the tool takes durability damage, there is a chance that the user becomes poisoned.
 * **New Items**:
   * **Biome Compass**: It seems that when you infuse a compass needle with Mercury and use some Amethyst for calibration and have a more resilient casing, you get a new kind of compass that can point to any biome you like.
-  * **Personal Allay Collector**: Allays are interesting creatures, but their use is limited. What if you could shape some of their essence with some metals and create a sort of item magnet?
+  * **Personal Collectors**: Items that act as a magnet in your inventory but when placed act as a vacuum hopper.
 * **New Redstone Components**:
   * **Skinny Hopper**: A version of the Hopper that only has a single inventory slot.
   * **Hopper Pipes**: A skinny block that is used for linking Hoppers (or Skinny Hoppers) together.
-  * **Encased Redstone Block**: A Redstone Block that can be configured to emit any signal strength.
+  * **Adjustable Redstone Block**: A Redstone Block that can be configured to emit any signal strength.
+  * **Adjustable Redstone Lamp**: A Redstone Lamp that can be configured to emit any light level.
 * **Overhauled Potions**:
   * **Potion Flasks**: A new type of container that can hold multiple servings of a single potion.
   * **Ancient Flagons**: Another new type of container that can hold multiple potion effects to all apply simultaneously.
