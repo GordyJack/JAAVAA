@@ -14,14 +14,9 @@ public class JAAVAAItems {
     public static final List<Item> ITEMS = new ArrayList<>();
 
     public static final Item STARSTEEL_BLOCK = registerItem("starsteel_block", new BlockItem(
-            JAAVAABlocks.STARSTEEL_BLOCK, new FabricItemSettings().rarity(Rarity.RARE)) {
-                @Override
-                public boolean hasGlint(ItemStack stack) {
-                    return true;
-                }
-            }
-    );
-    public static final Item STARSTEEL_INGOT = registerItem("starsteel_ingot", new GlintingItem(
+            JAAVAABlocks.STARSTEEL_BLOCK, new FabricItemSettings().rarity(Rarity.RARE)
+    ));
+    public static final Item STARSTEEL_INGOT = registerItem("starsteel_ingot", new Item(
             new FabricItemSettings().rarity(Rarity.RARE)
     ));
     public static final Item STARSTEEL_NUGGET = registerItem("starsteel_nugget", new GlintingItem(
