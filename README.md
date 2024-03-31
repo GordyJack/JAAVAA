@@ -43,6 +43,7 @@ The purpose of this mod is 4-fold:
   * **Hopper Pipes**: A skinny block that is used for linking Hoppers (or Skinny Hoppers) together.
   * **Adjustable Redstone Block**: A Redstone Block that can be configured to emit any signal strength.
   * **Adjustable Redstone Lamp**: A Redstone Lamp that can be configured to emit any light level.
+  * **Advanced Repeater**: A Redstone Repeater that has delay and duration individually configurable.
 * **Overhauled Potions**:
   * **Potion Flasks**: A new type of container that can hold multiple servings of a single potion.
   * **Ancient Flagons**: Another new type of container that can hold multiple potion effects to all apply simultaneously.
