@@ -1,0 +1,24 @@
+{
+    "name": "Encased Redstone Pillars",
+    "icon": "jaavaa:quartz_encased_redstone_pillar",
+    "category": "jaavaa:functional_blocks",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": [
+                "The Encased Redstone Pillar is a block that acts exactly as a Redstone Block, but only along its axis.",
+                "This means that it will only power blocks that are directly touching the ends of it, and not to the sides.",
+                "This can be useful for creating more compact redstone contraptions, or for creating more complex redstone circuits.",
+                "$(br)It comes in two variants:",
+                "$(li)Quartz: For standard use cases. It's pretty.",
+                "$(li)Ancient Debris: For when you need a little more durability. It's not so pretty."
+            ]
+        },
+        {
+            "type": "patchouli:crafting",
+            "title": " ",
+            "recipe": "jaavaa:quartz_encased_redstone_pillar",
+            "recipe2": "jaavaa:ancient_debris_encased_redstone_pillar"
+        }
+    ]
+}

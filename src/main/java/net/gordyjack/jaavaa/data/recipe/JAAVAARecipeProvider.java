@@ -59,6 +59,39 @@ extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                 .group(lampPath)
                 .offerTo(exporter, JAAVAA.getID(lampPath + "_alt"));
+        //Encased Redstone Pillar Crafting Recipes
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR, 6)
+                .input('R', Blocks.REDSTONE_BLOCK)
+                .input('Q', Items.QUARTZ)
+                .pattern("QRQ").pattern("QRQ").pattern("QRQ")
+                .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
+                .criterion(hasItem(Blocks.QUARTZ_PILLAR), conditionsFromItem(Blocks.QUARTZ_PILLAR))
+                .group(getItemPath(JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR))
+                .offerTo(exporter, JAAVAA.getID(getItemPath(JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR, 6)
+                .input('R', Blocks.REDSTONE_BLOCK)
+                .input('Q', Items.QUARTZ)
+                .pattern("QQQ").pattern("RRR").pattern("QQQ")
+                .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
+                .criterion(hasItem(Blocks.QUARTZ_PILLAR), conditionsFromItem(Blocks.QUARTZ_PILLAR))
+                .group(getItemPath(JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR))
+                .offerTo(exporter, JAAVAA.getID(getItemPath(JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR) + "_alt"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR, 6)
+                .input('R', Blocks.REDSTONE_BLOCK)
+                .input('A', Items.ANCIENT_DEBRIS)
+                .pattern("ARA").pattern("ARA").pattern("ARA")
+                .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
+                .criterion(hasItem(Blocks.ANCIENT_DEBRIS), conditionsFromItem(Blocks.ANCIENT_DEBRIS))
+                .group(getItemPath(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR))
+                .offerTo(exporter, JAAVAA.getID(getItemPath(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR, 6)
+                .input('R', Blocks.REDSTONE_BLOCK)
+                .input('A', Items.ANCIENT_DEBRIS)
+                .pattern("AAA").pattern("RRR").pattern("AAA")
+                .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
+                .criterion(hasItem(Blocks.ANCIENT_DEBRIS), conditionsFromItem(Blocks.ANCIENT_DEBRIS))
+                .group(getItemPath(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR))
+                .offerTo(exporter, JAAVAA.getID(getItemPath(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR) + "_alt"));
         
         //Starsteel Compacting
         generate3x3CompactingRecipes(exporter, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_NUGGET, RecipeCategory.MISC, JAAVAAItems.STARSTEEL_INGOT);

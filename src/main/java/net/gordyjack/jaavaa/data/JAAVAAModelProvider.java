@@ -27,6 +27,14 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ALLAY_COLLECTOR, "allay_collector"));
         bsmGen.blockStateCollector.accept(generateCollectorState((CollectorBlock)JAAVAABlocks.ENDER_COLLECTOR, "ender_collector"));
         bsmGen.blockStateCollector.accept(generateAdjustableState(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, "adjustable_redstone_lamp"));
+        registerEncasedPillarModel(bsmGen, JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR,
+                JAAVAA.getGameID("block/quartz_pillar"),
+                JAAVAA.getGameID("block/quartz_pillar_top"),
+                JAAVAA.getGameID("block/redstone_block"));
+        registerEncasedPillarModel(bsmGen, JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR,
+                JAAVAA.getGameID("block/ancient_debris_side"),
+                JAAVAA.getGameID("block/ancient_debris_top"),
+                JAAVAA.getGameID("block/redstone_block"));
         registerVanillaBlockSets(bsmGen);
 //        generateMiniBlockModels();
     }
@@ -177,6 +185,18 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             variantMap.register(luminance, variant);
         }
         return variantSupplier.coordinate(variantMap);
+    }
+    //TODO: Fix UV in parent model
+    private void registerEncasedPillarModel(BlockStateModelGenerator bsmGen, Block block, Identifier casing, Identifier edge, Identifier end) {
+        bsmGen.registerAxisRotated(block, TexturedModel.makeFactory((block1) -> {
+            TextureMap textureMap = TextureMap.all(casing);
+            textureMap.put(TextureKey.EDGE, edge);
+            textureMap.put(TextureKey.END, end);
+            return textureMap;
+        }, new Model(Optional.of(JAAVAA.getID("block/encased_pillar")), Optional.empty(), TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
+    }
+    private static Model block(String parent, TextureKey ... requiredTextureKeys) {
+        return new Model(Optional.of(JAAVAA.getID("block/" + parent)), Optional.empty(), requiredTextureKeys);
     }
 //    private void generateMiniBlockModels() {
 //        String bottomSingle = "mini_block_00000001_single.json";

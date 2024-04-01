@@ -377,6 +377,9 @@ implements JAAVAATagGeneratorInterface<Block> {
             }
 
             //Special Case Tags
+            if (key.contains("ancient")) {
+                getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE).add(block);
+            }
             if (key.contains("glass")) {
                 getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS).add(block);
                 getOrCreateTagBuilder(BlockTags.IMPERMEABLE).add(block);
@@ -405,6 +408,16 @@ implements JAAVAATagGeneratorInterface<Block> {
                 getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block);
             }
         }
+        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(
+                JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR
+        );
+        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(
+                JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR
+        );
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
+                JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR,
+                JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR
+        );
     }
     @Override
     public TagKey<Block> registerTagKey(String namespace, String name) {

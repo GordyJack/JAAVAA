@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "quartz_encased_redstone_pillar",
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    "QRQ",
+    "QRQ",
+    "QRQ"
+  ],
+  "result": {
+    "count": 6,
+    "item": "jaavaa:quartz_encased_redstone_pillar"
+  }
+}

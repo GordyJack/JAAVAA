@@ -306,6 +306,8 @@
     "jaavaa:cracked_deepslate_tiles_stairs",
     "jaavaa:smooth_basalt_slab",
     "jaavaa:smooth_basalt_wall",
-    "jaavaa:smooth_basalt_stairs"
+    "jaavaa:smooth_basalt_stairs",
+    "jaavaa:ancient_debris_encased_redstone_pillar",
+    "jaavaa:quartz_encased_redstone_pillar"
   ]
 }

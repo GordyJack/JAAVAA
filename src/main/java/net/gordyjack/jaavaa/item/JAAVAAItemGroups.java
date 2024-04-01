@@ -42,6 +42,8 @@ public class JAAVAAItemGroups {
         }
         addToGroup(JAAVAABlocks.ADJUSTABLE_REDSTONE_LAMP, JAAVAA_GROUP);
         addToGroup(JAAVAABlocks.ADVANCED_REPEATER, JAAVAA_GROUP);
+        addToGroup(JAAVAABlocks.QUARTZ_ENCASED_REDSTONE_PILLAR, JAAVAA_GROUP);
+        addToGroup(JAAVAABlocks.ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR, JAAVAA_GROUP);
     }
     private static int currentColumn = 0;
     private static RegistryKey<ItemGroup> registerItemGroup(String name, ItemConvertible icon) {

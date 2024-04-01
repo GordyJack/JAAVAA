@@ -246,6 +246,12 @@ public class JAAVAABlocks {
     public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater", new AdvancedRepeaterBlock(
             FabricBlockSettings.copyOf(Blocks.REPEATER)
     ));
+    public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", new EncasedRedstoneBlock(
+            FabricBlockSettings.copyOf(Blocks.QUARTZ_PILLAR)
+    ));
+    public static final Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = registerBlock("ancient_debris_encased_redstone_pillar", new EncasedRedstoneBlock(
+            FabricBlockSettings.copyOf(Blocks.ANCIENT_DEBRIS)
+    ));
     
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

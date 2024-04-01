@@ -1,18 +1,18 @@
-// 1.20.4	2024-03-30T01:59:14.335214	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
+// 1.20.4	2024-04-01T12:55:57.6359362	JustAnotherActuallyVanillaAdditionsAddon/Tags for minecraft:block
 3966b7801478c4f4cd15295204455c0c075b4c55 data\minecraft\tags\blocks\terracotta.json
-7f3c0f66b428637a372332281c0a59a3ec0e9836 data\minecraft\tags\blocks\needs_iron_tool.json
+0ac32b7a738d3ddf71379efaf8d559748bc5e8d4 data\minecraft\tags\blocks\needs_iron_tool.json
 2b6b05ee60af8b6294dbac923780ac1e4a0fa9c8 data\minecraft\tags\blocks\walls.json
 be147a47b7804876fed7a6e43daf8905aa951fb7 data\fabric\tags\blocks\needs_tool_level_4.json
 e0b272b28b436942342b2a8b0d45674991d0b0ab data\c\tags\blocks\glass_blocks.json
 b7f5d850ab52d17a8b8cf828c66b2da31a438f6f data\minecraft\tags\blocks\dragon_immune.json
 d9f7e96f86ac347e0385834728e140dfb82b2f46 data\minecraft\tags\blocks\mineable\axe.json
 f9815f703bda44578d66811805e21847ae89c49d data\minecraft\tags\blocks\mineable\hoe.json
-d787414c1a9939f6d810d49818e3ff0769206d45 data\minecraft\tags\blocks\needs_diamond_tool.json
+40027465cfe4e719e0d12cb6bc868e516f1e8e85 data\minecraft\tags\blocks\needs_diamond_tool.json
 e0b272b28b436942342b2a8b0d45674991d0b0ab data\minecraft\tags\blocks\impermeable.json
-7c6f90dce433fc91852fd42ed02661dc2af4de68 data\minecraft\tags\blocks\mineable\pickaxe.json
+9396b68d4c45dc64eca845995851d950030b74bf data\minecraft\tags\blocks\mineable\pickaxe.json
 acad862b2a7a85dbb59f1e799a82831b4f42f4b0 data\minecraft\tags\blocks\wool.json
 f422e1450607d54d54bc6cdc4e618fc55de28077 data\minecraft\tags\blocks\needs_stone_tool.json
-be147a47b7804876fed7a6e43daf8905aa951fb7 data\minecraft\tags\blocks\wither_immune.json
+0e5e35c4bcb42821d3ef65c4d92240316f23bc8b data\minecraft\tags\blocks\wither_immune.json
 1324fdd0719b2c9d4fd4d18d627d8de8c1e7a11e data\jaavaa\tags\blocks\collectors.json
 4fac0680154eaf9994547b86107b3ca91bfb6a4b data\minecraft\tags\blocks\stairs.json
 486a847e3b059aa54826b451568d4ef435d9fb03 data\minecraft\tags\blocks\slabs.json

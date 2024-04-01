@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "jaavaa:starsteel_block"
+    "jaavaa:starsteel_block",
+    "jaavaa:ancient_debris_encased_redstone_pillar",
+    "jaavaa:ancient_debris_slab",
+    "jaavaa:ancient_debris_wall",
+    "jaavaa:ancient_debris_stairs"
   ]
 }

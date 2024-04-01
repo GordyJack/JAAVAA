@@ -36,6 +36,9 @@ public class JAAVAA
 	public static @NotNull Identifier getID(String name) {
 		return getID(MODID, name);
 	}
+	public static @NotNull Identifier getGameID(String name) {
+		return getID("minecraft", name);
+	}
 	
 	public static void logInfo(String message) {
 		LOGGER.info(message);
