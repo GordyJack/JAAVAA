@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_starsteel_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jaavaa:starsteel_nugget"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jaavaa:starsteel_ingot_from_starsteel_nugget"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_starsteel_nugget"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jaavaa:starsteel_ingot_from_starsteel_nugget"
+    ]
+  }
+}

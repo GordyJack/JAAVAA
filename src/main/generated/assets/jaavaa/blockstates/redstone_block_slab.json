@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/redstone_block_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/redstone_block"
+    },
+    "type=top": {
+      "model": "jaavaa:block/redstone_block_slab_top"
+    }
+  }
+}

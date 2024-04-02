@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jaavaa:block/chiseled_tuff_bricks_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/chiseled_tuff_bricks"
+    },
+    "type=top": {
+      "model": "jaavaa:block/chiseled_tuff_bricks_slab_top"
+    }
+  }
+}

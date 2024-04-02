@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:gold_block_slab",
+    "jaavaa:gold_block_wall",
+    "jaavaa:gold_block_stairs",
+    "jaavaa:diamond_block_slab",
+    "jaavaa:diamond_block_wall",
+    "jaavaa:diamond_block_stairs",
+    "jaavaa:quartz_encased_redstone_pillar"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:shroomlight_slab",
+    "jaavaa:shroomlight_wall",
+    "jaavaa:shroomlight_stairs",
+    "jaavaa:sculk_slab",
+    "jaavaa:sculk_wall",
+    "jaavaa:sculk_stairs"
+  ]
+}

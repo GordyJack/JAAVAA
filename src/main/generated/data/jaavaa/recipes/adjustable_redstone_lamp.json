@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "adjustable_redstone_lamp",
+  "key": {
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "L": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "pattern": [
+    " Q ",
+    "BLB",
+    " Q "
+  ],
+  "result": {
+    "item": "jaavaa:adjustable_redstone_lamp"
+  }
+}

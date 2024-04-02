@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "jaavaa:starsteel_block",
+    "jaavaa:obsidian_slab",
+    "jaavaa:obsidian_wall",
+    "jaavaa:obsidian_stairs",
+    "jaavaa:crying_obsidian_slab",
+    "jaavaa:crying_obsidian_wall",
+    "jaavaa:crying_obsidian_stairs"
+  ]
+}

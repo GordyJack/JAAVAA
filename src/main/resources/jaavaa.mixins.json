@@ -3,7 +3,8 @@
 	"package": "net.gordyjack.jaavaa.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"AllayEntityMixin",
+		"ItemEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
