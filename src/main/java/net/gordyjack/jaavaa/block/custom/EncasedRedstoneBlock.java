@@ -6,6 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
+@SuppressWarnings("deprecation")
 public class EncasedRedstoneBlock
         extends PillarBlock {
     public EncasedRedstoneBlock(Settings settings) {

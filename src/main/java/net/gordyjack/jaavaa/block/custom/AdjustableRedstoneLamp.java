@@ -91,11 +91,10 @@ public class AdjustableRedstoneLamp
         }
         super.onExploded(state, world, pos, explosion, stackMerger);
     }
-    public BlockState cycleLuminance(BlockState state, World world, BlockPos pos) {
+    private void cycleLuminance(BlockState state, World world, BlockPos pos) {
         state = state.cycle(LUMINANCE);
         world.setBlockState(pos, state, Block.NOTIFY_ALL);
         world.updateNeighborsAlways(pos, this);
-        return state;
     }
     //    public void setLightLevel(int lightLevel) {
 //        this.settings.luminance(state -> lightLevel);

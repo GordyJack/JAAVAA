@@ -17,6 +17,7 @@ public abstract class ItemEntityMixin
         ItemEntityMixinInterface {
     @Unique
     private Vec3d oldPos = Vec3d.ZERO;
+    @Unique
     private boolean delayEnded = false;
 
     public ItemEntityMixin(EntityType<?> type, World world) {

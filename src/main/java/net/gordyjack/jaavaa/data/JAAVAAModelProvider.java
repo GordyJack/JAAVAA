@@ -196,9 +196,6 @@ public class JAAVAAModelProvider extends FabricModelProvider {
             return textureMap;
         }, new Model(Optional.of(JAAVAA.getID("block/encased_pillar")), Optional.empty(), TextureKey.SIDE, TextureKey.EDGE, TextureKey.END)));
     }
-    private static Model block(String parent, TextureKey ... requiredTextureKeys) {
-        return new Model(Optional.of(JAAVAA.getID("block/" + parent)), Optional.empty(), requiredTextureKeys);
-    }
 //    private void generateMiniBlockModels() {
 //        String bottomSingle = "mini_block_00000001_single.json";
 //        String bottomDualStraight = "mini_block_0000011_dual_straight.json";

@@ -6,6 +6,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 
+@SuppressWarnings("unused")
 public interface VoxelShapeUtils {
     /**
      * Rotates the given VoxelShape around the specified axis to align it with the given direction.
@@ -45,10 +46,8 @@ public interface VoxelShapeUtils {
             // Apply transformation for 90-degree rotation around Z-axis
             double newMinY = 1 - maxZ;
             double newMaxY = 1 - minZ;
-            double newMinZ = minY;
-            double newMaxZ = maxY;
             // Create a new VoxelShape with the transformed coordinates and combine it with the buffer
-            buffer[1] = VoxelShapes.union(buffer[1], VoxelShapes.cuboid(minX, newMinY, newMinZ, maxX, newMaxY, newMaxZ));
+            buffer[1] = VoxelShapes.union(buffer[1], VoxelShapes.cuboid(minX, newMinY, minY, maxX, newMaxY, maxY));
         });
         
         // Return the rotated shape
@@ -72,9 +71,7 @@ public interface VoxelShapeUtils {
      * @return the array of VoxelShapes after rotation
      */
     private VoxelShape[] rotateOnce(VoxelShape[] buffer) {
-        buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> {
-            buffer[1] = VoxelShapes.union(buffer[1], VoxelShapes.cuboid(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX));
-        });
+        buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = VoxelShapes.union(buffer[1], VoxelShapes.cuboid(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
         
         // Prepare for the next iteration or final result.
         VoxelShape rotatedShape = buffer[1];
@@ -140,26 +137,14 @@ public interface VoxelShapeUtils {
         double offsetX = 0;
         double offsetY = 0;
         double offsetZ = 0;
-        
+
         switch (direction) {
-            case NORTH:
-                offsetZ = -pixels;
-                break;
-            case SOUTH:
-                offsetZ = pixels;
-                break;
-            case EAST:
-                offsetX = pixels;
-                break;
-            case WEST:
-                offsetX = -pixels;
-                break;
-            case UP:
-                offsetY = pixels;
-                break;
-            case DOWN:
-                offsetY = -pixels;
-                break;
+            case NORTH -> offsetZ = -pixels;
+            case SOUTH -> offsetZ = pixels;
+            case EAST -> offsetX = pixels;
+            case WEST -> offsetX = -pixels;
+            case UP -> offsetY = pixels;
+            case DOWN -> offsetY = -pixels;
         }
         
         // Translate the shape by adjusting its bounding box with the offset

@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+@SuppressWarnings("unused")
 public class JAAVAABlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
     public static final List<SlabBlock> SLABS = new ArrayList<>();
