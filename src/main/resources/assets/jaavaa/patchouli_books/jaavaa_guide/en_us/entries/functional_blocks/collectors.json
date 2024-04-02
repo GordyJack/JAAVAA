@@ -1,0 +1,74 @@
+{
+  "name": "Collectors",
+  "icon": "jaavaa:personal_allay_collector",
+  "category": "jaavaa:functional_blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": [
+        "The Allay Collector is a block that uses the power of the Allay to collect items in an area around it.",
+        "$(br2) It has a range of 8 blocks in all directions, and will collect items within that range.",
+        "$(br) When in the inventory it can also be used as a magnet. To obtain it, first you need to craft an Empty Personal Collector."
+      ]
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Empty Collector",
+      "recipe": "jaavaa:empty_personal_collector",
+      "text": "Due to it's Netherite/Obsidian construction, the Collector is quite durable, even in lava. You'll also require an $(l:materials/allay_essence)Allay Essence/$"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Capturing an Allay",
+      "text": [
+        "Once you have the Empty Personal Collector, you need to capture an Allay.",
+        "$(br) To do this, you need to find an Allay and use the Empty Personal Collector on it. This will capture the Allay into your Personal Allay Collector."
+      ]
+    },
+    {
+      "type": "patchouli:image",
+      "images": ["jaavaa:textures/patchouli/allay_capture.png"]
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Using the Collector",
+      "text": [
+        "Once you have captured an Allay, the Collector will then be able to be used as a magnet. Simply use it while sneaking to activate it. This effect has a range of 8 blocks.",
+        "$(br) You are also able to set the Collector down in the world where it will have an immediate effect on nearby items, sucking them in and depositing them into the inventory it is facing."
+      ]
+    },
+    {
+      "type": "patchouli:image",
+      "images": ["jaavaa:textures/patchouli/allay_collector_range.png"]
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Filtering Items",
+      "text": [
+        "When placed in the world, the Collector can be filtered to only collect certain items.",
+        "$(br) To do this, simply use an item on the Collector. It will then only collect that type of item. Interact with it again to clear the filter.",
+        "$(br) A Collector will also output a comparator signal of 15 if it has a filter."
+      ]
+    },
+    {
+      "type": "patchouli:image",
+      "images": ["jaavaa:textures/patchouli/allay_collector_filtered.png"]
+    },
+    {
+      "type": "patchouli:text",
+      "title": "An Odd Distortion",
+      "text": [
+        "It turns out the Collector can capture more than just Allays. Apparently, if you collect an Enderman with it, it will morph the frame of the Collector into a substance resembling the Dragon Egg. It also gains a purplish tint.",
+        "$(br) Besides these cosmetic changes the Collector functions differently. It has twice the effective range and teleports items instead of attracting them, making it a lot faster than the original."
+      ]
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Ender Collector",
+      "item": {
+        "item": "jaavaa:personal_ender_collector"
+      },
+      "text": "It's a... different aesthetic."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"texture_size": [16, 256],
+	"textures": {
+		"0": "jaavaa:block/adjustable_redstone_lamp",
+		"particle": "jaavaa:block/adjustable_redstone_lamp"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 5, 16, 6], "texture": "#0", "cullface": "north"},
+				"east": {"uv": [0, 5, 16, 6], "texture": "#0", "cullface": "east"},
+				"south": {"uv": [0, 5, 16, 6], "texture": "#0", "cullface": "south"},
+				"west": {"uv": [0, 5, 16, 6], "texture": "#0", "cullface": "west"},
+				"up": {"uv": [0, 5, 16, 6], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [0, 5, 16, 6], "texture": "#0", "cullface": "down"}
+			}
+		}
+	]
+}

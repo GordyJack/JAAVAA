@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "jaavaa",
+	"version": "${version}",
+	"name": "JustAnotherActuallyVanillaAdditionsAddon",
+	"description": "Fixing and Enhancing Minecraft. The way it is meant to be played.",
+	"authors": [
+		"GordyJack"
+	],
+	"contact": {
+		"sources": "https://github.com/GordyJack/JAAVAA"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/jaavaa/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "net.gordyjack.jaavaa.JAAVAA"
+		],
+		"client": [
+			"net.gordyjack.jaavaa.JAAVAAClient"
+		],
+		"fabric-datagen": [
+			"net.gordyjack.jaavaa.JAAVAADataGenerator"
+		]
+	},
+	"mixins": [
+		"jaavaa.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*",
+		"patchouli": "*"
+	},
+	"suggests": {
+		"polymorph": "*"
+	}
+}

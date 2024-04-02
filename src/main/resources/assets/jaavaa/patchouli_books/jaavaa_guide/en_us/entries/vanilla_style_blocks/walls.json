@@ -1,0 +1,11 @@
+{
+  "name": "JAAVAA Walls",
+  "icon": "jaavaa:grass_block_wall",
+  "category": "jaavaa:vanilla_style_blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "stub"
+    }
+  ]
+}

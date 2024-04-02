@@ -1,0 +1,19 @@
+{
+    "name": "Advanced Repeater",
+    "icon": "jaavaa:advanced_repeater",
+    "category": "jaavaa:functional_blocks",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": [
+                "The Advanced Repeater functions similarly to a regular repeater except the pulse and delay are decoupled and can be adjusted independently.",
+                "$(li)Right clicking the output side will cycle the pulse",
+                "$(li)Right clicking the input side will cycle the delay"
+            ]
+        },
+        {
+            "type": "patchouli:crafting",
+            "recipe": "jaavaa:advanced_repeater"
+        }
+    ]
+}

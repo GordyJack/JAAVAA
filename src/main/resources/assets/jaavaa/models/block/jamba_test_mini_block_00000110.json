@@ -1,0 +1,8 @@
+{
+  "parent": "jamba:block/mini_block_diagonal_00000110",
+  "textures": {
+    "bottom": "jamba:block/jamba_test_block",
+    "side": "jamba:block/jamba_test_block",
+    "top": "jamba:block/jamba_test_block"
+  }
+}

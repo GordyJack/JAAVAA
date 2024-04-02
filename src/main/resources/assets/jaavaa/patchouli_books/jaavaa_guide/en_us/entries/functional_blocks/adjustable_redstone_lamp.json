@@ -1,0 +1,33 @@
+{
+    "name": "Adjustable Redstone Lamp",
+    "icon": "jaavaa:adjustable_redstone_lamp",
+    "category": "jaavaa:functional_blocks",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": [
+                "The Adjustable Redstone Lamp is a very useful block. You can adjust the brightness of the lamp in two ways:",
+                "$(li)Right clicking will increase the brightness of the lamp by 1.",
+                "$(li)Providing a redstone signal will lock the lamp at a brightness equal to the signal strength."
+            ]
+        },
+        {
+            "type": "patchouli:crafting",
+            "title": " ",
+            "recipe": "jaavaa:adjustable_redstone_lamp",
+            "recipe2": "jaavaa:adjustable_redstone_lamp_alt"
+        },
+        {
+            "type": "patchouli:text",
+            "title": "More Details",
+            "text": [
+                "The lamp will emit a comparator signal equal to it's brightness level.",
+                "$(br)Due to limitations in Minecraft, lamps of brightness 14 and 15 output the same amount of light. Redstone functionality is still retained appropriately though."
+            ]
+        },
+        {
+            "type": "patchouli:text",
+            "text": "Speaking of Redstone functionality, $(t:Like the Copper Bulb should have)$(thing)the lamp updates every tick.$(/t)/$ This allows for much smoother animation and more precise timing for redstone contraptions."
+        }
+    ]
+}
