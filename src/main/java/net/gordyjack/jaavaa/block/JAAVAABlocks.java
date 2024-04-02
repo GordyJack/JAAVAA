@@ -1,17 +1,18 @@
 package net.gordyjack.jaavaa.block;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.gordyjack.jaavaa.JAAVAA;
-
-import net.fabricmc.fabric.api.item.v1.*;
 import net.gordyjack.jaavaa.block.custom.*;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
 import net.minecraft.block.*;
-import net.minecraft.item.*;
-import net.minecraft.registry.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.*;
-import org.jetbrains.annotations.*;
+import net.minecraft.util.DyeColor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 

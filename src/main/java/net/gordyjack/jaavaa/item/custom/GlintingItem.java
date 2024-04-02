@@ -1,6 +1,7 @@
 package net.gordyjack.jaavaa.item.custom;
 
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class GlintingItem extends Item {
     public GlintingItem(Settings settings) {

@@ -5,7 +5,7 @@ import net.gordyjack.jaavaa.block.custom.entity.AbstractCollectorEntity;
 import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorEntity;
 import net.gordyjack.jaavaa.block.custom.entity.EnderCollectorEntity;
 import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
-import net.gordyjack.jaavaa.block.util.*;
+import net.gordyjack.jaavaa.block.util.VoxelShapeUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;

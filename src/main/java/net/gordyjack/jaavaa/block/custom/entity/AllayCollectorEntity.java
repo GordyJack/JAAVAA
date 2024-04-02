@@ -1,7 +1,7 @@
 package net.gordyjack.jaavaa.block.custom.entity;
 
 import net.gordyjack.jaavaa.block.custom.CollectorBlock;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;

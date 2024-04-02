@@ -1,7 +1,9 @@
 package net.gordyjack.jaavaa.block;
 
-import net.gordyjack.jaavaa.block.enums.*;
-import net.minecraft.state.property.*;
+import net.gordyjack.jaavaa.block.enums.BlockSection;
+import net.gordyjack.jaavaa.block.enums.MiniBlockType;
+import net.minecraft.state.property.EnumProperty;
+import net.minecraft.state.property.IntProperty;
 
 public class JAAVAABlockProperties {
     public static final EnumProperty<BlockSection> SECTION = EnumProperty.of("section", BlockSection.class);

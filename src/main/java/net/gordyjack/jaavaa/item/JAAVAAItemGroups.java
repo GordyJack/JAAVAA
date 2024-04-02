@@ -1,14 +1,21 @@
 package net.gordyjack.jaavaa.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.*;
-import net.gordyjack.jaavaa.*;
-import net.gordyjack.jaavaa.block.*;
-import net.minecraft.block.*;
-import net.minecraft.item.*;
-import net.minecraft.registry.*;
-import net.minecraft.text.*;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.gordyjack.jaavaa.JAAVAA;
+import net.gordyjack.jaavaa.block.JAAVAABlocks;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JAAVAAItemGroups {
     public static final List<RegistryKey<ItemGroup>> ITEM_GROUPS = new ArrayList<>();

@@ -1,11 +1,16 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import net.minecraft.block.*;
-import net.minecraft.block.enums.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.shape.*;
-import net.minecraft.world.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Stainable;
+import net.minecraft.block.WallBlock;
+import net.minecraft.block.enums.WallShape;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 
 @SuppressWarnings("deprecation")
 public class JAAVAAWall
@@ -82,20 +87,6 @@ extends WallBlock {
                     && state.get(SOUTH_SHAPE) == WallShape.NONE && state.get(WEST_SHAPE) == WallShape.NONE;
             boolean post = state.get(UP) && !none;
             return !tall && !state.get(WATERLOGGED);
-        }
-    }
-    public static class Redstone extends JAAVAAWall {
-        public Redstone(Settings settings) {
-            super(settings);
-        }
-        
-        @Override
-        public boolean emitsRedstonePower(BlockState state) {
-            return true;
-        }
-        @Override
-        public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-            return direction.getAxis() == Direction.Axis.Y ? 15 : 0;
         }
     }
 }

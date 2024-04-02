@@ -1,14 +1,20 @@
 package net.gordyjack.jaavaa.item;
 
-import net.fabricmc.fabric.api.item.v1.*;
-import net.gordyjack.jaavaa.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.gordyjack.jaavaa.JAAVAA;
 import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.gordyjack.jaavaa.item.custom.*;
-import net.minecraft.item.*;
-import net.minecraft.registry.*;
-import net.minecraft.util.*;
+import net.gordyjack.jaavaa.item.custom.AllayCollectorItem;
+import net.gordyjack.jaavaa.item.custom.EmptyCollectorItem;
+import net.gordyjack.jaavaa.item.custom.EnderCollectorItem;
+import net.gordyjack.jaavaa.item.custom.GlintingItem;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Rarity;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JAAVAAItems {
     public static final List<Item> ITEMS = new ArrayList<>();

@@ -2,11 +2,13 @@ package net.gordyjack.jaavaa;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.gordyjack.jaavaa.data.*;
-import net.gordyjack.jaavaa.data.lang.*;
-import net.gordyjack.jaavaa.data.recipe.*;
-import net.gordyjack.jaavaa.data.tags.*;
-import net.minecraft.data.*;
+import net.gordyjack.jaavaa.data.JAAVAABlockLootTableGenerator;
+import net.gordyjack.jaavaa.data.JAAVAAModelProvider;
+import net.gordyjack.jaavaa.data.lang.JAAVAALangProviderEnUs;
+import net.gordyjack.jaavaa.data.recipe.JAAVAARecipeProvider;
+import net.gordyjack.jaavaa.data.tags.JAAVAABlockTagGenerator;
+import net.gordyjack.jaavaa.data.tags.JAAVAAItemTagGenerator;
+import net.minecraft.data.DataProvider;
 
 public class JAAVAADataGenerator implements DataGeneratorEntrypoint {
 	public DataProvider enUSLangProvider;

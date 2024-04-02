@@ -1,15 +1,16 @@
 package net.gordyjack.jaavaa.data.lang;
 
-import net.fabricmc.fabric.api.datagen.v1.*;
-import net.fabricmc.fabric.api.datagen.v1.provider.*;
-import net.gordyjack.jaavaa.block.*;
-import net.gordyjack.jaavaa.item.*;
-import net.minecraft.block.*;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.gordyjack.jaavaa.block.JAAVAABlocks;
+import net.gordyjack.jaavaa.item.JAAVAAItemGroups;
+import net.gordyjack.jaavaa.item.JAAVAAItems;
+import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKey;
-import org.apache.commons.lang3.text.*;
+import org.apache.commons.lang3.text.WordUtils;
 
-import java.nio.file.*;
+import java.nio.file.Path;
 
 @SuppressWarnings({"deprecation", "OptionalGetWithoutIsPresent"})
 public class JAAVAALangProviderEnUs
