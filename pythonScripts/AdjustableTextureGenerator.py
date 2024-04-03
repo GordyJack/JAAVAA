@@ -1,7 +1,7 @@
 from PIL import Image
 
 # Load the initial tile
-initial_image_path = r"C:\\Users\\GordyJackPC\\Documents\\Coding\\Minecraft Modding\\JAAVAA\\src\\main\\resources\\assets\\jaavaa\\textures\\block\\adjustable_lamp.png"
+initial_image_path = r"src/main/resources/assets/jaavaa/textures/block/adjustable_redstone_lamp.png"
 initial_image = Image.open(initial_image_path)
 
 # Get the size of the initial tile

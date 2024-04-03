@@ -2,7 +2,7 @@ import math
 from PIL import Image
 import random
 
-reference_textures_path = r"C:\\Users\\GordyJackPC\\Documents\\Coding\\Minecraft Modding\\JAAVAA\\src\\main\\resources\\assets\\jaavaa\\textures\\reference_textures\\mod\\"
+reference_textures_path = r"src/main/resources/assets/jaavaa/textures/reference_textures/mod/"
 base_texture = Image.open(reference_textures_path + "starsteel_block_base.png").convert("RGBA")
 
 # Get the size of the block texture
@@ -29,7 +29,7 @@ for i in range(1, tiles):
                 new_b = min(int(b * brightness), 255)
                 new_image.putpixel((x, y), (new_r, new_g, new_b, a))
     tiled_image.paste(new_image, (0, height * i))
-                
+
 
 # Save the new image
 tiled_image.save(reference_textures_path + "twinkle_texture.png")
