@@ -11,7 +11,7 @@
             "text": [
                 "It's a piece of coal that lasts forever.",
                 "$(br2) It accomplishes this by setting burn time to $(thing)MAX_INT$(clear), which somehow glitches out the furnace and makes it's burn time negative.",
-                " So this might not work in other more robust blocks."
+                " So this might not work in other more robust furnace blocks."
             ]
         }
     ]

@@ -1,31 +1,32 @@
 import json
-from dataclasses import dataclass, field
 import os
+from BookEntry import  BookEntry
+from BookCategory import BookCategory
 
-def getFormatCode(name: str) -> str:
+def get_format_code(name: str) -> str:
     return f"$({name})"
 
-def getId(name: str) -> str:
+def get_id(name: str) -> str:
     return f"jaavaa:{name}"   
 
-def getImageId(name: str) -> str:
-    return getId(f"textures/patchouli/{name}.png")
+def get_image_id(name: str) -> str:
+    return get_id(f"textures/patchouli/{name}.png")
 
-def getPatchouliId(name: str) -> str:
+def get_patchouli_id(name: str) -> str:
     return f"patchouli:{name}"
 
-def getLink(linkpath: str) -> str:
+def get_link(linkpath: str) -> str:
     return f"$(l:{linkpath})"
 
-def getTooltip(tooltipText: str) -> str:
-    return f"$(t:{tooltipText})"
+def get_tooltip(tooltip_text: str) -> str:
+    return f"$(t:{tooltip_text})"
 
-def write_category (category):
+def write_category (category: BookCategory):
     data = category.to_dict()["category"]
     path = f"{output_path}/categories/{category.key}"
     write_json(data, path)
     
-def write_entry (entry):
+def write_entry (entry: BookEntry):
     data = entry.to_dict()["entry"]
     folder = entry.category.replace("jaavaa:", "")
     path = f"{output_path}/entries/{folder}/{entry.key}"
@@ -36,59 +37,11 @@ def write_json(data: dict, path: str):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as file:
         json.dump(data, file, indent=4)
-
-@dataclass
-class BookEntry:
-    key: str
-    category: str
-    name: str = None
-    icon: str = None
-    pages: list[dict] = field(default_factory=list)
-    
-    def __post_init__(self):
-        if self.name == None:
-            self.name = ' '.join(word.capitalize() for word in self.key.replace('_', ' ').split())
-        if self.icon == None:
-            self.icon = getId(self.key)
-            
-    def to_dict(self) -> dict:
-        return {
-            "key": self.key,
-            "entry": {
-                "name": self.name,
-                "icon": self.icon,
-                "category": self.category,
-                "pages": self.pages
-            }
-        }
-
-@dataclass
-class BookCategory:
-    key: str
-    description: str
-    icon: str = None
-    name: str = None
-    id: str = None
-    entries: list[BookEntry] = field(default_factory=list)
-
-    def __post_init__(self):
-        if self.name == None:
-            self.name = ' '.join(word.capitalize() for word in self.key.replace('_', ' ').split())
-        if self.icon == None:
-            self.icon = getId(self.key)
-        if self.id == None:
-            self.id = getId(self.key)
-    
-    def to_dict(self) -> dict:
-        return {
-            "key": self.key,
-            "category": {
-                "name": self.name,
-                "icon": self.icon,
-                "description": self.description
-            },
-            "entries": self.entries
-        }
+        print(f"Written to {file}")
+    with open(path, "r") as file:
+        print(file.read())
+        print(file)
+        
 
 output_path = "src/main/generated/assets/jaavaa/patchouli_books/jaavaa_guide/en_us"
 
@@ -102,61 +55,62 @@ title = "title"
 type = "type"
 
 #page types
-type_crafting = getPatchouliId("crafting")
-type_image = getPatchouliId("image")
-type_spotlight = getPatchouliId("spotlight")
-type_text = getPatchouliId("text")
+type_crafting = get_patchouli_id("crafting")
+type_image = get_patchouli_id("image")
+type_spotlight = get_patchouli_id("spotlight")
+type_text = get_patchouli_id("text")
 
 #format codes
-br = getFormatCode("br")
-br2 = getFormatCode("br2")
-clear = getFormatCode("clear")
-end_link = getFormatCode("/l")
-end_tooltip = getFormatCode("/t")
-italic = getFormatCode("italic")
-list = getFormatCode("li")
-thing = getFormatCode("thing")
+br = get_format_code("br")
+br2 = get_format_code("br2")
+clear = get_format_code("clear")
+end_link = get_format_code("/l")
+end_tooltip = get_format_code("/t")
+italic = get_format_code("italic")
+list = get_format_code("li")
+thing = get_format_code("thing")
 
 #Categories
 creative_only = BookCategory(
     "creative_only", 
     "Blocks and Items only accessible via creative. Or cheating.",
-    getId("creative_coal")
+    get_id("creative_coal")
 )
 functional_blocks = BookCategory(
     "functional_blocks",
     "Functional blocks, like fancy hoppers and other redstone components.",
-    getId("personal_allay_collector")
+    get_id("personal_allay_collector")
 )
 materials = BookCategory(
     "materials",
     "New materials for crafting.",
-    getId("allay_essence")
+    get_id("allay_essence")
 )
 vanilla_style_blocks = BookCategory(
     "vanilla_style_blocks",
     "Blocks that are missing from the vanilla game.",
-    getId("glass_slab")
+    get_id("glass_slab")
 )
 
 #Entries
 creative_only.entries = [
-    BookEntry("creative_coal", creative_only.id, pages=[
+    BookEntry(cc := "creative_coal", creative_only.id, pages=[
         {
             type: type_spotlight,
             item: {
-                item: getId("creative_coal")
+                item: get_id(cc)
             },
             text: [
                 "It's a piece of coal that lasts forever.",
                 f"{br2} It accomplishes this by setting burn time to {thing}MAX_INT{clear}, which somehow glitches out the furnace and makes it's burn time negative.",
-                " So this might not work in other more robust blocks."
+                " So this might not work in other more robust furnace blocks."
             ]
         }
     ])
 ]
+
 functional_blocks.entries = [
-    BookEntry("adjustable_redstone_lamp", functional_blocks.id, pages=[
+    BookEntry(arl := "adjustable_redstone_lamp", functional_blocks.id, pages=[
         {
             type: type_text,
             text: [
@@ -168,8 +122,8 @@ functional_blocks.entries = [
         {
             type: type_crafting,
             title: " ",
-            recipe: getId("adjustable_redstone_lamp"),
-            recipe2: getId("adjustable_redstone_lamp_alt")
+            recipe: get_id(arl),
+            recipe2: get_id(f"{arl}_alt")
         },
         {
             type: type_text,
@@ -183,12 +137,12 @@ functional_blocks.entries = [
         {
             type: type_text,
             text: [
-                f"Speaking of Redstone functionality, {getTooltip("Like the Copper Bulb should have") + thing}the lamp updates every tick.{end_tooltip + clear}",
+                f"Speaking of Redstone functionality, {get_tooltip("Like the Copper Bulb should have") + thing}the lamp updates every tick.{end_tooltip + clear}",
                 " Which allows for much smoother animation and more precise timing for redstone contraptions."
             ]
         }
     ]),
-    BookEntry("advanced_repeater", functional_blocks.id, pages=[
+    BookEntry(ar := "advanced_repeater", functional_blocks.id, pages=[
         {
             type: type_text,
             text: [
@@ -199,10 +153,10 @@ functional_blocks.entries = [
         },
         {
             type: type_crafting,
-            recipe: getId("advanced_repeater")
+            recipe: get_id(ar)
         }
     ]),
-    BookEntry("collectors", functional_blocks.id, icon=getId("personal_allay_collector"), pages=[
+    BookEntry("collectors", functional_blocks.id, icon=get_id("personal_allay_collector"), pages=[
         {
             type: type_text,
             text: [
@@ -214,10 +168,10 @@ functional_blocks.entries = [
         {
             type: type_crafting,
             title: "Empty Collector",
-            recipe: getId("empty_personal_collector"),
+            recipe: (epc := get_id("empty_personal_collector")),
             text: [
                 "Due to it's Netherite/Obsidian construction, the Collector is quite durable, even in lava.",
-                f"You'll also require an {getLink(f"{materials.key}/allay_essence")}Allay Essence{clear}."
+                f"You'll also require an {get_link(f"{materials.key}/allay_essence")}Allay Essence{clear}."
             ]
         },
         {
@@ -231,7 +185,7 @@ functional_blocks.entries = [
         {
             type: type_image,
             images: [
-                getImageId("allay_capture")
+                get_image_id("allay_capture")
             ]
         },
         {
@@ -245,7 +199,7 @@ functional_blocks.entries = [
         {
             type: type_image,
             images: [
-                getImageId("allay_collector_range")
+                get_image_id("allay_collector_range")
             ]
         },
         {
@@ -260,7 +214,7 @@ functional_blocks.entries = [
         {
             type: type_image,
             images: [
-                getImageId("allay_collector_filtered")
+                get_image_id("allay_collector_filtered")
             ]
         },
         {
@@ -278,12 +232,12 @@ functional_blocks.entries = [
             type: type_spotlight,
             title: "Ender Collector",
             item: {
-                item: getId("personal_ender_collector"),
+                item: get_id("personal_ender_collector"),
             },
             text: f"{italic}It's a... different aesthetic."
         }
     ]),
-    BookEntry("encased_redstone_pillars", functional_blocks.id, icon=getId("quartz_encased_redstone_pillar"), pages=[
+    BookEntry("encased_redstone_pillars", functional_blocks.id, icon=(qerp := get_id("quartz_encased_redstone_pillar")), pages=[
         {
             type: type_text,
             text: [
@@ -298,45 +252,46 @@ functional_blocks.entries = [
         {
             type: type_crafting,
             title: " ",
-            recipe: getId("quartz_encased_redstone_pillar"),
-            recipe2: getId("ancient_debris_encased_redstone_pillar")
+            recipe: qerp,
+            recipe2: get_id("ancient_debris_encased_redstone_pillar")
         }
     ])
 ]
+
 materials.entries = [
-    BookEntry("allay_essence", materials.id, pages=[
+    BookEntry(ae := "allay_essence", materials.id, pages=[
         {
             type: type_spotlight,
             item: {
-                item: getId("allay_essence")
+                item: get_id(ae)
             },
             text: [
                 "Allay Essence is a relatively uncommon drop from the Allay. But you can get it faster with looting.",
-                f"{br}It is used to craft the {getLink(f"{functional_blocks.key}/collectors")}Empty Personal Collector{clear}."
+                f"{br}It is used to craft the {get_link(f"{functional_blocks.key}/collectors")}Empty Personal Collector{clear}."
             ]
         },
         {
             type: type_crafting,
-            recipe: getId("empty_personal_collector")
+            recipe: epc
         }
     ]),
-    BookEntry("starsteel", materials.id, icon=getId("starsteel_ingot"), pages=[
+    BookEntry("starsteel", materials.id, icon=get_id("starsteel_ingot"), pages=[
         {
             type: type_spotlight,
             title: "Starsteel",
             item: {
-                item: getId("starsteel_ingot")
+                item: get_id("starsteel_ingot")
             },
             text: "Starsteel is a rare and powerful material that can be used to craft powerful tools and armor."
         },
         {
             type: type_crafting,
-            recipe: getId("starsteel_ingot"),
+            recipe: get_id("starsteel_ingot"),
             text: "It is created by infusing Netherite Ingots with a Nether Star."
         },
         {
             type: type_crafting,
-            recipe: getId("starsteel_block_from_starsteel_ingot"),
+            recipe: get_id("starsteel_block_from_starsteel_ingot"),
             text: "When crafted into a block, this Starsteel is nearly indestructible. It is both Wither and Dragon proof and no mobs will spawn on top of it."
         }
     ])
@@ -345,9 +300,10 @@ vanilla_style_blocks.entries = [
     
 ]
 
-categories = [creative_only, functional_blocks, materials, vanilla_style_blocks]
+if __name__ == "__main__":
+    categories = [creative_only, functional_blocks, materials, vanilla_style_blocks]
 
-for category in categories:
-    write_category(category)
-    for entry in category.entries:
-        write_entry(entry)
+    for category in categories:
+        write_category(category)
+        for entry in category.entries:
+            write_entry(entry)
