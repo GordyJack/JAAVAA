@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:comparator"
-            ]
+            "items": "minecraft:comparator"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:redstone_lamp"
-            ]
+            "items": "minecraft:redstone_lamp"
           }
         ]
       },

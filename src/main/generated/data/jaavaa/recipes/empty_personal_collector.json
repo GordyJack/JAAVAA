@@ -21,6 +21,7 @@
     "#A#"
   ],
   "result": {
-    "item": "jaavaa:empty_personal_collector"
+    "count": 1,
+    "id": "jaavaa:empty_personal_collector"
   }
 }

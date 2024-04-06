@@ -1,36 +1,22 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import net.gordyjack.jaavaa.block.JAAVAABlockProperties;
-import net.gordyjack.jaavaa.block.util.VoxelShapeUtils;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.util.*;
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.explosion.Explosion;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.pathing.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.fluid.*;
+import net.minecraft.item.*;
+import net.minecraft.state.*;
+import net.minecraft.state.property.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.random.*;
+import net.minecraft.util.shape.*;
+import net.minecraft.world.*;
+import net.minecraft.world.explosion.*;
+import org.jetbrains.annotations.*;
 
-@SuppressWarnings("deprecation")
 public class MiniBlock
 extends Block
 implements Waterloggable, VoxelShapeUtils {
@@ -185,13 +171,9 @@ implements Waterloggable, VoxelShapeUtils {
         return false;
     }
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return switch (type) {
-            case LAND, AIR -> false;
-            case WATER -> world.getFluidState(pos).isIn(FluidTags.WATER);
-        };
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
+        return false;
     }
-    
     //Boilerplate
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world,
@@ -202,25 +184,6 @@ implements Waterloggable, VoxelShapeUtils {
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
     @Override
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        if (state.isOf(state.getBlock())) {
-            return;
-        }
-        world.updateNeighbor(this.BASE_BLOCK_STATE, pos, Blocks.AIR, pos, false);
-        this.BASE_BLOCK.onBlockAdded(this.BASE_BLOCK_STATE, world, pos, oldState, false);
-    }
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.isOf(newState.getBlock())) {
-            return;
-        }
-        this.BASE_BLOCK_STATE.onStateReplaced(world, pos, newState, moved);
-    }
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        return this.BASE_BLOCK_STATE.onUse(world, player, hand, hit);
-    }
-    @Override
     public FluidState getFluidState(BlockState state) {
         if (state.get(WATERLOGGED)) {
             return Fluids.WATER.getStill(false);
@@ -228,20 +191,8 @@ implements Waterloggable, VoxelShapeUtils {
         return super.getFluidState(state);
     }
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        this.BASE_BLOCK.randomTick(state, world, pos, random);
-    }
-    @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        this.BASE_BLOCK.scheduledTick(state, world, pos, random);
-    }
-    @Override
     public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
         this.BASE_BLOCK_STATE.onBlockBreakStart(world, pos, player);
-    }
-    @Override
-    public boolean hasRandomTicks(BlockState state) {
-        return this.BASE_BLOCK.hasRandomTicks(state);
     }
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {

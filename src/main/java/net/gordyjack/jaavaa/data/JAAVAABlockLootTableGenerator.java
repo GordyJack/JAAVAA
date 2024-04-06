@@ -1,17 +1,19 @@
 package net.gordyjack.jaavaa.data;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
+import net.fabricmc.fabric.api.datagen.v1.*;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.block.*;
+import net.minecraft.block.*;
+import net.minecraft.registry.*;
+
+import java.util.concurrent.*;
 
 public class JAAVAABlockLootTableGenerator
 extends FabricBlockLootTableProvider {
-    public JAAVAABlockLootTableGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public JAAVAABlockLootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
-
+    
     @Override
     public void generate() {
         for (Block block : JAAVAABlocks.BLOCKS) {

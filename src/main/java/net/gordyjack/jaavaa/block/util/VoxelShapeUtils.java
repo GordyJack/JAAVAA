@@ -1,10 +1,9 @@
 package net.gordyjack.jaavaa.block.util;
 
-import net.minecraft.block.Block;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.block.*;
+import net.minecraft.util.function.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.shape.*;
 
 @SuppressWarnings("unused")
 public interface VoxelShapeUtils {

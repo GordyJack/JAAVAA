@@ -1,6 +1,6 @@
 package net.gordyjack.jaavaa.mixinterfaces;
 
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 
 public interface ItemEntityMixinInterface {
     default Vec3d jaavaa$getOldPos() {

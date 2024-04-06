@@ -1,12 +1,9 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
+import net.minecraft.block.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
-@SuppressWarnings("deprecation")
 public class EncasedRedstoneBlock
         extends PillarBlock {
     public EncasedRedstoneBlock(Settings settings) {

@@ -1,25 +1,25 @@
 package net.gordyjack.jaavaa.data.lang;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.gordyjack.jaavaa.item.JAAVAAItemGroups;
-import net.gordyjack.jaavaa.item.JAAVAAItems;
-import net.minecraft.block.Block;
+import net.fabricmc.fabric.api.datagen.v1.*;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.*;
+import net.minecraft.block.*;
 import net.minecraft.item.*;
-import net.minecraft.registry.RegistryKey;
-import org.apache.commons.lang3.text.WordUtils;
+import net.minecraft.registry.*;
+import org.apache.commons.lang3.text.*;
 
-import java.nio.file.Path;
+import java.nio.file.*;
+import java.util.concurrent.*;
 
 @SuppressWarnings({"deprecation", "OptionalGetWithoutIsPresent"})
 public class JAAVAALangProviderEnUs
 extends FabricLanguageProvider{
-    public JAAVAALangProviderEnUs(FabricDataOutput dataOutput) {
-        super(dataOutput, "en_us");
+    public JAAVAALangProviderEnUs(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, "en_us", registryLookup);
     }
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         for (Block block : JAAVAABlocks.BLOCKS) {
             if (block == JAAVAABlocks.STARSTEEL_BLOCK) {
                 translationBuilder.add(block, "Block of Starsteel");

@@ -1,16 +1,13 @@
 package net.gordyjack.jaavaa.block.custom.entity;
 
-import net.gordyjack.jaavaa.block.custom.CollectorBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.TypeFilter;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
+import net.gordyjack.jaavaa.block.custom.*;
+import net.minecraft.block.*;
+import net.minecraft.entity.*;
+import net.minecraft.inventory.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
 public class AllayCollectorEntity
 extends AbstractCollectorEntity {
@@ -31,18 +28,10 @@ extends AbstractCollectorEntity {
     }
     public void setFilter(ItemStack stack) {
         this.filter = stack;
+        this.markDirty();
     }
     public float getPickupRange() {
         return PICKUP_RANGE;
-    }
-    //NBT
-    @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-    }
-    @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
     }
     //Logic
     public static void tick(World world, BlockPos pos, BlockState state, AllayCollectorEntity collectorEntity) {

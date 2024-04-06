@@ -1,24 +1,25 @@
 package net.gordyjack.jaavaa.data.recipe;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.gordyjack.jaavaa.item.JAAVAAItems;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.tag.ItemTags;
+import net.fabricmc.fabric.api.datagen.v1.*;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.*;
+import net.minecraft.block.*;
+import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.*;
+import net.minecraft.recipe.book.*;
+import net.minecraft.registry.*;
+import net.minecraft.registry.tag.*;
+
+import java.util.concurrent.*;
 
 public class JAAVAARecipeProvider
 extends FabricRecipeProvider {
-    public JAAVAARecipeProvider(FabricDataOutput output) {
-        super(output);
+    public JAAVAARecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
+    
     @Override
     public void generate(RecipeExporter exporter) {
         //Starsteel Ingot Crafting Recipe

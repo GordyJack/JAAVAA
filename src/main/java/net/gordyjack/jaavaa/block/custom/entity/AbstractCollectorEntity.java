@@ -1,25 +1,20 @@
 package net.gordyjack.jaavaa.block.custom.entity;
 
-import net.gordyjack.jaavaa.block.custom.CollectorBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.HopperBlockEntity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.util.Clearable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
+import net.gordyjack.jaavaa.block.custom.*;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.*;
+import net.minecraft.entity.*;
+import net.minecraft.inventory.*;
+import net.minecraft.item.*;
+import net.minecraft.predicate.entity.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.shape.*;
+import net.minecraft.world.*;
+import org.jetbrains.annotations.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.*;
+import java.util.stream.*;
 
 public abstract class AbstractCollectorEntity extends BlockEntity implements Clearable {
     public AbstractCollectorEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -33,6 +28,7 @@ public abstract class AbstractCollectorEntity extends BlockEntity implements Cle
     @Override
     public void clear() {
         this.setFilter(ItemStack.EMPTY);
+        this.markDirty();
     }
     boolean doesFilterMatch(ItemStack inputStack) {
         return this.getFilter().isEmpty() || ItemStack.areItemsEqual(this.getFilter(), inputStack);
@@ -44,7 +40,7 @@ public abstract class AbstractCollectorEntity extends BlockEntity implements Cle
         return !(inventory instanceof SidedInventory) || ((SidedInventory)inventory).canInsert(slot, stack, side);
     }
     private static boolean canMergeItems(ItemStack initialStack, ItemStack addedStack) {
-        return initialStack.getCount() < initialStack.getMaxCount() && ItemStack.canCombine(initialStack, addedStack);
+        return initialStack.getCount() < initialStack.getMaxCount() && ItemStack.areItemsAndComponentsEqual(initialStack, addedStack);
     }
     private static IntStream getAvailableSlots(Inventory inventory, Direction side) {
         if (inventory instanceof SidedInventory) {

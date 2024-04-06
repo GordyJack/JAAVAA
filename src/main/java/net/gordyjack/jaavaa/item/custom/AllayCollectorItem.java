@@ -1,9 +1,9 @@
 package net.gordyjack.jaavaa.item.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
+import net.minecraft.block.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.world.*;
 
 public class AllayCollectorItem
         extends AbstractCollectorItem {

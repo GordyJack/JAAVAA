@@ -1,28 +1,23 @@
 package net.gordyjack.jaavaa.item.custom;
 
-import net.gordyjack.jaavaa.JAAVAA;
-import net.minecraft.block.Block;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
+import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.utils.*;
+import net.minecraft.block.*;
+import net.minecraft.client.item.*;
+import net.minecraft.component.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.predicate.entity.*;
+import net.minecraft.sound.*;
+import net.minecraft.text.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.shape.*;
+import net.minecraft.world.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
+import java.util.stream.*;
 
 /**
  * A magnet item that can be enabled and disabled by right-clicking while sneaking.
@@ -33,7 +28,7 @@ import java.util.stream.Collectors;
 public abstract class AbstractCollectorItem
 extends AliasedBlockItem {
     //Fields
-    private static final String DATA_KEY = JAAVAA.MODID + "_magnetstate";
+    private static final DataComponentType<Boolean> MAGNET_STATE = JAAVAAComponents.MAGNET_STATE;
 
     //Constructor
     public AbstractCollectorItem(Block block, Settings settings) {
@@ -42,9 +37,9 @@ extends AliasedBlockItem {
 
     //Inherited Methods
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(getStatusText(stack));
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
     @Override
     public boolean hasGlint(ItemStack stack) {
@@ -98,8 +93,8 @@ extends AliasedBlockItem {
      * @return Whether the collector is active
      */
     private static boolean isActive(ItemStack stack) {
-        final NbtCompound nbt = stack.getNbt();
-        return null != nbt && nbt.contains(DATA_KEY) && nbt.getBoolean(DATA_KEY);
+        final var magnetState = stack.get(MAGNET_STATE);
+        return magnetState != null ? magnetState : false;
     }
     private static Text getStatusText(ItemStack stack) {
         return Text.literal("§6Collector " + (isActive(stack) ? "§2§lEnabled" : "§4§lDisabled"));
@@ -110,7 +105,7 @@ extends AliasedBlockItem {
      * @param active Whether the collector is active
      */
     private static void setActive(ItemStack stack, boolean active) {
-        stack.getOrCreateNbt().putBoolean(DATA_KEY, active);
+        stack.set(MAGNET_STATE, active);
     }
     /**
      * Toggles the active state of the collector.

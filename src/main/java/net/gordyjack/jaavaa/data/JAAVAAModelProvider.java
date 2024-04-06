@@ -1,21 +1,20 @@
 package net.gordyjack.jaavaa.data;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.block.JAAVAABlockProperties;
-import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.gordyjack.jaavaa.block.custom.CollectorBlock;
-import net.gordyjack.jaavaa.item.JAAVAAItems;
-import net.gordyjack.jaavaa.item.custom.AbstractCollectorItem;
+import net.fabricmc.fabric.api.datagen.v1.*;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
+import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.*;
+import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.item.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.data.client.*;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 
-import java.util.Optional;
+import java.util.*;
 
 public class JAAVAAModelProvider extends FabricModelProvider {
     public JAAVAAModelProvider(FabricDataOutput output) {

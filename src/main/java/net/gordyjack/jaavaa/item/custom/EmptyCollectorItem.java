@@ -1,20 +1,15 @@
 package net.gordyjack.jaavaa.item.custom;
 
-import net.gordyjack.jaavaa.item.JAAVAAItems;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.EndermanEntity;
-import net.minecraft.entity.passive.AllayEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
+import net.gordyjack.jaavaa.item.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.mob.*;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.sound.*;
+import net.minecraft.text.*;
+import net.minecraft.util.*;
+import net.minecraft.world.*;
 
 public class EmptyCollectorItem extends Item {
     public EmptyCollectorItem(Item.Settings settings) {

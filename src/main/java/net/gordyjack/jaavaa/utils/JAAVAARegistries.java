@@ -1,19 +1,19 @@
 package net.gordyjack.jaavaa.utils;
 
-import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.item.JAAVAAItems;
+import net.fabricmc.fabric.api.registry.*;
+import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.item.*;
 
 public class JAAVAARegistries {
     private static void registerFuels() {
         JAAVAA.logInfo("Registering Fuels for " + JAAVAA.MODID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-        registry.add(JAAVAAItems.CREATIVE_COAL, Integer.MAX_VALUE);
+        registry.add(JAAVAAItems.CREATIVE_COAL, 32767);
     }
 
-    public static void register() {
-        JAAVAA.logInfo("Registering Registries");
+    public static void init() {
+        JAAVAA.logInfo("Initializing registries");
         registerFuels();
     }
 }

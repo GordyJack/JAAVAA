@@ -1,26 +1,21 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import com.mojang.serialization.MapCodec;
-import net.gordyjack.jaavaa.block.JAAVAABlockProperties;
-import net.minecraft.block.AbstractRedstoneGateBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
-import net.minecraft.world.tick.TickPriority;
+import com.mojang.serialization.*;
+import net.gordyjack.jaavaa.block.*;
+import net.minecraft.block.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.server.world.*;
+import net.minecraft.state.*;
+import net.minecraft.state.property.*;
+import net.minecraft.util.*;
+import net.minecraft.util.hit.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.random.*;
+import net.minecraft.world.*;
+import net.minecraft.world.tick.*;
 
 //TODO: Will need to rewrite this class from the ground up extending block due to limitations in how  AbstractRedstoneGateBlock handles the update delay and pulse length
 //Probably will need to use separate boolean properties for EMITTING_POWER and RECIEVING_POWER
-@SuppressWarnings("deprecation")
 public class AdvancedRepeaterBlock
         extends AbstractRedstoneGateBlock {
     public static final MapCodec<AdvancedRepeaterBlock> CODEC = AdvancedRepeaterBlock.createCodec(AdvancedRepeaterBlock::new);
@@ -50,7 +45,7 @@ public class AdvancedRepeaterBlock
         builder.add(DELAY, PULSE, POWERED, FACING);
     }
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!player.getAbilities().allowModifyWorld) {
             return ActionResult.PASS;
         }

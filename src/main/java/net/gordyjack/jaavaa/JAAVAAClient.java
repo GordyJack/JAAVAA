@@ -1,17 +1,16 @@
 package net.gordyjack.jaavaa;
 
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
-import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
-import net.gordyjack.jaavaa.block.custom.entity.renderer.AllayCollectorBER;
-import net.gordyjack.jaavaa.item.JAAVAAItems;
-import net.gordyjack.jaavaa.item.custom.renderer.AllayCollectorItemRenderer;
-import net.gordyjack.jaavaa.item.custom.renderer.EnderCollectorItemRenderer;
-import net.minecraft.block.Block;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.fabricmc.api.*;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.*;
+import net.fabricmc.fabric.api.client.rendering.v1.*;
+import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.block.custom.entity.*;
+import net.gordyjack.jaavaa.block.custom.entity.renderer.*;
+import net.gordyjack.jaavaa.item.*;
+import net.gordyjack.jaavaa.item.custom.renderer.*;
+import net.minecraft.block.*;
+import net.minecraft.client.render.*;
+import net.minecraft.client.render.block.entity.*;
 
 public class JAAVAAClient
 implements ClientModInitializer {

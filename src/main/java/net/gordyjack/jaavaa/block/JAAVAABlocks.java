@@ -1,18 +1,14 @@
 package net.gordyjack.jaavaa.block;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.gordyjack.jaavaa.JAAVAA;
+import net.gordyjack.jaavaa.*;
 import net.gordyjack.jaavaa.block.custom.*;
-import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
+import net.gordyjack.jaavaa.block.custom.entity.*;
 import net.minecraft.block.*;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.item.*;
+import net.minecraft.registry.*;
+import net.minecraft.sound.*;
+import net.minecraft.util.*;
+import org.jetbrains.annotations.*;
 
 import java.util.*;
 
@@ -215,14 +211,14 @@ public class JAAVAABlocks {
 
     //Blocks
     public static final Block TEST_BLOCK = registerBlock("jamba_test_block", new Block(
-            FabricBlockSettings.copyOf(Blocks.STONE)
+            AbstractBlock.Settings.copy(Blocks.STONE)
     ));
     public static final Block TEST_MINI_BLOCK = registerBlock("jamba_test_mini_block", new MiniBlock(
             TEST_BLOCK,
-            FabricBlockSettings.copyOf(TEST_BLOCK)
+            AbstractBlock.Settings.copy(TEST_BLOCK)
     ));
     public static final Block STARSTEEL_BLOCK = registerBlockWithoutItem("starsteel_block", new Block(
-            FabricBlockSettings.create()
+            AbstractBlock.Settings.create()
                     .strength(50.0F, 1200.0F)
                     .requiresTool()
                     .sounds(BlockSoundGroup.METAL)
@@ -232,27 +228,27 @@ public class JAAVAABlocks {
 
     //Storage Components
     public static final Block ALLAY_COLLECTOR = registerBlockWithoutItem("allay_collector", new CollectorBlock(
-            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR
+            AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ALLAY_COLLECTOR
     ));
     public static final Block ENDER_COLLECTOR = registerBlockWithoutItem("ender_collector", new CollectorBlock(
-            FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ENDER_COLLECTOR
+            AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), () -> JAAVAABlockEntityTypes.ENDER_COLLECTOR
     ));
 
     //Redstone Components
     public static final Block ADJUSTABLE_REDSTONE_LAMP = registerBlock("adjustable_redstone_lamp", new AdjustableRedstoneLamp(
-            FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP)
+            AbstractBlock.Settings.copy(Blocks.REDSTONE_LAMP)
                     .luminance(state -> state.get(AdjustableRedstoneLamp.LUMINANCE) + 1)
                     .solidBlock(Blocks::never)
                     .allowsSpawning(Blocks::always)
     ));
     public static final Block ADVANCED_REPEATER = registerBlock("advanced_repeater", new AdvancedRepeaterBlock(
-            FabricBlockSettings.copyOf(Blocks.REPEATER)
+            AbstractBlock.Settings.copy(Blocks.REPEATER)
     ));
     public static final Block QUARTZ_ENCASED_REDSTONE_PILLAR = registerBlock("quartz_encased_redstone_pillar", new EncasedRedstoneBlock(
-            FabricBlockSettings.copyOf(Blocks.QUARTZ_PILLAR)
+            AbstractBlock.Settings.copy(Blocks.QUARTZ_PILLAR)
     ));
     public static final Block ANCIENT_DEBRIS_ENCASED_REDSTONE_PILLAR = registerBlock("ancient_debris_encased_redstone_pillar", new EncasedRedstoneBlock(
-            FabricBlockSettings.copyOf(Blocks.ANCIENT_DEBRIS)
+            AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)
     ));
     
     private static Block registerBlock(String name, Block block) {
@@ -260,7 +256,7 @@ public class JAAVAABlocks {
         return registerBlockWithoutItem(name, block);
     }
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, JAAVAA.getID(name), new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, JAAVAA.getID(name), new BlockItem(block, new Item.Settings()));
     }
     private static Block registerBlockWithoutItem(String name, Block block) {
         BLOCKS.add(block);
@@ -432,8 +428,8 @@ public class JAAVAABlocks {
     }
     return Blocks.AIR;
 }
-    public static void registerBlocks() {
-        JAAVAA.logInfo("Registering ModBlocks");
+    public static void init() {
+        JAAVAA.logInfo("Initializing Blocks");
         
         for (Block parentBlock : VANILLA_BLOCKS) {
             String translationKey = parentBlock.getTranslationKey();
@@ -462,7 +458,7 @@ public class JAAVAABlocks {
     }
     private static Map<String, Block> getBlockSet(Block parentBlock, String type) {
         Map<String, Block> map = new HashMap<>();
-        AbstractBlock.Settings parentSettings = FabricBlockSettings.copy(parentBlock);
+        AbstractBlock.Settings parentSettings = AbstractBlock.Settings.copy(parentBlock);
         switch (type) {
             case "glass" -> {
                 if (!hasSlab(parentBlock)) map.put("slab", new JAAVAASlab.Transparent(parentSettings));

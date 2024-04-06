@@ -1,34 +1,27 @@
 package net.gordyjack.jaavaa.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.gordyjack.jaavaa.JAAVAA;
-import net.gordyjack.jaavaa.block.JAAVAABlocks;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
+import net.fabricmc.fabric.api.itemgroup.v1.*;
+import net.gordyjack.jaavaa.*;
+import net.gordyjack.jaavaa.block.*;
+import net.minecraft.block.*;
+import net.minecraft.item.*;
+import net.minecraft.registry.*;
+import net.minecraft.text.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class JAAVAAItemGroups {
     public static final List<RegistryKey<ItemGroup>> ITEM_GROUPS = new ArrayList<>();
-    public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerItemGroup("jaavaa_slabs", JAAVAABlocks.SLABS.get(0));
-    public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerItemGroup("jaavaa_walls", JAAVAABlocks.WALLS.get(0));
-    public static final RegistryKey<ItemGroup> JAAVAA_STAIRS = registerItemGroup("jaavaa_stairs", JAAVAABlocks.STAIRS.get(0));
-    public static final RegistryKey<ItemGroup> JAAVAA_GROUP = registerItemGroup("jaavaa", JAAVAAItems.ITEMS.get(0));
+    public static final RegistryKey<ItemGroup> JAAVAA_SLABS = registerItemGroup("jaavaa_slabs", JAAVAABlocks.SLABS.getFirst());
+    public static final RegistryKey<ItemGroup> JAAVAA_WALLS = registerItemGroup("jaavaa_walls", JAAVAABlocks.WALLS.getFirst());
+    public static final RegistryKey<ItemGroup> JAAVAA_STAIRS = registerItemGroup("jaavaa_stairs", JAAVAABlocks.STAIRS.getFirst());
+    public static final RegistryKey<ItemGroup> JAAVAA_GROUP = registerItemGroup("jaavaa", JAAVAAItems.ITEMS.getFirst());
     
     /**
      * Registers all ItemGroups for ModBlocks.
      */
-    public static void registerItemGroups() {
-        JAAVAA.logInfo("Registering ItemGroups");
+    public static void init() {
+        JAAVAA.logInfo("Initializing ItemGroups");
 
         for (Block slabBlock : JAAVAABlocks.SLABS) {
             addToGroup(slabBlock, JAAVAA_SLABS);

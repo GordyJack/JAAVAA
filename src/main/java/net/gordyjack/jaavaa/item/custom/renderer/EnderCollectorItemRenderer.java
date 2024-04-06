@@ -1,18 +1,18 @@
 package net.gordyjack.jaavaa.item.custom.renderer;
 
-import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
-import net.gordyjack.jaavaa.item.JAAVAAItems;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.EndermanEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.RotationAxis;
-import net.minecraft.world.World;
+import net.fabricmc.fabric.api.client.rendering.v1.*;
+import net.gordyjack.jaavaa.item.*;
+import net.minecraft.client.*;
+import net.minecraft.client.render.*;
+import net.minecraft.client.render.entity.*;
+import net.minecraft.client.render.item.*;
+import net.minecraft.client.render.model.json.*;
+import net.minecraft.client.util.math.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.mob.*;
+import net.minecraft.item.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
 public class EnderCollectorItemRenderer
 implements BuiltinItemRendererRegistry.DynamicItemRenderer {

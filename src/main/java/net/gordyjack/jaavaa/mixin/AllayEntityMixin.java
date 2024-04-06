@@ -1,14 +1,12 @@
 package net.gordyjack.jaavaa.mixin;
 
-import net.gordyjack.jaavaa.item.custom.AbstractCollectorItem;
-import net.minecraft.entity.passive.AllayEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import net.gordyjack.jaavaa.item.custom.*;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.util.*;
+import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
 
 @Mixin(AllayEntity.class)
 public class AllayEntityMixin {

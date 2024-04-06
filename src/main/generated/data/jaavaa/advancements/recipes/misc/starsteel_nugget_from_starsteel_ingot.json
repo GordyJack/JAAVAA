@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "jaavaa:starsteel_ingot"
-            ]
+            "items": "jaavaa:starsteel_ingot"
           }
         ]
       },

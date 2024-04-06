@@ -1,12 +1,12 @@
 package net.gordyjack.jaavaa.block.custom.entity;
 
-import net.gordyjack.jaavaa.block.custom.CollectorBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.gordyjack.jaavaa.block.custom.*;
+import net.minecraft.block.*;
+import net.minecraft.entity.*;
+import net.minecraft.inventory.*;
+import net.minecraft.item.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 
 public class EnderCollectorEntity
         extends AbstractCollectorEntity {
@@ -29,6 +29,7 @@ public class EnderCollectorEntity
     @Override
     public void setFilter(ItemStack stack) {
         this.filter = stack;
+        this.markDirty();
     }
     @Override
     public float getPickupRange() {

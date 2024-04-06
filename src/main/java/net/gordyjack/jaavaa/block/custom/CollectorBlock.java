@@ -1,44 +1,27 @@
 package net.gordyjack.jaavaa.block.custom;
 
-import com.mojang.serialization.MapCodec;
-import net.gordyjack.jaavaa.block.custom.entity.AbstractCollectorEntity;
-import net.gordyjack.jaavaa.block.custom.entity.AllayCollectorEntity;
-import net.gordyjack.jaavaa.block.custom.entity.EnderCollectorEntity;
-import net.gordyjack.jaavaa.block.custom.entity.JAAVAABlockEntityTypes;
-import net.gordyjack.jaavaa.block.util.VoxelShapeUtils;
+import com.mojang.serialization.*;
+import net.gordyjack.jaavaa.block.custom.entity.*;
+import net.gordyjack.jaavaa.block.util.*;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.block.entity.*;
+import net.minecraft.entity.ai.pathing.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.fluid.*;
+import net.minecraft.item.*;
+import net.minecraft.state.*;
+import net.minecraft.state.property.*;
+import net.minecraft.util.*;
+import net.minecraft.util.function.*;
+import net.minecraft.util.hit.*;
+import net.minecraft.util.math.*;
+import net.minecraft.util.shape.*;
+import net.minecraft.world.*;
+import org.jetbrains.annotations.*;
 
-import java.util.function.Supplier;
-import java.util.stream.Stream;
+import java.util.function.*;
+import java.util.stream.*;
 
-@SuppressWarnings("deprecation")
 public class CollectorBlock
         extends BlockWithEntity
         implements Waterloggable,
@@ -75,7 +58,7 @@ public class CollectorBlock
         builder.add(FACING, WATERLOGGED, ENABLED);
     }
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
     @Nullable
@@ -140,22 +123,18 @@ public class CollectorBlock
         return true;
     }
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (world.isClient() || !(blockEntity instanceof AbstractCollectorEntity collectorEntity)) {
-            return ActionResult.CONSUME;
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        var blockEntity = world.getBlockEntity(pos);
+        if (world.isClient || !(blockEntity instanceof AbstractCollectorEntity collectorEntity)) {
+            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
-
-        ItemStack heldStack = player.getStackInHand(hand);
-        ItemStack filterStack = collectorEntity.getFilter();
-
+        var filterStack = collectorEntity.getFilter();
         if (!filterStack.isEmpty()) {
             collectorEntity.clear();
         } else {
-            collectorEntity.setFilter(heldStack.copyWithCount(1));
+            collectorEntity.setFilter(stack.copyWithCount(1));
         }
-        collectorEntity.markDirty();
-        return ActionResult.SUCCESS;
+        return ItemActionResult.success(true);
     }
     @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {

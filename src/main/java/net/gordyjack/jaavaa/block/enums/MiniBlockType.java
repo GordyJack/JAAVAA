@@ -1,6 +1,6 @@
 package net.gordyjack.jaavaa.block.enums;
 
-import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.*;
 
 public enum MiniBlockType
 implements StringIdentifiable {
