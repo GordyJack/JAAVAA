@@ -6,7 +6,7 @@ import net.gordyjack.jaavaa.item.*;
 
 public class JAAVAARegistries {
     private static void registerFuels() {
-        JAAVAA.logInfo("Registering Fuels for " + JAAVAA.MODID);
+        JAAVAA.logInfo("Registering Fuels for " + JAAVAA.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
         registry.add(JAAVAAItems.CREATIVE_COAL, 32767);

@@ -15,8 +15,8 @@ public class JAAVAA
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final String MODID = "jaavaa";
-    private static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+	public static final String MOD_ID = "jaavaa";
+    private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
@@ -34,7 +34,7 @@ public class JAAVAA
 		return new Identifier(namespace, name);
 	}
 	public static @NotNull Identifier getID(String name) {
-		return getID(MODID, name);
+		return getID(MOD_ID, name);
 	}
 	public static @NotNull Identifier getGameID(String name) {
 		return getID("minecraft", name);

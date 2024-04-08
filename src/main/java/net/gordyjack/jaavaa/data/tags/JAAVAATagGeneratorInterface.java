@@ -8,7 +8,7 @@ public interface JAAVAATagGeneratorInterface<T> {
         JAAVAA.logInfo("Registering Tags");
     }
     default TagKey<T> registerModTagKey(String name) {
-        return registerTagKey(JAAVAA.MODID, name);
+        return registerTagKey(JAAVAA.MOD_ID, name);
     }
     default TagKey<T> registerCommonTagKey(String name) {
         return registerTagKey("c", name);
