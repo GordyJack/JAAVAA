@@ -9,7 +9,9 @@ import net.minecraft.client.render.block.entity.*;
 import net.minecraft.client.render.entity.*;
 import net.minecraft.client.util.math.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.decoration.*;
 import net.minecraft.entity.passive.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -26,9 +28,11 @@ implements BlockEntityRenderer<AllayCollectorEntity>{
         if (world == null) {
             return;
         }
+        //TODO: stack in hand is not visible.
         if (allayEntity == null) {
             allayEntity = new AllayEntity(EntityType.ALLAY, world);
         }
+        allayEntity.setStackInHand(Hand.MAIN_HAND, entity.getFilter());
 
         matrices.push();
         BlockState state = entity.getCachedState();
