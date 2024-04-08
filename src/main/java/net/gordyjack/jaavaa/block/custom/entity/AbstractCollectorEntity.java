@@ -6,7 +6,9 @@ import net.minecraft.block.entity.*;
 import net.minecraft.entity.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
+import net.minecraft.nbt.*;
 import net.minecraft.predicate.entity.*;
+import net.minecraft.registry.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.*;
@@ -24,13 +26,23 @@ public abstract class AbstractCollectorEntity extends BlockEntity implements Cle
     public abstract ItemStack getFilter();
     public abstract void setFilter(ItemStack stack);
     public abstract float getPickupRange();
+    
+    private static final String FILTER_NBT_KEY = "jaavaa:collector_filter";
 
     @Override
     public void clear() {
         this.setFilter(ItemStack.EMPTY);
         this.markDirty();
     }
-    boolean doesFilterMatch(ItemStack inputStack) {
+    @Override
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        nbt.put(FILTER_NBT_KEY, this.getFilter().encodeAllowEmpty(registryLookup));
+    }
+    @Override
+    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        this.setFilter(ItemStack.fromNbtOrEmpty(registryLookup, (NbtCompound) nbt.get(FILTER_NBT_KEY)));
+    }
+    protected boolean doesFilterMatch(ItemStack inputStack) {
         return this.getFilter().isEmpty() || ItemStack.areItemsEqual(this.getFilter(), inputStack);
     }
     private static boolean canInsert(Inventory inventory, ItemStack stack, int slot, @Nullable Direction side) {
