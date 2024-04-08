@@ -9,7 +9,6 @@ import net.minecraft.client.render.block.entity.*;
 import net.minecraft.client.render.entity.*;
 import net.minecraft.client.util.math.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.decoration.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
