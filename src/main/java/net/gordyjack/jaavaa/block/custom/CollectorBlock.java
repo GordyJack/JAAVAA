@@ -123,18 +123,30 @@ public class CollectorBlock
         return true;
     }
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         var blockEntity = world.getBlockEntity(pos);
         if (world.isClient || !(blockEntity instanceof AbstractCollectorEntity collectorEntity)) {
-            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return ActionResult.FAIL;
         }
         var filterStack = collectorEntity.getFilter();
-        if (!filterStack.isEmpty()) {
+        var mainHandStack = player.getStackInHand(Hand.MAIN_HAND);
+        var offHandStack = player.getStackInHand(Hand.OFF_HAND);
+        
+        boolean filtered = !filterStack.isEmpty();
+        boolean mainHasItem = !mainHandStack.isEmpty();
+        boolean offHasItem = !offHandStack.isEmpty();
+        boolean handsEmpty = !mainHasItem && !offHasItem;
+        
+        if (filtered && handsEmpty) {
             collectorEntity.clear();
+        } else if (!filtered && mainHasItem) {
+            collectorEntity.setFilter(mainHandStack.copyWithCount(1));
+        } else if (!filtered && offHasItem) {
+            collectorEntity.setFilter(offHandStack.copyWithCount(1));
         } else {
-            collectorEntity.setFilter(stack.copyWithCount(1));
+            return ActionResult.FAIL;
         }
-        return ItemActionResult.success(true);
+        return ActionResult.SUCCESS;
     }
     @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
