@@ -3,15 +3,15 @@
 	"id": "jaavaa",
 	"version": "${version}",
 	"name": "JAAVAA",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Just Another Actually Vanilla Additions Addon",
 	"authors": [
-		"Me!"
+		"GordyJack"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://x.com/GordyJackTweets",
+		"sources": "https://github.com/GordyJack/JAAVAA.git"
 	},
-	"license": "CC0-1.0",
+	"license": "MPL-2.0",
 	"icon": "assets/jaavaa/icon.png",
 	"environment": "*",
 	"entrypoints": {
