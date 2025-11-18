@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.shapes.*;
 import org.jetbrains.annotations.*;
-import org.jspecify.annotations.Nullable;
 
 public class PanelBlock extends BlockPiece {
     private final MapCodec<PanelBlock> CODEC = simpleCodec(PanelBlock::new);

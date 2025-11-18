@@ -23,7 +23,7 @@ public class JAAVAA implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 	}
 
-	public static Identifier id(String name) {
-		return Identifier.fromNamespaceAndPath(MOD_ID, name);
+	public static ResourceLocation id(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 }
