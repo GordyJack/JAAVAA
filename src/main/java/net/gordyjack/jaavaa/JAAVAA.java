@@ -2,6 +2,7 @@ package net.gordyjack.jaavaa;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.gordyjack.jaavaa.block.*;
 import net.minecraft.resources.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,9 +21,23 @@ public class JAAVAA implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		JAAVAABlocks.init();
 	}
 
+	public static void log(String message) {
+		log(message,'i');
+	}
+	public static void logError(String message) {
+		log(message, 'e');
+	}
+	public static void log(String message, char level) {
+		switch (level) {
+			case 'd' -> LOGGER.debug(message);
+			case 'w' -> LOGGER.warn(message);
+			case 'e' -> LOGGER.error(message);
+			default -> LOGGER.info(message);
+		}
+	}
 	public static ResourceLocation id(String path) {
 		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}

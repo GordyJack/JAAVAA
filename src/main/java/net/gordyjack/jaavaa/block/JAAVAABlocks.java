@@ -8,6 +8,7 @@ import net.minecraft.resources.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
 import org.jetbrains.annotations.*;
 
 import java.util.*;
@@ -16,7 +17,7 @@ import java.util.function.*;
 
 public final class JAAVAABlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
-    public static final BlockPieceSet STONE_SET = registerBlockPieceSet(Blocks.STONE, MiningTool.PICKAXE, MiningLevel.STONE);
+    public static final Block OAK_LOG_BLOCKTANT = registerBlock("oak_log_blocktant", Blocktant::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).mapColor(MapColor.COLOR_BROWN));
     private JAAVAABlocks() {}
 
 
@@ -52,7 +53,11 @@ public final class JAAVAABlocks {
         String parentName = parent.getName().toString();
         BlockBehaviour.Properties parentBehaviour = BlockBehaviour.Properties.ofFullCopy(parent);
         Blocktant blocktant = (Blocktant) registerBlock(parentName + "_blocktant", Blocktant::new, parentBehaviour);
-        Block panel = registerBlock(parentName + "_panel", Block::new, parentBehaviour);
+        PanelBlock panel = (PanelBlock) registerBlock(parentName + "_panel", Block::new, parentBehaviour);
         return new BlockPieceSet(parent, blocktant, panel, tool, level);
+    }
+
+    public static void init() {
+        JAAVAA.log("Initializing Blocks", 'd');
     }
 }

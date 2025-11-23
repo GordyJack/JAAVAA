@@ -10,7 +10,7 @@ import org.jetbrains.annotations.*;
 
 public abstract class BlockPiece extends DirectionalBlock implements SimpleWaterloggedBlock {
 
-    private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    protected static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     protected BlockPiece(Properties properties) {
         super(properties);
@@ -18,7 +18,7 @@ public abstract class BlockPiece extends DirectionalBlock implements SimpleWater
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, @NotNull BlockState> builder) {
-        builder.add(WATERLOGGED);
+        builder.add(FACING, WATERLOGGED);
         super.createBlockStateDefinition(builder);
     }
     @Override

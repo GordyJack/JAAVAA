@@ -22,7 +22,7 @@
 			"net.gordyjack.jaavaa.JAAVAAClient"
 		],
 		"fabric-datagen": [
-			"net.gordyjack.jaavaa.JAAVAADataGenerator"
+			"net.gordyjack.jaavaa.data.JAAVAADataGenerator"
 		]
 	},
 	"mixins": [
