@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_0"
+        "model": "jaavaa:block/stone_blocktant_0"
       },
       "when": {
         "facing": "down",
@@ -11,7 +11,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_0",
+        "model": "jaavaa:block/stone_blocktant_0",
         "x": 180
       },
       "when": {
@@ -21,7 +21,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_0",
+        "model": "jaavaa:block/stone_blocktant_0",
         "x": 270
       },
       "when": {
@@ -31,7 +31,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_0",
+        "model": "jaavaa:block/stone_blocktant_0",
         "x": 270,
         "y": 180
       },
@@ -42,7 +42,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_0",
+        "model": "jaavaa:block/stone_blocktant_0",
         "x": 270,
         "y": 270
       },
@@ -53,7 +53,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_0",
+        "model": "jaavaa:block/stone_blocktant_0",
         "x": 90
       },
       "when": {
@@ -63,7 +63,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_1"
+        "model": "jaavaa:block/stone_blocktant_1"
       },
       "when": {
         "facing": "down",
@@ -72,7 +72,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_1",
+        "model": "jaavaa:block/stone_blocktant_1",
         "x": 180
       },
       "when": {
@@ -82,7 +82,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_1",
+        "model": "jaavaa:block/stone_blocktant_1",
         "x": 270
       },
       "when": {
@@ -92,7 +92,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_1",
+        "model": "jaavaa:block/stone_blocktant_1",
         "x": 270,
         "y": 180
       },
@@ -103,7 +103,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_1",
+        "model": "jaavaa:block/stone_blocktant_1",
         "x": 270,
         "y": 270
       },
@@ -114,7 +114,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_1",
+        "model": "jaavaa:block/stone_blocktant_1",
         "x": 90
       },
       "when": {
@@ -124,7 +124,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_2"
+        "model": "jaavaa:block/stone_blocktant_2"
       },
       "when": {
         "facing": "down",
@@ -133,7 +133,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_2",
+        "model": "jaavaa:block/stone_blocktant_2",
         "x": 180
       },
       "when": {
@@ -143,7 +143,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_2",
+        "model": "jaavaa:block/stone_blocktant_2",
         "x": 270
       },
       "when": {
@@ -153,7 +153,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_2",
+        "model": "jaavaa:block/stone_blocktant_2",
         "x": 270,
         "y": 180
       },
@@ -164,7 +164,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_2",
+        "model": "jaavaa:block/stone_blocktant_2",
         "x": 270,
         "y": 270
       },
@@ -175,7 +175,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_2",
+        "model": "jaavaa:block/stone_blocktant_2",
         "x": 90
       },
       "when": {
@@ -185,7 +185,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_3"
+        "model": "jaavaa:block/stone_blocktant_3"
       },
       "when": {
         "facing": "down",
@@ -194,7 +194,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_3",
+        "model": "jaavaa:block/stone_blocktant_3",
         "x": 180
       },
       "when": {
@@ -204,7 +204,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_3",
+        "model": "jaavaa:block/stone_blocktant_3",
         "x": 270
       },
       "when": {
@@ -214,7 +214,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_3",
+        "model": "jaavaa:block/stone_blocktant_3",
         "x": 270,
         "y": 180
       },
@@ -225,7 +225,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_3",
+        "model": "jaavaa:block/stone_blocktant_3",
         "x": 270,
         "y": 270
       },
@@ -236,7 +236,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_3",
+        "model": "jaavaa:block/stone_blocktant_3",
         "x": 90
       },
       "when": {
@@ -246,7 +246,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_4"
+        "model": "jaavaa:block/stone_blocktant_4"
       },
       "when": {
         "facing": "down",
@@ -255,7 +255,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_4",
+        "model": "jaavaa:block/stone_blocktant_4",
         "x": 180
       },
       "when": {
@@ -265,7 +265,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_4",
+        "model": "jaavaa:block/stone_blocktant_4",
         "x": 270
       },
       "when": {
@@ -275,7 +275,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_4",
+        "model": "jaavaa:block/stone_blocktant_4",
         "x": 270,
         "y": 180
       },
@@ -286,7 +286,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_4",
+        "model": "jaavaa:block/stone_blocktant_4",
         "x": 270,
         "y": 270
       },
@@ -297,7 +297,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_4",
+        "model": "jaavaa:block/stone_blocktant_4",
         "x": 90
       },
       "when": {
@@ -307,7 +307,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_5"
+        "model": "jaavaa:block/stone_blocktant_5"
       },
       "when": {
         "facing": "down",
@@ -316,7 +316,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_5",
+        "model": "jaavaa:block/stone_blocktant_5",
         "x": 180
       },
       "when": {
@@ -326,7 +326,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_5",
+        "model": "jaavaa:block/stone_blocktant_5",
         "x": 270
       },
       "when": {
@@ -336,7 +336,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_5",
+        "model": "jaavaa:block/stone_blocktant_5",
         "x": 270,
         "y": 180
       },
@@ -347,7 +347,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_5",
+        "model": "jaavaa:block/stone_blocktant_5",
         "x": 270,
         "y": 270
       },
@@ -358,7 +358,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_5",
+        "model": "jaavaa:block/stone_blocktant_5",
         "x": 90
       },
       "when": {
@@ -368,7 +368,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_6"
+        "model": "jaavaa:block/stone_blocktant_6"
       },
       "when": {
         "facing": "down",
@@ -377,7 +377,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_6",
+        "model": "jaavaa:block/stone_blocktant_6",
         "x": 180
       },
       "when": {
@@ -387,7 +387,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_6",
+        "model": "jaavaa:block/stone_blocktant_6",
         "x": 270
       },
       "when": {
@@ -397,7 +397,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_6",
+        "model": "jaavaa:block/stone_blocktant_6",
         "x": 270,
         "y": 180
       },
@@ -408,7 +408,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_6",
+        "model": "jaavaa:block/stone_blocktant_6",
         "x": 270,
         "y": 270
       },
@@ -419,7 +419,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_6",
+        "model": "jaavaa:block/stone_blocktant_6",
         "x": 90
       },
       "when": {
@@ -429,7 +429,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_7"
+        "model": "jaavaa:block/stone_blocktant_7"
       },
       "when": {
         "facing": "down",
@@ -438,7 +438,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_7",
+        "model": "jaavaa:block/stone_blocktant_7",
         "x": 180
       },
       "when": {
@@ -448,7 +448,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_7",
+        "model": "jaavaa:block/stone_blocktant_7",
         "x": 270
       },
       "when": {
@@ -458,7 +458,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_7",
+        "model": "jaavaa:block/stone_blocktant_7",
         "x": 270,
         "y": 180
       },
@@ -469,7 +469,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_7",
+        "model": "jaavaa:block/stone_blocktant_7",
         "x": 270,
         "y": 270
       },
@@ -480,7 +480,7 @@
     },
     {
       "apply": {
-        "model": "jaavaa:block/oak_log_blocktant_7",
+        "model": "jaavaa:block/stone_blocktant_7",
         "x": 90
       },
       "when": {

@@ -1,0 +1,8 @@
+{
+  "parent": "jaavaa:block/panel_block_template_7",
+  "textures": {
+    "down": "minecraft:block/stone",
+    "side": "minecraft:block/stone",
+    "up": "minecraft:block/stone"
+  }
+}

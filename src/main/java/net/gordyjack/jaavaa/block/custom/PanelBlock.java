@@ -15,7 +15,7 @@ public class PanelBlock extends BlockPiece {
 
     public static final IntegerProperty LAYERS = BlockStateProperties.LAYERS;
 
-    protected PanelBlock(Properties properties) {
+    public PanelBlock(Properties properties) {
         super(properties);
     }
 
