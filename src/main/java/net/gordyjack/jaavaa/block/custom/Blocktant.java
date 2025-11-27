@@ -261,17 +261,20 @@ public class Blocktant
 
     @Override
     public @NotNull FluidState getFluidState(BlockState state) {
+        if (this.allBitsPresent(state)) {
+            return Fluids.EMPTY.defaultFluidState();
+        }
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
     public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluid) {
-        return allBitsPresent(state) && super.placeLiquid(level, pos, state, fluid);
+        return !allBitsPresent(state) && super.placeLiquid(level, pos, state, fluid);
     }
 
     @Override
     public boolean canPlaceLiquid(@Nullable LivingEntity entity, BlockGetter getter, BlockPos pos, BlockState state, Fluid fluid) {
-        return allBitsPresent(state) && super.canPlaceLiquid(entity, getter, pos, state, fluid);
+        return !allBitsPresent(state) && super.canPlaceLiquid(entity, getter, pos, state, fluid);
     }
 
     @Override

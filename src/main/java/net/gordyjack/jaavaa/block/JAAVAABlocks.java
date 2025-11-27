@@ -18,7 +18,13 @@ import java.util.function.*;
 
 public final class JAAVAABlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
+    public static final List<BlockPieceSet> BLOCK_PIECE_SETS = new ArrayList<>();
     public static final BlockPieceSet STONE_SET = registerBlockPieceSet(Blocks.STONE, MiningTool.PICKAXE, MiningLevel.STONE);
+    public static final BlockPieceSet SANDSTONE_SET = registerBlockPieceSet(Blocks.SANDSTONE, MiningTool.PICKAXE, MiningLevel.STONE);
+    public static final BlockPieceSet CHISELED_SANDSTONE_SET = registerBlockPieceSet(Blocks.CHISELED_SANDSTONE, MiningTool.PICKAXE, MiningLevel.STONE);
+    public static final BlockPieceSet SMOOTH_SANDSTONE_SET = registerBlockPieceSet(Blocks.SMOOTH_SANDSTONE, MiningTool.PICKAXE, MiningLevel.STONE);
+    public static final BlockPieceSet CUT_SANDSTONE_SET = registerBlockPieceSet(Blocks.CUT_SANDSTONE, MiningTool.PICKAXE, MiningLevel.STONE);
+    public static final BlockPieceSet IRON_BLOCK_SET = registerBlockPieceSet(Blocks.IRON_BLOCK, MiningTool.PICKAXE, MiningLevel.IRON);
     private JAAVAABlocks() {}
 
 
@@ -53,9 +59,12 @@ public final class JAAVAABlocks {
     private static BlockPieceSet registerBlockPieceSet(Block parent, MiningTool tool, MiningLevel level) {
         String parentName = IDUtil.nameFromId(parent);
         BlockBehaviour.Properties parentBehaviour = BlockBehaviour.Properties.ofFullCopy(parent);
+        BeamBlock beam = (BeamBlock) registerBlock(parentName + "_beam", BeamBlock::new, parentBehaviour);
         Blocktant blocktant = (Blocktant) registerBlock(parentName + "_blocktant", Blocktant::new, parentBehaviour);
         PanelBlock panel = (PanelBlock) registerBlock(parentName + "_panel", PanelBlock::new, parentBehaviour);
-        return new BlockPieceSet(parent, blocktant, panel, tool, level);
+        BlockPieceSet blockPieceSet = new BlockPieceSet(parent, beam, blocktant, panel, tool, level);
+        BLOCK_PIECE_SETS.add(blockPieceSet);
+        return blockPieceSet;
     }
 
     public static void init() {

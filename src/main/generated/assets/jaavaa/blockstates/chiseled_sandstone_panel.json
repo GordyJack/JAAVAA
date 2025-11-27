@@ -1,0 +1,212 @@
+{
+  "variants": {
+    "facing=down,layers=1": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_1"
+    },
+    "facing=down,layers=2": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_2"
+    },
+    "facing=down,layers=3": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_3"
+    },
+    "facing=down,layers=4": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_4"
+    },
+    "facing=down,layers=5": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_5"
+    },
+    "facing=down,layers=6": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_6"
+    },
+    "facing=down,layers=7": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_7"
+    },
+    "facing=down,layers=8": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_8"
+    },
+    "facing=east,layers=1": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_1",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=2": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_2",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=3": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_3",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=4": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_4",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=5": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_5",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=6": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_6",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=7": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_7",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,layers=8": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_8",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north,layers=1": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_1",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=2": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_2",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=3": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_3",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=4": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_4",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=5": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_5",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=6": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_6",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=7": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_7",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,layers=8": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_8",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,layers=1": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_1",
+      "x": 90
+    },
+    "facing=south,layers=2": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_2",
+      "x": 90
+    },
+    "facing=south,layers=3": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_3",
+      "x": 90
+    },
+    "facing=south,layers=4": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_4",
+      "x": 90
+    },
+    "facing=south,layers=5": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_5",
+      "x": 90
+    },
+    "facing=south,layers=6": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_6",
+      "x": 90
+    },
+    "facing=south,layers=7": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_7",
+      "x": 90
+    },
+    "facing=south,layers=8": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_8",
+      "x": 90
+    },
+    "facing=up,layers=1": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_1",
+      "x": 180
+    },
+    "facing=up,layers=2": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_2",
+      "x": 180
+    },
+    "facing=up,layers=3": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_3",
+      "x": 180
+    },
+    "facing=up,layers=4": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_4",
+      "x": 180
+    },
+    "facing=up,layers=5": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_5",
+      "x": 180
+    },
+    "facing=up,layers=6": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_6",
+      "x": 180
+    },
+    "facing=up,layers=7": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_7",
+      "x": 180
+    },
+    "facing=up,layers=8": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_8",
+      "x": 180
+    },
+    "facing=west,layers=1": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=2": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_2",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=3": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_3",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=4": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_4",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=5": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_5",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=6": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_6",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=7": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_7",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,layers=8": {
+      "model": "jaavaa:block/chiseled_sandstone_panel_8",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

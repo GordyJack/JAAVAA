@@ -2,11 +2,14 @@ package net.gordyjack.jaavaa.block.custom;
 
 import com.mojang.serialization.*;
 import net.minecraft.core.*;
+import net.minecraft.util.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.item.context.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 import org.jetbrains.annotations.*;
 
@@ -17,6 +20,12 @@ public class PanelBlock extends BlockPiece {
 
     public PanelBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(
+                this.stateDefinition.any()
+                        .setValue(FACING, Direction.DOWN)
+                        .setValue(WATERLOGGED, false)
+                        .setValue(LAYERS, 1)
+        );
     }
 
     @Override
@@ -30,12 +39,13 @@ public class PanelBlock extends BlockPiece {
     }
     @Override
     protected boolean canBeReplaced(BlockState state, BlockPlaceContext ctx) {
-        int i = state.getValue(LAYERS);
-        if (!ctx.getItemInHand().is(this.asItem()) || i >= 8) {
-            return i == 1;
-        } else {
-            return !ctx.replacingClickedOnBlock() || ctx.getClickedFace().getOpposite() == state.getValue(FACING);
+        boolean isPanelItem = ctx.getItemInHand().is(this.asItem());
+        boolean clickedTop = ctx.getClickedFace() == state.getValue(FACING).getOpposite();
+
+        if (isPanelItem && !this.layersFull(state)) {
+            return !ctx.replacingClickedOnBlock() || clickedTop;
         }
+        return false;
     }
     @Override
     protected float getShadeBrightness(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
@@ -62,6 +72,35 @@ public class PanelBlock extends BlockPiece {
     }
     @Override
     protected boolean useShapeForLightOcclusion(BlockState state) {
-        return state.getValue(LAYERS) < 8;
+        return !this.layersFull(state);
+    }
+    // ------------------------------------------------------------------------
+    // WATERLOGGING
+    // ------------------------------------------------------------------------
+    @Override
+    public @NotNull FluidState getFluidState(BlockState state) {
+        if (this.layersFull(state)) {
+            return Fluids.EMPTY.defaultFluidState();
+        }
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+    @Override
+    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluid) {
+        return !this.layersFull(state) && super.placeLiquid(level, pos, state, fluid);
+    }
+    @Override
+    public boolean canPlaceLiquid(@Nullable LivingEntity entity, BlockGetter getter, BlockPos pos, BlockState state, Fluid fluid) {
+        return !this.layersFull(state) && super.canPlaceLiquid(entity, getter, pos, state, fluid);
+    }
+    @Override
+    protected @NotNull BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess tick, BlockPos pos, Direction dir, BlockPos neighborPos, BlockState neighborState, RandomSource rng) {
+        if (state.getValue(WATERLOGGED)) {
+            tick.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(reader));
+        }
+        return super.updateShape(state, reader, tick, pos, dir, neighborPos, neighborState, rng);
+    }
+    //Helpers ----------------------------------------------------------------
+    private boolean layersFull(BlockState state) {
+        return state.getValue(LAYERS) >= 8;
     }
 }

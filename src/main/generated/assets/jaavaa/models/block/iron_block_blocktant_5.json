@@ -1,0 +1,8 @@
+{
+  "parent": "jaavaa:block/blocktant_template_5",
+  "textures": {
+    "down": "minecraft:block/iron_block",
+    "side": "minecraft:block/iron_block",
+    "up": "minecraft:block/iron_block"
+  }
+}

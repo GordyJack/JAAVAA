@@ -1,0 +1,8 @@
+{
+  "parent": "jaavaa:block/blocktant_template_0",
+  "textures": {
+    "down": "minecraft:block/sandstone_top",
+    "side": "minecraft:block/chiseled_sandstone",
+    "up": "minecraft:block/sandstone_top"
+  }
+}

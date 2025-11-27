@@ -1,0 +1,8 @@
+{
+  "parent": "jaavaa:block/beam_template_none",
+  "textures": {
+    "down": "minecraft:block/sandstone_top",
+    "side": "minecraft:block/sandstone",
+    "up": "minecraft:block/sandstone_bottom"
+  }
+}

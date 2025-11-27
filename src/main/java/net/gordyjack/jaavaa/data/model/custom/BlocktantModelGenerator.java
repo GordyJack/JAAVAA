@@ -25,7 +25,7 @@ public class BlocktantModelGenerator extends JAAVAAModelGenerator<Blocktant> {
 
         ModelTemplate[] posTemplates = new ModelTemplate[8];
         for (int i = 0; i < 8; i++) {
-            posTemplates[i] = createBlocktantModelTemplate("block/blocktant_template_" + i);
+            posTemplates[i] = simpleModel("block/blocktant_template_" + i);
         }
 
         MultiVariant[] mv = new MultiVariant[8];
@@ -50,9 +50,6 @@ public class BlocktantModelGenerator extends JAAVAAModelGenerator<Blocktant> {
 
         this.blockStateOutput.accept(mpGen);
         this.registerSimpleItemModel(blocktant, ModelLocationUtils.getModelLocation(blocktant, "_0"));
-    }
-    private ModelTemplate createBlocktantModelTemplate(String name) {
-        return new ModelTemplate(Optional.of(JAAVAA.id(name)), Optional.empty(), TextureSlot.SIDE, TextureSlot.DOWN, TextureSlot.UP);
     }
     private void addFacingParts(MultiPartGenerator mpGen,
                                 BooleanProperty posProperty,

@@ -1,0 +1,492 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_0"
+      },
+      "when": {
+        "facing": "down",
+        "pos_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_0",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_0",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_0",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_0",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_0",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_1"
+      },
+      "when": {
+        "facing": "down",
+        "pos_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_1",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_1",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_1",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_1",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_1",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_2"
+      },
+      "when": {
+        "facing": "down",
+        "pos_3": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_2",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_3": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_2",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_3": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_2",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_3": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_2",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_3": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_2",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_3": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_3"
+      },
+      "when": {
+        "facing": "down",
+        "pos_4": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_3",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_4": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_3",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_4": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_3",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_4": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_3",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_4": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_3",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_4": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_4"
+      },
+      "when": {
+        "facing": "down",
+        "pos_5": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_4",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_5": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_4",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_5": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_4",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_5": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_4",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_5": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_4",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_5": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_5"
+      },
+      "when": {
+        "facing": "down",
+        "pos_6": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_5",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_6": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_5",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_6": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_5",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_6": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_5",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_6": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_5",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_6": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_6"
+      },
+      "when": {
+        "facing": "down",
+        "pos_7": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_6",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_7": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_6",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_7": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_6",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_7": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_6",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_7": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_6",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_7": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_7"
+      },
+      "when": {
+        "facing": "down",
+        "pos_8": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_7",
+        "x": 180
+      },
+      "when": {
+        "facing": "up",
+        "pos_8": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_7",
+        "x": 270
+      },
+      "when": {
+        "facing": "north",
+        "pos_8": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_7",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "pos_8": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_7",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "pos_8": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jaavaa:block/sandstone_blocktant_7",
+        "x": 90
+      },
+      "when": {
+        "facing": "east",
+        "pos_8": "true"
+      }
+    }
+  ]
+}

@@ -11,4 +11,5 @@ public final class JAAVAABlockProperties {
     public static final BooleanProperty POS_6_ON = BooleanProperty.create("pos_6");
     public static final BooleanProperty POS_7_ON = BooleanProperty.create("pos_7");
     public static final BooleanProperty POS_8_ON = BooleanProperty.create("pos_8");
+    public static final EnumProperty<BeamCapType> BEAM_CAP_TYPE = EnumProperty.create("beam_cap_type", BeamCapType.class);
 }

@@ -5,8 +5,8 @@ import net.minecraft.world.level.block.*;
 
 import java.util.*;
 
-public record BlockPieceSet(Block parent, Blocktant blocktant, PanelBlock panel, MiningTool tool, MiningLevel level) {
+public record BlockPieceSet(Block parent, BeamBlock beam, Blocktant blocktant, PanelBlock panel, MiningTool tool, MiningLevel level) {
     public List<Block> getPieces() {
-        return List.of(blocktant, panel);
+        return List.of(beam, blocktant, panel);
     }
 }

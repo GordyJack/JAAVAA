@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "beam_cap_type=both,facing=down": {
+      "model": "jaavaa:block/iron_block_beam_both"
+    },
+    "beam_cap_type=both,facing=east": {
+      "model": "jaavaa:block/iron_block_beam_both",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=both,facing=north": {
+      "model": "jaavaa:block/iron_block_beam_both",
+      "x": 270
+    },
+    "beam_cap_type=both,facing=south": {
+      "model": "jaavaa:block/iron_block_beam_both",
+      "x": 270
+    },
+    "beam_cap_type=both,facing=up": {
+      "model": "jaavaa:block/iron_block_beam_both"
+    },
+    "beam_cap_type=both,facing=west": {
+      "model": "jaavaa:block/iron_block_beam_both",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=bottom,facing=down": {
+      "model": "jaavaa:block/iron_block_beam_bottom"
+    },
+    "beam_cap_type=bottom,facing=east": {
+      "model": "jaavaa:block/iron_block_beam_bottom",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=bottom,facing=north": {
+      "model": "jaavaa:block/iron_block_beam_bottom",
+      "x": 270
+    },
+    "beam_cap_type=bottom,facing=south": {
+      "model": "jaavaa:block/iron_block_beam_bottom",
+      "x": 270
+    },
+    "beam_cap_type=bottom,facing=up": {
+      "model": "jaavaa:block/iron_block_beam_bottom"
+    },
+    "beam_cap_type=bottom,facing=west": {
+      "model": "jaavaa:block/iron_block_beam_bottom",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=none,facing=down": {
+      "model": "jaavaa:block/iron_block_beam_none"
+    },
+    "beam_cap_type=none,facing=east": {
+      "model": "jaavaa:block/iron_block_beam_none",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=none,facing=north": {
+      "model": "jaavaa:block/iron_block_beam_none",
+      "x": 270
+    },
+    "beam_cap_type=none,facing=south": {
+      "model": "jaavaa:block/iron_block_beam_none",
+      "x": 270
+    },
+    "beam_cap_type=none,facing=up": {
+      "model": "jaavaa:block/iron_block_beam_none"
+    },
+    "beam_cap_type=none,facing=west": {
+      "model": "jaavaa:block/iron_block_beam_none",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=top,facing=down": {
+      "model": "jaavaa:block/iron_block_beam_top"
+    },
+    "beam_cap_type=top,facing=east": {
+      "model": "jaavaa:block/iron_block_beam_top",
+      "x": 90,
+      "y": 90
+    },
+    "beam_cap_type=top,facing=north": {
+      "model": "jaavaa:block/iron_block_beam_top",
+      "x": 270
+    },
+    "beam_cap_type=top,facing=south": {
+      "model": "jaavaa:block/iron_block_beam_top",
+      "x": 270
+    },
+    "beam_cap_type=top,facing=up": {
+      "model": "jaavaa:block/iron_block_beam_top"
+    },
+    "beam_cap_type=top,facing=west": {
+      "model": "jaavaa:block/iron_block_beam_top",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
