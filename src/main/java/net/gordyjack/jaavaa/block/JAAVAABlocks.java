@@ -18,7 +18,7 @@ import java.util.function.*;
 
 public final class JAAVAABlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
-    public static final List<BlockPieceSet> BLOCK_PIECE_SETS = new ArrayList<>();
+    public static final Map<Block, BlockPieceSet> BLOCK_PIECE_SETS = new LinkedHashMap<>();
     public static final BlockPieceSet STONE_SET = registerBlockPieceSet(Blocks.STONE, MiningTool.PICKAXE, MiningLevel.STONE);
     public static final BlockPieceSet SANDSTONE_SET = registerBlockPieceSet(Blocks.SANDSTONE, MiningTool.PICKAXE, MiningLevel.STONE);
     public static final BlockPieceSet CHISELED_SANDSTONE_SET = registerBlockPieceSet(Blocks.CHISELED_SANDSTONE, MiningTool.PICKAXE, MiningLevel.STONE);
@@ -63,7 +63,7 @@ public final class JAAVAABlocks {
         Blocktant blocktant = (Blocktant) registerBlock(parentName + "_blocktant", Blocktant::new, parentBehaviour);
         PanelBlock panel = (PanelBlock) registerBlock(parentName + "_panel", PanelBlock::new, parentBehaviour);
         BlockPieceSet blockPieceSet = new BlockPieceSet(parent, beam, blocktant, panel, tool, level);
-        BLOCK_PIECE_SETS.add(blockPieceSet);
+        BLOCK_PIECE_SETS.put(parent, blockPieceSet);
         return blockPieceSet;
     }
 

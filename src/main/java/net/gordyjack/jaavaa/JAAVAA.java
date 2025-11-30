@@ -3,6 +3,7 @@ package net.gordyjack.jaavaa;
 import net.fabricmc.api.ModInitializer;
 
 import net.gordyjack.jaavaa.block.*;
+import net.gordyjack.jaavaa.item.*;
 import net.minecraft.resources.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,10 @@ public class JAAVAA implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
+		log("Initializing JAAVAA");
+
 		JAAVAABlocks.init();
+		JAAVAAItems.init();
 	}
 
 	public static void log(String message) {

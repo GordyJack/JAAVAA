@@ -36,8 +36,8 @@ public class JAAVAAModelProvider extends FabricModelProvider {
         );
         generateBlockPieceSet(SANDSTONE_SET,
                 ModelLocationUtils.getModelLocation(Blocks.SANDSTONE),
-                ModelLocationUtils.getModelLocation(Blocks.SANDSTONE, "_top"),
-                ModelLocationUtils.getModelLocation(Blocks.SANDSTONE, "_bottom")
+                ModelLocationUtils.getModelLocation(Blocks.SANDSTONE, "_bottom"),
+                ModelLocationUtils.getModelLocation(Blocks.SANDSTONE, "_top")
         );
         generateBlockPieceSet(SMOOTH_SANDSTONE_SET,
                 ModelLocationUtils.getModelLocation(Blocks.SANDSTONE, "_top")
